@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hello World</title>
+    <url>/2023/12/07/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>这是我的第一篇博客</title>
+    <url>/2023/12/07/%E8%BF%99%E6%98%AF%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<p>简介</p>
+<p>这</p>
+<p>是</p>
+<p>我的</p>
+<p>第一篇</p>
+<h1 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h1><p>mybatispuls</p>
+]]></content>
+      <tags>
+        <tag>he</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring ResponseEntity 详解</title>
+    <url>/2023/12/08/Spring-ResponseEntity-%E8%AF%A6%E8%A7%A3/</url>
+    <content><![CDATA[<p>Spring ResponseEntity 是一个类，它表示整个 HTTP 响应，包括状态码，标头和正文。我们可以使用它来完全配置 HTTP 响应。如果我们想使用它，我们必须从端点返回它；Spring 会处理其余的部分。</p>
+<p>ResponseEntity 继承了 HttpEntity 类，HttpEntity 代表一个 HTTP 请求或者响应实体，其内部有两个成员变量：header 和 body，代表 HTTP 请求或响应的 header 和 body，其中的 body 是泛型的。</p>
+<p>ResponseEntity 扩展了 HttpEntity 类，新增了 status 成员变量，这样，一个 ResponseEntity 基本可以代表完整的 HTTP 的请求或响应了。我们可以使用它来完全配置 HTTP 响应，包括状态码，标头和正文。</p>
+<p>当我们在控制器层返回 ResponseEntity 对象时，Spring MVC 框架会使用 <strong>HttpEntityMethodProcessor</strong> 类来处理它。<strong>HttpEntityMethodProcessor</strong> 是 AbstractMessageConverterMethodProcessor 的一个子类，它专门处理返回值类型是 HttpEntity 或 ResponseEntity 的控制器方法。</p>
+<p>HttpEntityMethodProcessor 的处理过程如下：</p>
+<ul>
+<li>首先，检查返回值是否为空，如果为空，就直接返回。</li>
+<li>然后，创建 ServletServerHttpRequest 和 ServletServerHttpResponse 对象，用于读取请求和写入响应。</li>
+<li>接着，断言返回值是 HttpEntity 类型的，并将其强制转换为 HttpEntity 或 ResponseEntity 对象。</li>
+<li>然后，获取输出消息的标头和实体标头，并将实体标头复制到输出标头中。</li>
+<li>接着，判断返回值是否是 ResponseEntity 类型的，并获取其状态码，并设置到输出消息中。</li>
+<li>最后，调用父类的 writeWithMessageConverters 方法，根据实体类型和请求内容协商选择合适的消息转换器，并将实体内容写入到输出消息中。</li>
+</ul>
+<p>handleReturnValue 是HttpEntityMethodProcessor类的一部分，用来处理返回值类型是 HttpEntity 或 ResponseEntity 的控制器方法，源码说明如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public void handleReturnValue(@Nullable Object returnValue, MethodParameter returnType, ModelAndViewContainer mavContainer, NativeWebRequest webRequest) throws Exception &#123;</span><br><span class="line">        // 设置 mavContainer 的 requestHandled 属性为 true，表示请求已经被处理，不需要再渲染视图。</span><br><span class="line">        mavContainer.setRequestHandled(true);</span><br><span class="line">        if (returnValue != null) &#123;</span><br><span class="line">            // 创建 ServletServerHttpRequest 和 ServletServerHttpResponse 对象，用于读取请求和写入响应</span><br><span class="line">            ServletServerHttpRequest inputMessage = this.createInputMessage(webRequest);</span><br><span class="line">            ServletServerHttpResponse outputMessage = this.createOutputMessage(webRequest);</span><br><span class="line">            // 断言返回值是 HttpEntity 类型的，并将其强制转换为 HttpEntity对象</span><br><span class="line">            Assert.isInstanceOf(HttpEntity.class, returnValue);</span><br><span class="line">            HttpEntity&lt;?&gt; responseEntity = (HttpEntity)returnValue;</span><br><span class="line">            HttpHeaders outputHeaders = outputMessage.getHeaders();</span><br><span class="line">            HttpHeaders entityHeaders = responseEntity.getHeaders();</span><br><span class="line">            if (!entityHeaders.isEmpty()) &#123;</span><br><span class="line">                // 获取输出消息的标头和实体标头，并将实体标头复制到输出标头中。</span><br><span class="line">                // 如果有 Vary 标头，它会特殊处理，避免重复或冲突</span><br><span class="line">                entityHeaders.forEach((key, value) -&gt; &#123;</span><br><span class="line">                    if (&quot;Vary&quot;.equals(key) &amp;&amp; outputHeaders.containsKey(&quot;Vary&quot;)) &#123;</span><br><span class="line">                        List&lt;String&gt; values = this.getVaryRequestHeadersToAdd(outputHeaders, entityHeaders);</span><br><span class="line">                        if (!values.isEmpty()) &#123;</span><br><span class="line">                            outputHeaders.setVary(values);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125; else &#123;</span><br><span class="line">                        outputHeaders.put(key, value);</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            // 判断返回值是否是 ResponseEntity 类型的，并获取其状态码，并设置到输出消息中</span><br><span class="line">            if (responseEntity instanceof ResponseEntity) &#123;</span><br><span class="line">                int returnStatus = ((ResponseEntity)responseEntity).getStatusCodeValue();</span><br><span class="line">                outputMessage.getServletResponse().setStatus(returnStatus);</span><br><span class="line">                // 根据状态码和请求方法进行一些判断。</span><br><span class="line">                // 如果状态码是 200，并且请求方法是 GET 或 HEAD，并且资源没有被修改（根据 ETag 或 Last-Modified 标头），那么它会直接返回空响应。</span><br><span class="line">                if (returnStatus == 200) &#123;</span><br><span class="line">                    HttpMethod method = inputMessage.getMethod();</span><br><span class="line">                    if ((HttpMethod.GET.equals(method) || HttpMethod.HEAD.equals(method)) &amp;&amp; this.isResourceNotModified(inputMessage, outputMessage)) &#123;</span><br><span class="line">                        outputMessage.flush();</span><br><span class="line">                        return;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; else if (returnStatus / 100 == 3) &#123;</span><br><span class="line">                    // 如果状态码是 3xx，并且有 location 标头，那么它会重定向到 location 的地址。</span><br><span class="line">                    String location = outputHeaders.getFirst(&quot;location&quot;);</span><br><span class="line">                    if (location != null) &#123;</span><br><span class="line">                        this.saveFlashAttributes(mavContainer, webRequest, location);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            this.writeWithMessageConverters(responseEntity.getBody(), returnType, inputMessage, outputMessage);</span><br><span class="line">            outputMessage.flush();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>那么我们要如何使用ResponseEntity</strong>？</p>
+<p>Spring ResponseEntity 是一个泛型类型。因此，我们可以使用任何类型作为响应正文：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@GetMapping (&quot;/hello&quot;)</span><br><span class="line">ResponseEntity&lt;String&gt; hello() &#123;</span><br><span class="line">  return new ResponseEntity &lt;&gt; (&quot;Hello World!&quot;, HttpStatus.OK);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>由于我们以编程方式指定响应状态，因此我们可以根据不同的情况返回不同的状态码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@GetMapping (&quot;/age&quot;)</span><br><span class="line">ResponseEntity&lt;String&gt; age(</span><br><span class="line">  @RequestParam (&quot;yearOfBirth&quot;) int yearOfBirth) &#123;</span><br><span class="line">  if (isInFuture (yearOfBirth)) &#123;</span><br><span class="line">    return new ResponseEntity &lt;&gt; (&quot;年份不正确&quot;, HttpStatus.BAD_REQUEST);</span><br><span class="line">  &#125;</span><br><span class="line">  return new ResponseEntity &lt;&gt; (&quot;你的年龄是&quot; + calculateAge (yearOfBirth), HttpStatus.OK);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此外，我们还可以设置 HTTP 标头：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@GetMapping (&quot;/customHeader&quot;)</span><br><span class="line">ResponseEntity&lt;String&gt; customHeader() &#123;</span><br><span class="line">  HttpHeaders headers = new HttpHeaders ();</span><br><span class="line">  headers.add (&quot;Custom-Header&quot;, &quot;foo&quot;);</span><br><span class="line">  return new ResponseEntity &lt;&gt; (&quot;自定义头部&quot;, headers, HttpStatus.OK);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此外，ResponseEntity 还提供了两个嵌套的构建器接口：HeadersBuilder 和它的子接口 BodyBuilder。因此，我们可以通过 ResponseEntity 的静态方法访问它们的功能。</p>
+<p>最简单的情况是具有正文和 HTTP 200 响应码的响应：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@GetMapping (&quot;/hello&quot;)</span><br><span class="line">ResponseEntity&lt;String&gt; hello() &#123;</span><br><span class="line">  return ResponseEntity.ok (&quot;Hello World!&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于最常见的 HTTP 状态码，我们得到静态方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">BodyBuilder accepted();</span><br><span class="line">BodyBuilder badRequest();</span><br><span class="line">BodyBuilder created(java.net.URI location);</span><br><span class="line">HeadersBuilder&lt;?&gt; noContent();</span><br><span class="line">HeadersBuilder&lt;?&gt; notFound();</span><br><span class="line">BodyBuilder ok();</span><br></pre></td></tr></table></figure>
+
+<p>另外，我们可以使用 BodyBuilder status(HttpStatus status) 和 BodyBuilder status(int status) 方法来设置任何 HTTP 状态。最后，使用 ResponseEntity BodyBuilder.body(T body) 我们可以设置 HTTP 响应正文：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@GetMapping (&quot;/age&quot;)</span><br><span class="line">ResponseEntity&lt;String&gt; age(@RequestParam (&quot;yearOfBirth&quot;) int yearOfBirth) &#123;</span><br><span class="line">  if (isInFuture (yearOfBirth)) &#123;</span><br><span class="line">    return ResponseEntity.badRequest()</span><br><span class="line">      .body(&quot;年份不正确&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">  return ResponseEntity.status(HttpStatus.OK)</span><br><span class="line">    .body(&quot;你的年龄是 &quot; + calculateAge (yearOfBirth));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="ResponseEntity替代方案"><a href="#ResponseEntity替代方案" class="headerlink" title="ResponseEntity替代方案"></a><strong>ResponseEntity替代方案</strong></h3><p>虽然ResponseEntity很强大，但我们不应该滥用它。在简单的情况下，有其他的选项可以满足我们的需求，而且它们会产生更清晰的代码。</p>
+<h3 id="ResponseBody"><a href="#ResponseBody" class="headerlink" title="@ResponseBody"></a><strong>@ResponseBody</strong></h3><p>在传统的Spring MVC应用中，端点通常返回渲染的HTML页面。如果我们想要返回JSON或XML格式的数据，我们可以使用@ResponseBody注解：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@GetMapping(&quot;/hello&quot;)</span><br><span class="line">@ResponseBody</span><br><span class="line">public String hello() &#123;</span><br><span class="line">    return &quot;Hello World!&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样，Spring会自动将返回值转换为JSON或XML，并将其写入响应正文。</p>
+<p>我们也可以使用@ResponseStatus注解来设置响应状态码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">@GetMapping(&quot;/age&quot;)</span><br><span class="line">@ResponseBody</span><br><span class="line">@ResponseStatus(HttpStatus.OK)</span><br><span class="line">public String age(@RequestParam(&quot;yearOfBirth&quot;) int yearOfBirth) &#123;</span><br><span class="line">    if (isInFuture(yearOfBirth)) &#123;</span><br><span class="line">        throw new IllegalArgumentException(&quot;年份不正确&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    return &quot;你的年龄是&quot; + calculateAge(yearOfBirth);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果我们想要处理异常并返回不同的状态码，我们可以使用@ControllerAdvice和@ExceptionHandler注解：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">@ControllerAdvice</span><br><span class="line">public class GlobalExceptionHandler &#123;</span><br><span class="line"></span><br><span class="line">    @ExceptionHandler(IllegalArgumentException.class)</span><br><span class="line">    @ResponseStatus(HttpStatus.BAD_REQUEST)</span><br><span class="line">    @ResponseBody</span><br><span class="line">    public String handleIllegalArgumentException(IllegalArgumentException ex) &#123;</span><br><span class="line">        return ex.getMessage();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="RestController"><a href="#RestController" class="headerlink" title="@RestController"></a><strong>@RestController</strong></h3><p>如果我们的控制器类只返回数据而不是视图，我们可以使用@RestController注解来替代@Controller注解。这样，我们就不需要在每个方法上添加@ResponseBody注解了：</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">@RestController</span><br><span class="line">public class HelloController &#123;</span><br><span class="line"></span><br><span class="line">    @GetMapping(&quot;/hello&quot;)</span><br><span class="line">    public String hello() &#123;</span><br><span class="line">        return &quot;Hello World!&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @GetMapping(&quot;/age&quot;)</span><br><span class="line">    @ResponseStatus(HttpStatus.OK)</span><br><span class="line">    public String age(@RequestParam(&quot;yearOfBirth&quot;) int yearOfBirth) &#123;</span><br><span class="line">        if (isInFuture(yearOfBirth)) &#123;</span><br><span class="line">            throw new IllegalArgumentException(&quot;年份不正确&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        return &quot;你的年龄是 &quot; + calculateAge(yearOfBirth);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="ResponseEntity-和-ResponseBody-的区别"><a href="#ResponseEntity-和-ResponseBody-的区别" class="headerlink" title="ResponseEntity 和 @ResponseBody 的区别"></a><strong>ResponseEntity 和 @ResponseBody 的区别</strong></h2><p>ResponseEntity 和 @ResponseBody 都是用于处理 HTTP 响应的，但是有一些不同点：</p>
+<ul>
+<li><strong>ResponseEntity</strong> 是一个类，它表示整个 HTTP 响应，包括状态码，标头和正文。我们可以使用它来完全配置 HTTP 响应。如果我们想使用它，我们必须从端点返回它；Spring 会处理其余的部分。</li>
+<li><strong>@ResponseBody</strong> 是一个注解，它告诉 Spring 将返回值转换为 JSON 并写入到响应体中。我们可以在方法或类上使用它，Spring 会自动选择合适的转换器。</li>
+<li><strong>ResponseEntity</strong> 的优点是可以灵活地控制响应的各个方面，比如设置不同的状态码，标头和正文。它也可以用于一些特殊的场景，比如下载文件，需要设置 content-type 和特殊的状态（比如 206）。</li>
+<li><strong>@ResponseBody</strong> 的优点是可以简化代码，让方法直接返回 JSON 结果，不需要构造 ResponseEntity 对象。它也可以和 @ResponseStatus 注解配合使用，来设置响应状态码。</li>
+<li><strong>ResponseEntity 的优先级高于 @ResponseBody</strong>。如果返回值是 ResponseEntity 类型，那么 Spring 会直接使用它，不会检查有没有 @ResponseBody 注解。如果返回值不是 ResponseEntity 类型，那么 Spring 会检查有没有 @ResponseBody 注解，如果有就转换为 JSON。</li>
+</ul>
+<p>因此，我们可以根据不同的需求和场景选择使用 ResponseEntity 或者 @ResponseBody。</p>
+<p>对于大多数情况，我们可以使用 @ResponseBody 注解来直接返回 JSON 结果，或者使用 @ResponseStatus 注解来设置响应状态码。对于一些需要更多定制的情况，我们可以使用 ResponseEntity 来完全控制 HTTP 响应。</p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a><strong>结语</strong></h3><p>这篇文章我们主要介绍了Spring ResponseEntity的原理、使用及其替代方案，并对比了ResponseEntity 和 @ResponseBody。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>Spring</tag>
+        <tag>JAVA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring Web工具类</title>
+    <url>/2023/12/08/Spring-Web%E5%B7%A5%E5%85%B7%E7%B1%BB/</url>
+    <content><![CDATA[<p>继承WebUtils类 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">package com.example.common.utils;</span><br><span class="line"></span><br><span class="line">import com.xoao.sms.common.exception.BusinessErrorEnum;</span><br><span class="line">import com.xoao.sms.common.exception.BusinessException;</span><br><span class="line">import jakarta.servlet.http.Cookie;</span><br><span class="line">import jakarta.servlet.http.HttpServletRequest;</span><br><span class="line">import jakarta.servlet.http.HttpServletResponse;</span><br><span class="line">import lombok.experimental.UtilityClass;</span><br><span class="line">import lombok.extern.slf4j.Slf4j;</span><br><span class="line">import org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line">import org.springframework.web.context.request.RequestContextHolder;</span><br><span class="line">import org.springframework.web.context.request.ServletRequestAttributes;</span><br><span class="line">import org.springframework.web.method.HandlerMethod;</span><br><span class="line"></span><br><span class="line">import java.util.Optional;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Miscellaneous utilities for web applications.</span><br><span class="line"> *</span><br><span class="line"> * @author </span><br><span class="line"> */</span><br><span class="line">@Slf4j</span><br><span class="line">@UtilityClass</span><br><span class="line">public class WebUtils extends org.springframework.web.util.WebUtils &#123;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 判断是否ajax请求 spring ajax 返回含有 ResponseBody 或者 RestController注解</span><br><span class="line">	 * @param handlerMethod HandlerMethod</span><br><span class="line">	 * @return 是否ajax请求</span><br><span class="line">	 */</span><br><span class="line">	public boolean isBody(HandlerMethod handlerMethod) &#123;</span><br><span class="line">		ResponseBody responseBody = ClassUtils.getAnnotation(handlerMethod, ResponseBody.class);</span><br><span class="line">		return responseBody != null;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 读取cookie</span><br><span class="line">	 * @param name cookie name</span><br><span class="line">	 * @return cookie value</span><br><span class="line">	 */</span><br><span class="line">	public String getCookieVal(String name) &#123;</span><br><span class="line">		if (WebUtils.getRequest().isPresent()) &#123;</span><br><span class="line">			return getCookieVal(WebUtils.getRequest().get(), name);</span><br><span class="line">		&#125;</span><br><span class="line">		return null;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 读取cookie</span><br><span class="line">	 * @param request HttpServletRequest</span><br><span class="line">	 * @param name cookie name</span><br><span class="line">	 * @return cookie value</span><br><span class="line">	 */</span><br><span class="line">	public String getCookieVal(HttpServletRequest request, String name) &#123;</span><br><span class="line">		Cookie cookie = getCookie(request, name);</span><br><span class="line">		return cookie != null ? cookie.getValue() : null;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 清除 某个指定的cookie</span><br><span class="line">	 * @param response HttpServletResponse</span><br><span class="line">	 * @param key cookie key</span><br><span class="line">	 */</span><br><span class="line">	public void removeCookie(HttpServletResponse response, String key) &#123;</span><br><span class="line">		setCookie(response, key, null, 0);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 设置cookie</span><br><span class="line">	 * @param response HttpServletResponse</span><br><span class="line">	 * @param name cookie name</span><br><span class="line">	 * @param value cookie value</span><br><span class="line">	 * @param maxAgeInSeconds maxage</span><br><span class="line">	 */</span><br><span class="line">	public void setCookie(HttpServletResponse response, String name, String value, int maxAgeInSeconds) &#123;</span><br><span class="line">		Cookie cookie = new Cookie(name, value);</span><br><span class="line">		cookie.setPath(&quot;/&quot;);</span><br><span class="line">		cookie.setMaxAge(maxAgeInSeconds);</span><br><span class="line">		cookie.setHttpOnly(true);</span><br><span class="line">		response.addCookie(cookie);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 获取 HttpServletRequest</span><br><span class="line">	 * @return &#123;HttpServletRequest&#125;</span><br><span class="line">	 */</span><br><span class="line">	public Optional&lt;HttpServletRequest&gt; getRequest() &#123;</span><br><span class="line">		return Optional</span><br><span class="line">			.ofNullable(((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public HttpServletRequest getRequestOrElseThrow() &#123;</span><br><span class="line">		return WebUtils.getRequest().orElseThrow(() -&gt; new BusinessException(BusinessErrorEnum.SYSTEM_ERROR));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 获取 HttpServletResponse</span><br><span class="line">	 * @return &#123;HttpServletResponse&#125;</span><br><span class="line">	 */</span><br><span class="line">	public HttpServletResponse getResponse() &#123;</span><br><span class="line">		return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getResponse();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>类工具类</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">package com.xoao.sms.common.utils;</span><br><span class="line"></span><br><span class="line">import lombok.experimental.UtilityClass;</span><br><span class="line">import org.springframework.core.BridgeMethodResolver;</span><br><span class="line">import org.springframework.core.DefaultParameterNameDiscoverer;</span><br><span class="line">import org.springframework.core.MethodParameter;</span><br><span class="line">import org.springframework.core.ParameterNameDiscoverer;</span><br><span class="line">import org.springframework.core.annotation.AnnotatedElementUtils;</span><br><span class="line">import org.springframework.core.annotation.SynthesizingMethodParameter;</span><br><span class="line">import org.springframework.web.method.HandlerMethod;</span><br><span class="line"></span><br><span class="line">import java.lang.annotation.Annotation;</span><br><span class="line">import java.lang.reflect.Constructor;</span><br><span class="line">import java.lang.reflect.Method;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 类工具类</span><br><span class="line"> */</span><br><span class="line">@UtilityClass</span><br><span class="line">public class ClassUtils extends org.springframework.util.ClassUtils &#123;</span><br><span class="line"></span><br><span class="line">	private final ParameterNameDiscoverer PARAMETERNAMEDISCOVERER = new DefaultParameterNameDiscoverer();</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 获取方法参数信息</span><br><span class="line">	 * @param constructor 构造器</span><br><span class="line">	 * @param parameterIndex 参数序号</span><br><span class="line">	 * @return &#123;MethodParameter&#125;</span><br><span class="line">	 */</span><br><span class="line">	public MethodParameter getMethodParameter(Constructor&lt;?&gt; constructor, int parameterIndex) &#123;</span><br><span class="line">		MethodParameter methodParameter = new SynthesizingMethodParameter(constructor, parameterIndex);</span><br><span class="line">		methodParameter.initParameterNameDiscovery(PARAMETERNAMEDISCOVERER);</span><br><span class="line">		return methodParameter;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 获取方法参数信息</span><br><span class="line">	 * @param method 方法</span><br><span class="line">	 * @param parameterIndex 参数序号</span><br><span class="line">	 * @return &#123;MethodParameter&#125;</span><br><span class="line">	 */</span><br><span class="line">	public MethodParameter getMethodParameter(Method method, int parameterIndex) &#123;</span><br><span class="line">		MethodParameter methodParameter = new SynthesizingMethodParameter(method, parameterIndex);</span><br><span class="line">		methodParameter.initParameterNameDiscovery(PARAMETERNAMEDISCOVERER);</span><br><span class="line">		return methodParameter;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 获取Annotation</span><br><span class="line">	 * @param method Method</span><br><span class="line">	 * @param annotationType 注解类</span><br><span class="line">	 * @param &lt;A&gt; 泛型标记</span><br><span class="line">	 * @return &#123;Annotation&#125;</span><br><span class="line">	 */</span><br><span class="line">	public &lt;A extends Annotation&gt; A getAnnotation(Method method, Class&lt;A&gt; annotationType) &#123;</span><br><span class="line">		Class&lt;?&gt; targetClass = method.getDeclaringClass();</span><br><span class="line">		// The method may be on an interface, but we need attributes from the target</span><br><span class="line">		// class.</span><br><span class="line">		// If the target class is null, the method will be unchanged.</span><br><span class="line">		Method specificMethod = ClassUtils.getMostSpecificMethod(method, targetClass);</span><br><span class="line">		// If we are dealing with method with generic parameters, find the original</span><br><span class="line">		// method.</span><br><span class="line">		specificMethod = BridgeMethodResolver.findBridgedMethod(specificMethod);</span><br><span class="line">		// 先找方法，再找方法上的类</span><br><span class="line">		A annotation = AnnotatedElementUtils.findMergedAnnotation(specificMethod, annotationType);</span><br><span class="line">		;</span><br><span class="line">		if (null != annotation) &#123;</span><br><span class="line">			return annotation;</span><br><span class="line">		&#125;</span><br><span class="line">		// 获取类上面的Annotation，可能包含组合注解，故采用spring的工具类</span><br><span class="line">		return AnnotatedElementUtils.findMergedAnnotation(specificMethod.getDeclaringClass(), annotationType);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 获取Annotation</span><br><span class="line">	 * @param handlerMethod HandlerMethod</span><br><span class="line">	 * @param annotationType 注解类</span><br><span class="line">	 * @param &lt;A&gt; 泛型标记</span><br><span class="line">	 * @return &#123;Annotation&#125;</span><br><span class="line">	 */</span><br><span class="line">	public &lt;A extends Annotation&gt; A getAnnotation(HandlerMethod handlerMethod, Class&lt;A&gt; annotationType) &#123;</span><br><span class="line">		// 先找方法，再找方法上的类</span><br><span class="line">		A annotation = handlerMethod.getMethodAnnotation(annotationType);</span><br><span class="line">		if (null != annotation) &#123;</span><br><span class="line">			return annotation;</span><br><span class="line">		&#125;</span><br><span class="line">		// 获取类上面的Annotation，可能包含组合注解，故采用spring的工具类</span><br><span class="line">		Class&lt;?&gt; beanType = handlerMethod.getBeanType();</span><br><span class="line">		return AnnotatedElementUtils.findMergedAnnotation(beanType, annotationType);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Spring 上下文工具类</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">package com.xoao.sms.common.utils;</span><br><span class="line"></span><br><span class="line">import lombok.SneakyThrows;</span><br><span class="line">import lombok.extern.slf4j.Slf4j;</span><br><span class="line">import org.springframework.beans.factory.DisposableBean;</span><br><span class="line">import org.springframework.context.ApplicationContext;</span><br><span class="line">import org.springframework.context.ApplicationContextAware;</span><br><span class="line">import org.springframework.context.ApplicationEvent;</span><br><span class="line">import org.springframework.context.annotation.Lazy;</span><br><span class="line">import org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @author </span><br><span class="line"> * @date 2019/2/1 Spring 工具类</span><br><span class="line"> */</span><br><span class="line">@Slf4j</span><br><span class="line">@Service</span><br><span class="line">@Lazy(false)</span><br><span class="line">public class SpringContextHolder implements ApplicationContextAware, DisposableBean &#123;</span><br><span class="line"></span><br><span class="line">	private static ApplicationContext applicationContext = null;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 取得存储在静态变量中的ApplicationContext.</span><br><span class="line">	 */</span><br><span class="line">	public static ApplicationContext getApplicationContext() &#123;</span><br><span class="line">		return applicationContext;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 实现ApplicationContextAware接口, 注入Context到静态变量中.</span><br><span class="line">	 */</span><br><span class="line">	@Override</span><br><span class="line">	public void setApplicationContext(ApplicationContext applicationContext) &#123;</span><br><span class="line">		SpringContextHolder.applicationContext = applicationContext;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 从静态变量applicationContext中取得Bean, 自动转型为所赋值对象的类型.</span><br><span class="line">	 */</span><br><span class="line">	@SuppressWarnings(&quot;unchecked&quot;)</span><br><span class="line">	public static &lt;T&gt; T getBean(String name) &#123;</span><br><span class="line">		return (T) applicationContext.getBean(name);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 从静态变量applicationContext中取得Bean, 自动转型为所赋值对象的类型.</span><br><span class="line">	 */</span><br><span class="line">	public static &lt;T&gt; T getBean(Class&lt;T&gt; requiredType) &#123;</span><br><span class="line">		return applicationContext.getBean(requiredType);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 清除SpringContextHolder中的ApplicationContext为Null.</span><br><span class="line">	 */</span><br><span class="line">	public static void clearHolder() &#123;</span><br><span class="line">		if (log.isDebugEnabled()) &#123;</span><br><span class="line">			log.debug(&quot;清除SpringContextHolder中的ApplicationContext:&quot; + applicationContext);</span><br><span class="line">		&#125;</span><br><span class="line">		applicationContext = null;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 发布事件</span><br><span class="line">	 * @param event</span><br><span class="line">	 */</span><br><span class="line">	public static void publishEvent(ApplicationEvent event) &#123;</span><br><span class="line">		if (applicationContext == null) &#123;</span><br><span class="line">			return;</span><br><span class="line">		&#125;</span><br><span class="line">		applicationContext.publishEvent(event);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 实现DisposableBean接口, 在Context关闭时清理静态变量.</span><br><span class="line">	 */</span><br><span class="line">	@Override</span><br><span class="line">	@SneakyThrows</span><br><span class="line">	public void destroy() &#123;</span><br><span class="line">		SpringContextHolder.clearHolder();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>具体使用</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HttpServletResponse response = WebUtils.getResponse();</span><br><span class="line">        response.setStatus(HttpStatus.HTTP_OK);</span><br><span class="line">        response.setContentType(ContentType.OCTET_STREAM.toString());</span><br><span class="line">        response.setHeader(HeaderName.CONTENT_DISPOSITION.getValue(), CharSequenceUtil</span><br><span class="line">                .format(&quot;attachment;filename=\&quot;&#123;&#125;.txt\&quot;&quot;, new String(fileName.getBytes(), StandardCharsets.ISO_8859_1)));</span><br><span class="line">        // 读取文件并写入响应输出流，IoUtil是hutool工具包下的类</span><br><span class="line">        IoUtil.write(response.getOutputStream(), content.getBytes());</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>Spring</tag>
+        <tag>JAVA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hutool工具类</title>
+    <url>/2023/12/08/hutool%E5%B7%A5%E5%85%B7%E7%B1%BB/</url>
+    <content><![CDATA[<p>hutool涵盖了字符串、数字、集合、编码、日期、文件、IO、加密、数据库JDBC、JSON、HTTP客户端等一系列操作，包含以下组件：</p>
+<p><img src="C:\Users\user\AppData\Roaming\Typora\typora-user-images\image-20231208113511979.png" alt="image-20231208113511979"></p>
+<p>可以根据需求对每个模块单独引入，也可以通过引入<code>hutool-all</code>方式引入所有模块。</p>
+<p><a href="https://www.hutool.cn/docs/#/">中文文档</a></p>
+<p><a href="https://apidoc.gitee.com/dromara/hutool/">api文档</a></p>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>hutool</tag>
+        <tag>工具类</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>工具类常用</title>
+    <url>/2023/12/08/%E5%B7%A5%E5%85%B7%E7%B1%BB%E5%B8%B8%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="一-集合"><a href="#一-集合" class="headerlink" title="一.集合"></a>一.集合</h1><h5 id="1-判空"><a href="#1-判空" class="headerlink" title="1.判空"></a>1.判空</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.dromara.hutool.core.collection.CollUtil.isNotEmpty(CollectionName)</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-去重"><a href="#2-去重" class="headerlink" title="2.去重"></a>2.去重</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.dromara.hutool.core.collection.CollUtil.distinc(CollectionName)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="二-IO流"><a href="#二-IO流" class="headerlink" title="二.IO流"></a>二.IO流</h1><h5 id="1-写入"><a href="#1-写入" class="headerlink" title="1.写入"></a>1.写入</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.dromara.hutool.core.io.IoUtil.write(OutputStream out, byte[] content)</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-写出"><a href="#2-写出" class="headerlink" title="2.写出"></a>2.写出</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.dromara.hutool.core.io.IoUtil.read(InputStream in, Charset charset)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="三-Bean对象"><a href="#三-Bean对象" class="headerlink" title="三.Bean对象"></a>三.Bean对象</h1><h5 id="1-属性复制"><a href="#1-属性复制" class="headerlink" title="1.属性复制"></a>1.属性复制</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.dromara.hutool.core.bean.BeanUtil.copyProperties(Object source, Object target, String... ignoreProperties)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="四-String字符串"><a href="#四-String字符串" class="headerlink" title="四.String字符串"></a>四.String字符串</h1><h2 id="Lang"><a href="#Lang" class="headerlink" title="Lang"></a>Lang</h2><h5 id="1-map转String"><a href="#1-map转String" class="headerlink" title="1.map转String"></a>1.map转String</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Map&lt;String, String&gt; map = new HashMap&lt;String, String&gt;();</span><br><span class="line">map.put(&quot;key1&quot;, &quot;value1&quot;);</span><br><span class="line">map.put(&quot;key2&quot;, &quot;value2&quot;);</span><br><span class="line">map.put(&quot;key3&quot;, &quot;value3&quot;);</span><br><span class="line">System.out.println(map.toString());</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-字符串拼接"><a href="#2-字符串拼接" class="headerlink" title="2.字符串拼接"></a>2.字符串拼接</h5><p>1）使用StringBuild.append()方法拼接，然后使用StringBuild.toSting()转成String</p>
+<p>2）</p>
+<h2 id="hutool"><a href="#hutool" class="headerlink" title="hutool"></a>hutool</h2><h5 id="1-Object转String"><a href="#1-Object转String" class="headerlink" title="1.Object转String"></a>1.Object转String</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">JSONUtil.toJsonStr(params)</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-组装String，params替换"><a href="#2-组装String，params替换" class="headerlink" title="2.组装String，params替换{}"></a>2.组装String，params替换{}</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CharSequenceUtil.format(CharSequence template, Object... params)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="fastjson"><a href="#fastjson" class="headerlink" title="fastjson"></a>fastjson</h2><p>阿里巴巴的开源JSON解析库fastjson，和Json相关首先考虑此包</p>
+<h5 id="1-Java对象转换为json字符串，object可以是实体类、list和map"><a href="#1-Java对象转换为json字符串，object可以是实体类、list和map" class="headerlink" title="1.Java对象转换为json字符串，object可以是实体类、list和map"></a>1.Java对象转换为json字符串，object可以是实体类、list和map</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">JSON.toJSONString(object); </span><br></pre></td></tr></table></figure>
+
+<h5 id="2-json字符串转换为实体类"><a href="#2-json字符串转换为实体类" class="headerlink" title="2.json字符串转换为实体类"></a>2.json字符串转换为实体类</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">User user2 = JSON.parseObject(jsonString, User.class); </span><br></pre></td></tr></table></figure>
+
+<h5 id="3-json字符串转换为list集合"><a href="#3-json字符串转换为list集合" class="headerlink" title="3.json字符串转换为list集合"></a>3.json字符串转换为list集合</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">List&lt;T&gt; ts = (List&lt;T&gt;) JSON.parseArray(jsonString, T.class); </span><br><span class="line">List&lt;JSONObject&gt; list1 = JSON.parseObject(jsonlist, List.class); </span><br></pre></td></tr></table></figure>
+
+<h5 id="4-json字符串转换为map集合"><a href="#4-json字符串转换为map集合" class="headerlink" title="4.json字符串转换为map集合"></a>4.json字符串转换为map集合</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Map&lt;JSONObject, JSONArray&gt; map1 = JSON.parseObject(jsonmap,Map.class); </span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="五-发送请求"><a href="#五-发送请求" class="headerlink" title="五.发送请求"></a>五.发送请求</h1><h5 id="1-发送get请求"><a href="#1-发送get请求" class="headerlink" title="1.发送get请求"></a>1.发送get请求</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.dromara.hutool.http.HttpUtil.get(String urlString)</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-发送post请求"><a href="#2-发送post请求" class="headerlink" title="2.发送post请求"></a>2.发送post请求</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.dromara.hutool.http.HttpUtil.post(String urlString, String body)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-发送其他请求"><a href="#3-发送其他请求" class="headerlink" title="3.发送其他请求"></a>3.发送其他请求</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.dromara.hutool.http.HttpUtil.send(Request request)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>hutool</tag>
+        <tag>工具类</tag>
+        <tag>fastjson</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>maven初级</title>
+    <url>/2023/12/08/maven%E5%88%9D%E7%BA%A7/</url>
+    <content><![CDATA[<h1 id="一-概述"><a href="#一-概述" class="headerlink" title="一.概述"></a>一.概述</h1><p>maven的两大功能，依赖管理和构建项目</p>
+<h1 id="二-依赖管理"><a href="#二-依赖管理" class="headerlink" title="二.依赖管理"></a>二.依赖管理</h1><h2 id="1-仓库"><a href="#1-仓库" class="headerlink" title="1.仓库"></a>1.仓库</h2><ul>
+<li>本地仓库：在setting.xml文件配置的，本机存放依赖的仓库</li>
+<li>私服：公司搭建的局域网仓库，包含中央仓库+私有</li>
+<li>远程仓库：中央仓库，由maven 官方管理，具体地址在setting.xml文件中配置</li>
+</ul>
+<p>依赖的获取顺序，本地仓库 -》私服 -》 远程仓库</p>
+<h2 id="2-坐标"><a href="#2-坐标" class="headerlink" title="2.坐标"></a>2.坐标</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">       &lt;groupId&gt;组织名&lt;/groupId&gt;</span><br><span class="line">       &lt;artifactId&gt;模块名&lt;/artifactId&gt;</span><br><span class="line">       &lt;version&gt;版本号&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-依赖传递"><a href="#3-依赖传递" class="headerlink" title="3.依赖传递"></a>3.依赖传递</h2><h3 id="1）原则"><a href="#1）原则" class="headerlink" title="1）原则"></a>1）原则</h3><p>项目引用时，依赖也被引用</p>
+<h3 id="2）依赖传递"><a href="#2）依赖传递" class="headerlink" title="2）依赖传递"></a>2）依赖传递</h3><p><img src="C:\Users\user\AppData\Roaming\Typora\typora-user-images\image-20231208145517446.png" alt="image-20231208145517446"></p>
+<h3 id="3）解决依赖冲突"><a href="#3）解决依赖冲突" class="headerlink" title="3）解决依赖冲突"></a>3）解决依赖冲突</h3><p>总原则：不是我用的就调</p>
+<h4 id="（1）scope标签"><a href="#（1）scope标签" class="headerlink" title="（1）scope标签"></a>（1）scope标签</h4><p>1.设定依赖使用范围，范围包括：</p>
+<ul>
+<li>主程序范围内有效（main文件夹范围内）</li>
+<li>测试程序范围内有效（test文件夹范围内）</li>
+<li>是否参与打包（pacakage指令范围内）</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">scope</th>
+<th align="center">主代码</th>
+<th align="center">测试代码</th>
+<th align="center">打包</th>
+<th align="center">示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">compile(默认)</td>
+<td align="center">Y</td>
+<td align="center">Y</td>
+<td align="center">Y</td>
+<td align="center">log4j</td>
+</tr>
+<tr>
+<td align="center">test</td>
+<td align="center"></td>
+<td align="center">Y</td>
+<td align="center"></td>
+<td align="center">junit</td>
+</tr>
+<tr>
+<td align="center">provided</td>
+<td align="center">Y</td>
+<td align="center">Y</td>
+<td align="center"></td>
+<td align="center">servlet_api</td>
+</tr>
+<tr>
+<td align="center">runtime</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">Y</td>
+<td align="center">jdbc</td>
+</tr>
+</tbody></table>
+<p>2.依赖范围传递</p>
+<table>
+<thead>
+<tr>
+<th>横轴是直接依赖，纵轴是简介依赖</th>
+<th>compile</th>
+<th>test</th>
+<th>provided</th>
+<th>runtime</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>compile</td>
+<td>compile</td>
+<td>test</td>
+<td>provided</td>
+<td>runtime</td>
+</tr>
+<tr>
+<td>test</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>provided</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>runtime</td>
+<td>runtime</td>
+<td>test</td>
+<td>provided</td>
+<td>runtime</td>
+</tr>
+</tbody></table>
+<p>3.示例</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">      &lt;groupId&gt;org.dromara.hutool&lt;/groupId&gt;</span><br><span class="line">      &lt;artifactId&gt;hutool-bom&lt;/artifactId&gt;</span><br><span class="line">      &lt;version&gt;$&#123;hutool.version&#125;&lt;/version&gt;</span><br><span class="line">      &lt;scope&gt;import&lt;/scope&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="（2）exclude标签"><a href="#（2）exclude标签" class="headerlink" title="（2）exclude标签"></a>（2）exclude标签</h4><p>在引用项目使用，主动断开被引用项目</p>
+<h2 id="二-项目构建"><a href="#二-项目构建" class="headerlink" title="二.项目构建"></a>二.项目构建</h2><p>根据插件来实现对项目生命周期的操作</p>
+<ul>
+<li>mvn compile 编译</li>
+<li>mvn clean 清理</li>
+<li>mvn test 测试</li>
+<li>mvn package 打包</li>
+<li>mvn install 安装到本地仓库</li>
+<li>mvn depoly 部署到私服</li>
+</ul>
+<p>插件从上至下执行，和生命周期相关</p>
+<p>除了生命周期插件，在pom文件中还可以引入其他插件，比如maven打包插件，tomcat插件等</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>maven</tag>
+        <tag>项目管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>请求头信息</title>
+    <url>/2023/12/08/%E8%AF%B7%E6%B1%82%E5%A4%B4%E4%BF%A1%E6%81%AF/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>技术</category>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>请求头</tag>
+        <tag>request</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>maven高级</title>
+    <url>/2023/12/08/maven%E9%AB%98%E7%BA%A7/</url>
+    <content><![CDATA[<ol>
+<li><p>当某个项目被修改时，他的私服并未修改，其他项目不能使用</p>
+<p>聚合：为所有模块添加父模块，统一管理，同时编译，同时部署，父模块仅作为项目管理用</p>
+</li>
+<li><p>当项目之间依赖版本出现冲突时</p>
+<p> 继承：在父模块中加入版本，子模块直接引用</p>
+</li>
+<li><p>如何添加版本</p>
+<p>通过自定义属性标签</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;properties&gt;</span><br><span class="line">    &lt;自定义属性名&gt;属性值&lt;/自定义属性名&gt;</span><br><span class="line">&lt;/properties&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在pom文件中，还可以获取以下属性：</p>
+<ul>
+<li>自定义属性</li>
+<li>maven内置属性</li>
+<li>setting文件夹中的属性</li>
+<li>Java系统属性</li>
+<li>环境变量属性</li>
+</ul>
+</li>
+<li><p>资源配置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;resources&gt;</span><br><span class="line">      引入配置文件信息</span><br><span class="line">&lt;/resources&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>版本管理</p>
+<ul>
+<li>snapshot 快照版本</li>
+<li>release 发布版本</li>
+</ul>
+</li>
+</ol>
+<p>​      </p>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>maven</tag>
+        <tag>项目管理</tag>
+      </tags>
+  </entry>
+</search>
