@@ -8,7 +8,7 @@ categories:
 
 问题：cmd窗口，运行jar包时，出现如下报错
 
-![jar中没有主清单属性](D:\Program Files\hexo\blog2\source\pic\jar中没有主清单属性.png)
+![jar中没有主清单属性](https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/jar中没有主清单属性.png)
 
 解决方法：
 
