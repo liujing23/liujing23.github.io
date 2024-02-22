@@ -9,11 +9,8 @@ categories:
 问题：cmd窗口，运行jar包时，出现如下报错
 
 ![jar中没有主清单属性](https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/jar%E4%B8%AD%E6%B2%A1%E6%9C%89%E4%B8%BB%E6%B8%85%E5%8D%95%E5%B1%9E%E6%80%A7.png)
-<<<<<<< HEAD
 
-)
-=======
->>>>>>> 1e53a288686ade6f5657df5c1b138ce1abac08f2
+
 
 解决方法：
 
