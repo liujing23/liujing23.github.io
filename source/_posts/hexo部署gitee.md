@@ -1,6 +1,6 @@
 ---
 title: hexo部署gitee
-date: 2023-12-08 17:50:23
+date: 2020-12-05 17:50:23
 tags: [hexo, 博客, gitee]
 categories:
 - [技术, 博客]
