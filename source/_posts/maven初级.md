@@ -40,7 +40,7 @@ maven的两大功能，依赖管理和构建项目
 
 ### 2）依赖传递
 
-[maven初级1.png (1297×765) (raw.githubusercontent.com)](https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/maven初级1.png)
+![maven初级1]([maven初级1.png (1297×765) (raw.githubusercontent.com)](https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/maven初级1.png))
 
 
 
