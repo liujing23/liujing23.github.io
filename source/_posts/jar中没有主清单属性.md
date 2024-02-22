@@ -8,7 +8,7 @@ categories:
 
 问题：cmd窗口，运行jar包时，出现如下报错
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20210223171908358.png)
+![jar中没有主清单属性](D:\Program Files\hexo\blog2\source\pic\jar中没有主清单属性.png)
 
 解决方法：
 

@@ -8,7 +8,7 @@ categories:
 
 hutool涵盖了字符串、数字、集合、编码、日期、文件、IO、加密、数据库JDBC、JSON、HTTP客户端等一系列操作，包含以下组件：
 
-![image-20231208113511979](C:\Users\user\AppData\Roaming\Typora\typora-user-images\image-20231208113511979.png)
+![hutool工具类1](D:\Program Files\hexo\blog2\source\pic\hutool工具类1.png)
 
 可以根据需求对每个模块单独引入，也可以通过引入`hutool-all`方式引入所有模块。
 
