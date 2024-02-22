@@ -40,9 +40,11 @@ maven的两大功能，依赖管理和构建项目
 
 ### 2）依赖传递
 
-![maven初级1](/pic/maven初级1.png)
+![maven初级1](maven初级1.png)
 
 
+
+{% maven初级1.png %}
 
 ### 3）解决依赖冲突
 
