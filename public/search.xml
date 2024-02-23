@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Hello World</title>
-    <url>/2023/12/07/hello-world/</url>
+    <url>/2020/12/01/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
@@ -17,20 +17,6 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>这是我的第一篇博客</title>
-    <url>/2023/12/07/%E8%BF%99%E6%98%AF%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<p>简介</p>
-<p>这</p>
-<p>是</p>
-<p>我的</p>
-<p>第一篇</p>
-<h1 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h1><p>mybatispuls</p>
-]]></content>
-      <tags>
-        <tag>he</tag>
-      </tags>
   </entry>
   <entry>
     <title>Spring ResponseEntity 详解</title>
@@ -152,7 +138,7 @@
   </entry>
   <entry>
     <title>工具类常用</title>
-    <url>/2023/12/08/%E5%B7%A5%E5%85%B7%E7%B1%BB%E5%B8%B8%E7%94%A8/</url>
+    <url>/2020/12/08/%E5%B7%A5%E5%85%B7%E7%B1%BB%E5%B8%B8%E7%94%A8/</url>
     <content><![CDATA[<h1 id="一-集合"><a href="#一-集合" class="headerlink" title="一.集合"></a>一.集合</h1><h5 id="1-判空"><a href="#1-判空" class="headerlink" title="1.判空"></a>1.判空</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.dromara.hutool.core.collection.CollUtil.isNotEmpty(CollectionName)</span><br></pre></td></tr></table></figure>
 
 <h5 id="2-去重"><a href="#2-去重" class="headerlink" title="2.去重"></a>2.去重</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.dromara.hutool.core.collection.CollUtil.distinc(CollectionName)</span><br></pre></td></tr></table></figure>
@@ -349,7 +335,6 @@
         <category>前端</category>
       </categories>
       <tags>
-        <tag>请求头</tag>
         <tag>request</tag>
         <tag>前端</tag>
       </tags>
@@ -398,5 +383,84 @@
         <tag>maven</tag>
         <tag>项目管理</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>git上传文件（超过100MB）</title>
+    <url>/2021/12/11/git%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%EF%BC%88%E8%B6%85%E8%BF%87100MB%EF%BC%89/</url>
+    <content><![CDATA[<h3 id="问题：git无法上传超过100mb的文件"><a href="#问题：git无法上传超过100mb的文件" class="headerlink" title="问题：git无法上传超过100mb的文件"></a><strong>问题：git无法上传超过100mb的文件</strong></h3><h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><h4 id="1-安装lfs（windows10）"><a href="#1-安装lfs（windows10）" class="headerlink" title="1.安装lfs（windows10）"></a>1.安装lfs（windows10）</h4><p>进入<a href="https://git-lfs.com/">git-lfs官网</a>下载安装包，双击安装程序按提示安装即可。</p>
+<h4 id="2-开启lfs功能"><a href="#2-开启lfs功能" class="headerlink" title="2.开启lfs功能"></a>2.开启lfs功能</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git lfs install</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-选择文件类型（）这里选择的是zip类型"><a href="#3-选择文件类型（）这里选择的是zip类型" class="headerlink" title="3.选择文件类型（）这里选择的是zip类型"></a>3.选择文件类型（）这里选择的是zip类型</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git lfs track &quot;*.zip&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-然后配置远程仓库"><a href="#4-然后配置远程仓库" class="headerlink" title="4.然后配置远程仓库"></a>4.然后配置远程仓库</h4><p>执行完上面的命令后，会生成一个.gitattributes文件，要将其上传到远程gitee仓库。这里我把.gitattributes和大文件分开上传。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git add .gitattributes</span><br><span class="line">$ git commit -m &#x27;上传文件&#x27;</span><br><span class="line">$ git push origin master（如果提交不了，后面可以加一个-f）</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-上传大文件"><a href="#5-上传大文件" class="headerlink" title="5.上传大文件"></a>5.上传大文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add mysql-5.7.36-win64.zip</span><br><span class="line">git commit -m &quot;上传MySQL安装包&quot;</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-解决报错"><a href="#6-解决报错" class="headerlink" title="6.解决报错"></a>6.解决报错</h4><p>这里的报错主要有两个</p>
+<p>WARNING: Authentication error: Authentication required: LFS only supported repository in paid enterprise.<br>batch response: LFS only supported repository in paid enterprise.</p>
+<h5 id="6-1-第一个错误的解决方式是"><a href="#6-1-第一个错误的解决方式是" class="headerlink" title="6.1.第一个错误的解决方式是"></a>6.1.第一个错误的解决方式是</h5><p>git config lfs.<a href="https://gitee.com/%7Byour_gitee%7D/%7Byour_repo%7D.git/info/lfs.locksverify">https://gitee.com/{your_gitee}/{your_repo}.git/info/lfs.locksverify</a> false<br>命令中的{your_gitee}&#x2F;{your_repo}是你的远程仓库地址，根据自己情况替换。</p>
+<h5 id="6-2-第二个错误的解决方式"><a href="#6-2-第二个错误的解决方式" class="headerlink" title="6.2.第二个错误的解决方式"></a>6.2.第二个错误的解决方式</h5><figure class="highlight vbscript"><table><tr><td class="code"><pre><span class="line">batch <span class="built_in">response</span>: LFS only supported repository <span class="keyword">in</span> paid enterprise.</span><br></pre></td></tr></table></figure>
+
+<p>删除<code>./git/hooks/pre-push</code>文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> .git/hooks/pre-push</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-上传文件"><a href="#7-上传文件" class="headerlink" title="7.上传文件"></a>7.上传文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push orgin master</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>项目管理</tag>
+        <tag>gitee</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo部署gitee</title>
+    <url>/2023/12/08/hexo%E9%83%A8%E7%BD%B2gitee/</url>
+    <content><![CDATA[<ol>
+<li><p>访问<a href="https://hexo.io/zh-cn/index.html">官网</a>，获取hexo源码</p>
+</li>
+<li><p>在gitee网站，新建仓库</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.email &quot;你的邮箱&quot;</span><br><span class="line">git config --global user.name &quot;用户名&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取SSH公钥</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 通过命令 ssh-keygen 生成 SSH Key</span><br><span class="line">ssh-keygen -t rsa -C &quot;你的邮箱&quot;</span><br><span class="line">// 读取公钥文件</span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将公钥复制，在gitee官网设置中，添加公钥</p>
+</li>
+<li><p>通过 <code>ssh -T</code> 测试，输出 SSH Key 绑定的<strong>用户名</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@gitee.com</span><br><span class="line">Hi USERNAME! You&#x27;ve successfully authenticated, but GITEE.COM does not provide shell access.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装，完成后可以部署到gitee</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成网页</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>本地运行，预览网页</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>部署博客</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>gitee</tag>
+        <tag>hexo</tag>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java数据结构LinkedList，ArrayList，HashMap，TreeMap的类实现</title>
+    <url>/2024/02/22/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84LinkedList%EF%BC%8CArrayList%EF%BC%8CHashMap%EF%BC%8CTreeMap%E7%9A%84%E7%B1%BB%E5%AE%9E%E7%8E%B0/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
