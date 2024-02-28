@@ -1,7 +1,9 @@
 ---
 title: spring AOP和代理模式
 date: 2023-11-17 18:15:24
-tags:
+tags: [Spring, JAVA]
+categories:
+- [技术, JAVA]
 ---
 
 # 一.代理模式
