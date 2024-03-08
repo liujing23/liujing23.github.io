@@ -6,7 +6,7 @@ categories:
 - [技术, JAVA]
 ---
 
-#### 1.mysql的存储引擎
+#### 1.Mysql的存储引擎
 
 默认为InnoDB
 

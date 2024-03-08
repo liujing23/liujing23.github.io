@@ -1,7 +1,7 @@
 ---
 title: JavaWeb简介
 date: 2022-02-23 09:25:21
-tags: [Spring, JAVA]
+tags: [JAVA]
 categories:
 - [技术, JAVA]
 ---

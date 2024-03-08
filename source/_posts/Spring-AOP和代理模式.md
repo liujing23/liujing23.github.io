@@ -1,5 +1,5 @@
 ---
-title: spring AOP和代理模式
+title: Spring AOP和代理模式
 date: 2023-11-17 18:15:24
 tags: [Spring, JAVA]
 categories:

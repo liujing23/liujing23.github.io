@@ -1,7 +1,9 @@
 ---
 title: SpringMVC简介
-date: 2024-02-28 16:30:33
-tags:
+date: 2022-03-02 16:30:33
+tags: [Spring, JAVA]
+categories:
+- [技术, JAVA]
 ---
 
 # 一.MVC
