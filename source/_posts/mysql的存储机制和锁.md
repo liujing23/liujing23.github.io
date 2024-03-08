@@ -1,5 +1,5 @@
 ---
-title: mysql的存储机制和锁
+title: Mysql的存储机制和锁
 date: 2023-04-17 14:30:19
 tags: [mysql, JAVA]
 categories:

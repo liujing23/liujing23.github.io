@@ -1,5 +1,5 @@
 ---
-title: mysql慢查询的优化
+title: Mysql慢查询的优化
 date: 2023-07-03 15:13:33
 tags: [mysql, JAVA]
 categories:

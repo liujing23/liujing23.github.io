@@ -1,5 +1,5 @@
 ---
-title: maven初级
+title: Maven初级
 date: 2022-06-08 14:39:27
 tags: [maven, JAVA, 项目管理]
 categories:
