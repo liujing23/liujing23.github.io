@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta name="description" content="这是一个简单的博客" />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title>线程死锁的解决方案 |  小刘的博客</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="小刘的博客" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      <section class="outer">
+  <article
+  id="post-线程死锁的解决方案"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  线程死锁的解决方案
+</h1>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/02/23/%E7%BA%BF%E7%A8%8B%E6%AD%BB%E9%94%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" class="article-date">
+  <time datetime="2023-02-23T01:38:28.000Z" itemprop="datePublished">2023-02-23</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/JAVA/">JAVA</a>
+  </div>
+  
+<div class="word_count">
+    <span class="post-time">
+        <span class="post-meta-item-icon">
+            <i class="ri-quill-pen-line"></i>
+            <span class="post-meta-item-text"> Word count:</span>
+            <span class="post-count">3.3k</span>
+        </span>
+    </span>
+
+    <span class="post-time">
+        &nbsp; | &nbsp;
+        <span class="post-meta-item-icon">
+            <i class="ri-book-open-line"></i>
+            <span class="post-meta-item-text"> Reading time≈</span>
+            <span class="post-count">11 min</span>
+        </span>
+    </span>
+</div>
+ 
+    </div>
+      
+    <div class="tocbot"></div>
+
+
+
+
+  
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="一-问题"><a href="#一-问题" class="headerlink" title="一.问题"></a>一.问题</h1><p>Process.waitFor导致死锁</p>
+<h1 id="二-产生原因"><a href="#二-产生原因" class="headerlink" title="二.产生原因"></a>二.产生原因</h1><p>使用Runtime.exec执行命令时，JAVA的线程会创建一个子进程，用于执行命令，而且子进程和JAVA线程会分别独立运行。主线程需要等待脚本进程，即子进程的返回结果和日志信息，在JAVA线程中调用Process.waitFor挂起来等待子进程完成。</p>
+<p>子进程执行时，不断的打印日志信息，我们通过Process.getInputStream和 Process.getErrorStream进行获取正常输出日志和错误日志进行处理。</p>
+<p>这个时候子进程不断的向JAVA线程写入数据，而JAVA线程调用Process.waitFor后已经阻塞挂起，而子进程在不断的向JAVA线程进行写入数据，当我们的Process.getInputStream的buffer缓冲区被写满，而JAVA线程依然挂起并未消费buffer中的数据，导致子进程无法继续向buffer缓冲区中继续写入数据，导致子进程也挂起。 </p>
+<p>JAVA线程和子进程都处于挂起的状态，JAVA线程等待子进程的结束，子进程等待JAVA线程对buffer缓冲区中的数据进行消费。两者在相互等待导致死锁。</p>
+<p>综上：由于缓存区的日志信息无法消费，导致线程相互等待，从而发生死锁</p>
+<h1 id="三-解决方案"><a href="#三-解决方案" class="headerlink" title="三.解决方案"></a>三.解决方案</h1><p>创建线程池，每次使用一个线程处理缓存区的日志</p>
+<p>&#96;&#96;</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line">private static ThreadPoolExecutor executor;</span><br><span class="line"> </span><br><span class="line">static &#123;</span><br><span class="line">    ThreadFactory namedThreadFactory = new ThreadFactoryBuilder()</span><br><span class="line">            .setNameFormat(&quot;cmd-pool-%d&quot;).build();</span><br><span class="line">    //根据实际情况创建线程池</span><br><span class="line">    executor = new ThreadPoolExecutor(6, 10, 5,</span><br><span class="line">            TimeUnit.SECONDS, new LinkedBlockingQueue&lt;Runnable&gt;(1024),</span><br><span class="line">            namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">/**</span><br><span class="line"> * 流处理</span><br><span class="line"> * @param stream</span><br><span class="line"> */</span><br><span class="line">private static void clearStream(InputStream stream) &#123;</span><br><span class="line">    //处理buffer的线程</span><br><span class="line">    executor.execute(new Runnable() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void run() &#123;</span><br><span class="line"> </span><br><span class="line">            String line = null;</span><br><span class="line"> </span><br><span class="line">            try (BufferedReader in = new BufferedReader(new InputStreamReader(stream));) &#123;</span><br><span class="line">                while ((line = in.readLine()) != null) &#123;</span><br><span class="line">                    LoggerUtils.debug(CmdExecUtils.class,line);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; catch (IOException e) &#123;</span><br><span class="line">                LoggerUtils.error(CmdExecUtils.class,&quot;exec error : &#123;&#125;&quot;, e);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">public static boolean execCommond(String... args) &#123;</span><br><span class="line">    boolean flg = true;</span><br><span class="line">    Runtime run = Runtime.getRuntime();</span><br><span class="line">    try &#123;</span><br><span class="line">        Process p;</span><br><span class="line">        if (args != null &amp;&amp; args.length == 1) &#123;</span><br><span class="line">            p = run.exec(args[0]);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            p = run.exec(args);</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        InputStream stream=p.getInputStream();</span><br><span class="line">        LoggerUtils.info(CmdExecUtils.class, stream + &quot;....getInputStream..&quot;);</span><br><span class="line"> </span><br><span class="line">        //消费正常日志</span><br><span class="line">        clearStream(stream);</span><br><span class="line">        //消费错误日志</span><br><span class="line">        clearStream(p.getErrorStream());</span><br><span class="line"> </span><br><span class="line">        if (p.waitFor() != 0) &#123;</span><br><span class="line">            if (p.exitValue() == 1) &#123;</span><br><span class="line">                LoggerUtils.info(CmdExecUtils.class,&quot;=============exec=====================命令执行失败!&quot;);</span><br><span class="line">                flg = false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    &#125; catch (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        flg = false;</span><br><span class="line">    &#125;</span><br><span class="line">    return flg;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="四-死锁如何避免"><a href="#四-死锁如何避免" class="headerlink" title="四.死锁如何避免"></a>四.死锁如何避免</h1><p>1.死锁造成的条件</p>
+<p>1）一个资源只能被一个线程使用</p>
+<p>2）一个线程在阻塞等待某个资源，不释放占有资源</p>
+<p>3）一个线程已经获得的资源，在未使用之前，不能强行进行剥夺</p>
+<p>4）线程头尾形成循环等待资源关系</p>
+<p>只要不满足其中一个条件，就不会发生死锁</p>
+<p>2.在开发过程中，要注意：</p>
+<p>1）注意加锁顺序，保证每个线程按照同样的顺序加锁</p>
+<p>2）注意加锁时间，对锁设置超时时间</p>
+<p>3）检查死锁，预防机制，确保第一时间解决</p>
+<h1 id="五-线程池的实现原理"><a href="#五-线程池的实现原理" class="headerlink" title="五.线程池的实现原理"></a>五.线程池的实现原理</h1><p>提交一个任务到线程池中，线程池的处理流程如下： </p>
+<p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/Java%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B.jpeg" alt="线程池的处理流程"></p>
+<p>1）判断线程池里的核心线程是否都在执行任务，如果不是（核心线程空闲或者还有核心线程没有被创建）则创建一个新的工作线程来执行任务。如果核心线程都在执行任务，则进入下个流程。 </p>
+<p>2）线程池判断工作队列是否已满，如果工作队列没有满，则将新提交的任务存储在这个工作队列里。如果工作队列满了，则进入下个流程。 </p>
+<p>3）判断线程池里的线程是否都处于工作状态，如果没有，则创建一个新的工作线程来执行任务。如果已经满了，则交给饱和策略来处理这个任务。</p>
+<h1 id="六-线程池的使用"><a href="#六-线程池的使用" class="headerlink" title="六.线程池的使用"></a>六.线程池的使用</h1><h2 id="1-线程池的创建"><a href="#1-线程池的创建" class="headerlink" title="1.线程池的创建"></a>1.线程池的创建</h2><p>查看源码，线程池有七个参数</p>
+<p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%8F%82%E6%95%B0.png" alt="线程池参数"></p>
+<h3 id="1）corePoolSize"><a href="#1）corePoolSize" class="headerlink" title="1）corePoolSize"></a>1）corePoolSize</h3><p>线程池核心线程大小</p>
+<p>线程池中会维护一个最小的线程数量，即使这些线程处理空闲状态，他们也不会被销毁，除非设置了allowCoreThreadTimeOut。这里的最小线程数量即是corePoolSize。任务提交到线程池后，首先会检查当前线程数是否达到了corePoolSize，如果没有达到的话，则会创建一个新线程来处理这个任务。</p>
+<h3 id="2）maximumPoolSize"><a href="#2）maximumPoolSize" class="headerlink" title="2）maximumPoolSize"></a>2）maximumPoolSize</h3><p>线程池最大线程数量</p>
+<p>当前线程数达到corePoolSize后，如果继续有任务被提交到线程池，会将任务缓存到工作队列（后面会介绍）中。如果队列也已满，则会去创建一个新线程来出来这个处理。线程池不会无限制的去创建新线程，它会有一个最大线程数量的限制，这个数量即由maximunPoolSize指定。</p>
+<h3 id="3）keepAliveTime"><a href="#3）keepAliveTime" class="headerlink" title="3）keepAliveTime"></a>3）keepAliveTime</h3><p>空闲线程存活时间</p>
+<p>一个线程如果处于空闲状态，并且当前的线程数量大于corePoolSize，那么在指定时间后，这个空闲线程会被销毁，这里的指定时间由keepAliveTime来设定</p>
+<h3 id="4）unit"><a href="#4）unit" class="headerlink" title="4）unit"></a>4）unit</h3><p>空闲线程存活时间单位</p>
+<p>keepAliveTime的计量单位</p>
+<h3 id="5）workQueue"><a href="#5）workQueue" class="headerlink" title="5）workQueue"></a>5）workQueue</h3><p>工作队列</p>
+<p>新任务被提交后，会先进入到此工作队列中，任务调度时再从队列中取出任务。jdk中提供了四种工作队列：</p>
+<h4 id="①ArrayBlockingQueue"><a href="#①ArrayBlockingQueue" class="headerlink" title="①ArrayBlockingQueue"></a>①ArrayBlockingQueue</h4><p>基于数组的有界阻塞队列，按FIFO排序。新任务进来后，会放到该队列的队尾，有界的数组可以防止资源耗尽问题。当线程池中线程数量达到corePoolSize后，再有新任务进来，则会将任务放入该队列的队尾，等待被调度。如果队列已经是满的，则创建一个新线程，如果线程数量已经达到maxPoolSize，则会执行拒绝策略。</p>
+<h4 id="②LinkedBlockingQuene"><a href="#②LinkedBlockingQuene" class="headerlink" title="②LinkedBlockingQuene"></a>②LinkedBlockingQuene</h4><p>基于链表的无界阻塞队列（其实最大容量为Interger.MAX），按照FIFO排序。由于该队列的近似无界性，当线程池中线程数量达到corePoolSize后，再有新任务进来，会一直存入该队列，而基本不会去创建新线程直到maxPoolSize（很难达到Interger.MAX这个数），因此使用该工作队列时，参数maxPoolSize其实是不起作用的。</p>
+<h4 id="③SynchronousQuene"><a href="#③SynchronousQuene" class="headerlink" title="③SynchronousQuene"></a>③SynchronousQuene</h4><p>一个不缓存任务的阻塞队列，生产者放入一个任务必须等到消费者取出这个任务。也就是说新任务进来时，不会缓存，而是直接被调度执行该任务，如果没有可用线程，则创建新线程，如果线程数量达到maxPoolSize，则执行拒绝策略。</p>
+<h4 id="④PriorityBlockingQueue"><a href="#④PriorityBlockingQueue" class="headerlink" title="④PriorityBlockingQueue"></a>④PriorityBlockingQueue</h4><p>具有优先级的无界阻塞队列，优先级通过参数Comparator实现。</p>
+<h3 id="6）threadFactory"><a href="#6）threadFactory" class="headerlink" title="6）threadFactory"></a>6）threadFactory</h3><p>线程工厂</p>
+<p>创建一个新线程时使用的工厂，可以用来设定线程名、是否为daemon线程等等</p>
+<h3 id="7）handler"><a href="#7）handler" class="headerlink" title="7）handler"></a>7）handler</h3><p>拒绝策略</p>
+<p>当工作队列中的任务已到达最大限制，并且线程池中的线程数量也达到最大限制，这时如果有新任务提交进来，该如何处理呢。这里的拒绝策略，就是解决这个问题的，jdk中提供了4中拒绝策略：</p>
+<h4 id="①CallerRunsPolicy"><a href="#①CallerRunsPolicy" class="headerlink" title="①CallerRunsPolicy"></a>①CallerRunsPolicy</h4><p>该策略下，在调用者线程中直接执行被拒绝任务的run方法，除非线程池已经shutdown，则直接抛弃任务。</p>
+<h4 id="②AbortPolicy"><a href="#②AbortPolicy" class="headerlink" title="②AbortPolicy"></a>②AbortPolicy</h4><p>该策略下，直接丢弃任务，并抛出RejectedExecutionException异常。</p>
+<h4 id="③DiscardPolicy"><a href="#③DiscardPolicy" class="headerlink" title="③DiscardPolicy"></a>③DiscardPolicy</h4><p>该策略下，直接丢弃任务，什么都不做。</p>
+<h4 id="④DiscardOldestPolicy"><a href="#④DiscardOldestPolicy" class="headerlink" title="④DiscardOldestPolicy"></a>④DiscardOldestPolicy</h4><p>该策略下，抛弃进入队列最早的那个任务，然后尝试把这次拒绝的任务放入队列</p>
+<h2 id="2-向线程池提交任务"><a href="#2-向线程池提交任务" class="headerlink" title="2.向线程池提交任务"></a>2.向线程池提交任务</h2><p>可以使用两个方法向线程池提交任务，分别为execute()和submit()方法。</p>
+<p>execute()方法用于提交不需要返回值的任务，所以无法判断任务被线程池执行成功。</p>
+<p>submit方法用于提交需要返回值的任务。线程池会返回一个Future类型的对象，通过这个future对象可以判断任务是否执行成功，并且可以通过future的get()方法来获取返回值，get()方法会阻塞当前线程直到任务完成，而使用get(long timeout, TimeUnit unit)方法则会阻塞当前线程一段时间后立即返回，这时候有可能任务没有执行完成。</p>
+<h2 id="3、关闭线程池"><a href="#3、关闭线程池" class="headerlink" title="3、关闭线程池"></a>3、关闭线程池</h2><p>可以通过调用线程池的shutdown或shutdownNow方法来关闭线程池。</p>
+<p>它们的原理是遍历线程池中的工作线程，然后逐个调用线程的interrupt方法来中断线程，所以<strong>无法响应中断的任务可能永远无法终止</strong>。但是它们存在一定的区别，shutdownNow首先将线程池状态设置成STOP，然后尝试停止所有的正在执行或暂停任务线程，并返回等待执行任务的列表，而shutdown只是将线程池的状态设置成SHUTDOWN状态，然后中断所有没有正在执行任务的线程。</p>
+<p>只要调用了这两个关闭方法中的任意一个，isShutdown方法就会返回true。当所有的任务都已关闭后，才表示线程池关闭成功，这时调用isTerminaed方法会返回true。至于应该调用哪种方法来关闭线程池，应该由线程池的任务特性决定，通常调用shutdown方法来关闭线程池，如果任务不一定要执行完，则可以调用shutdownNow方法（通俗的理解，shutdownNow是强制关闭，返回为未执行任务列表；而shutdown会等待当前任务执行完毕才真正关闭）。</p>
+<h2 id="4、合理地配置线程池"><a href="#4、合理地配置线程池" class="headerlink" title="4、合理地配置线程池"></a>4、合理地配置线程池</h2><p>要想合理地配置线程池，就必须首先分析任务特性，可以从以下几个角度来分析。</p>
+<ul>
+<li>任务的性质：CPU密集型任务、IO密集型任务和混合型任务。</li>
+<li>任务的优先级：高、中和低。</li>
+<li>任务的执行时间：长、中和短。</li>
+<li>任务的依赖性：是否依赖其他系统资源，如数据库连接。</li>
+</ul>
+<p>性质不同的任务可以用不同规模的线程池分开处理。CPU密集性任务应配置尽可能小的线程，如配置N(cpu) + 1个线程的线程池。由于IO密集型任务线程并不是一直在执行任务，则应配置尽可能多的线程，如2 × N(cpu)。混合型任务，如果可以拆分，将其拆分成一个CPU密集型任务和一个IO密集型任务，只要这两个任务执行的时间相差不是太大，那么分解后执行的吞吐量将高于串行执行的吞吐量。如果这两个任务执行时间相差不是很大，则没必要进行分解。可以通过Runtime.getRuntime().availableProcessors()方法获取当前设备的CPU个数。</p>
+<p>优先级不同的任务可以使用优先级队列PriorityBlockingQueue来处理。他可以让优先级高的任务先执行。</p>
+<p>执行时间不同的任务可以交给不同规模的线程池来处理，或者可以使用优先级队列，让执行时间短的任务先执行。</p>
+<p>依赖数据库连接池的任务，因为线程提交SQL后需要等待数据库返回结果，等待的时间越长，则CPU空闲的时间就越长，那么线程数应该设置得越大，这样才能更好地利用CPU。</p>
+<p><strong>建议使用有界队列</strong>。有界队列能增加系统的稳定性和预警能力，可以根据需要设大一点，比如几千。</p>
+<h2 id="5、线程池的监控"><a href="#5、线程池的监控" class="headerlink" title="5、线程池的监控"></a>5、线程池的监控</h2><p>如果在系统中大量使用线程池，则有必要对线程池进行监控，方便在出现问题时，可以根据线程池的使用状况快速定位问题。可以通过线程池提供的参数进行监控，在监控线程池的时候可以使用以下属性。</p>
+<ul>
+<li>taskCount：线程池需要执行的任务数量。</li>
+<li>completedTaskCount：线程池在运行过程中已完成的任务数量，小于或等于taskCount。</li>
+<li>largestPoolSize：线程池曾经创建过的最大线程数量。通过这个数据可以知道线程是否曾经满过。如该数值等于线程池的最大大小，则表示线程池曾经满过。</li>
+<li>getPoolSize：线程池的线程数量。如果线程池不销毁的话，线程池里的线程不会自动销毁，所以这个值只增不减。</li>
+<li>getActiveCount：获取活动的线程数。</li>
+</ul>
+<p>通过扩展线程池进行监控。可以通过继承线程池来自定义线程池，重写线程池的beforeExecute、afterExecute和terminated方法，也可以在任务执行前、执行后和线程池关闭前执行一些代码来进行监控。例如，监控任务的平均执行时间、最大执行时间和最小执行时间等。这几个方法在线程池里都是空方法。</p>
+ 
+      <!-- reward -->
+      
+      <div id="reword-out">
+        <div id="reward-btn">
+          Donate
+        </div>
+      </div>
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <div class="declare">
+      <ul class="post-copyright">
+        <li>
+          <i class="ri-copyright-line"></i>
+          <strong>Copyright： </strong>
+          
+          Copyright is owned by the author. For commercial reprints, please contact the author for authorization. For non-commercial reprints, please indicate the source.
+          
+        </li>
+      </ul>
+    </div>
+    
+    <footer class="article-footer">
+       
+<div class="share-btn">
+      <span class="share-sns share-outer">
+        <i class="ri-share-forward-line"></i>
+        分享
+      </span>
+      <div class="share-wrap">
+        <i class="arrow"></i>
+        <div class="share-icons">
+          
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="ri-weibo-fill"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="ri-wechat-fill"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="ri-qq-fill"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="ri-douban-line"></i>
+          </a>
+          <!-- <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a> -->
+          
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="ri-facebook-circle-fill"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="ri-twitter-fill"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="ri-google-fill"></i>
+          </a>
+        </div>
+      </div>
+</div>
+
+<div class="wx-share-modal">
+    <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://example.com/2023/02/23/%E7%BA%BF%E7%A8%8B%E6%AD%BB%E9%94%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div id="share-mask"></div>  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="tag">多线程</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+  <nav class="article-nav">
+    
+      <a href="/2023/04/17/Mysql%E7%9A%84%E5%AD%98%E5%82%A8%E6%9C%BA%E5%88%B6%E5%92%8C%E9%94%81/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            Mysql的存储机制和锁
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2022/06/10/Maven%E9%AB%98%E7%BA%A7/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">Maven高级</div>
+      </a>
+    
+  </nav>
+
+  
+   
+  
+   
+    <script src="https://cdn.staticfile.org/twikoo/1.4.18/twikoo.all.min.js"></script>
+    <div id="twikoo" class="twikoo"></div>
+    <script>
+        twikoo.init({
+            envId: ""
+        })
+    </script>
+ 
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2020-2024
+        <i class="ri-heart-fill heart_icon"></i> John Doe
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="小刘的博客"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+ 
+<script src="/js/tocbot.min.js"></script>
+
+<script>
+  tocbot.init({
+    tocSelector: ".tocbot",
+    contentSelector: ".article-entry",
+    headingSelector: "h1, h2, h3, h4, h5, h6",
+    hasInnerContainers: true,
+    scrollSmooth: true,
+    scrollContainer: "main",
+    positionFixedSelector: ".tocbot",
+    positionFixedClass: "is-position-fixed",
+    fixedSidebarOffset: "auto",
+  });
+</script>
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>
