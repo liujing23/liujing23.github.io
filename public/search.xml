@@ -119,9 +119,9 @@
   </entry>
   <entry>
     <title>hutool工具类</title>
-    <url>/2023/12/08/hutool%E5%B7%A5%E5%85%B7%E7%B1%BB/</url>
+    <url>/2023/07/16/hutool%E5%B7%A5%E5%85%B7%E7%B1%BB/</url>
     <content><![CDATA[<p>hutool涵盖了字符串、数字、集合、编码、日期、文件、IO、加密、数据库JDBC、JSON、HTTP客户端等一系列操作，包含以下组件：</p>
-<p><img src="C:\Users\user\AppData\Roaming\Typora\typora-user-images\image-20231208113511979.png" alt="image-20231208113511979"></p>
+<p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/hutool%E5%B7%A5%E5%85%B7%E7%B1%BB1.png" alt="hutool工具类1"></p>
 <p>可以根据需求对每个模块单独引入，也可以通过引入<code>hutool-all</code>方式引入所有模块。</p>
 <p><a href="https://www.hutool.cn/docs/#/">中文文档</a></p>
 <p><a href="https://apidoc.gitee.com/dromara/hutool/">api文档</a></p>
@@ -138,7 +138,7 @@
   </entry>
   <entry>
     <title>工具类常用</title>
-    <url>/2020/12/08/%E5%B7%A5%E5%85%B7%E7%B1%BB%E5%B8%B8%E7%94%A8/</url>
+    <url>/2020/12/11/%E5%B7%A5%E5%85%B7%E7%B1%BB%E5%B8%B8%E7%94%A8/</url>
     <content><![CDATA[<h1 id="一-集合"><a href="#一-集合" class="headerlink" title="一.集合"></a>一.集合</h1><h5 id="1-判空"><a href="#1-判空" class="headerlink" title="1.判空"></a>1.判空</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.dromara.hutool.core.collection.CollUtil.isNotEmpty(CollectionName)</span><br></pre></td></tr></table></figure>
 
 <h5 id="2-去重"><a href="#2-去重" class="headerlink" title="2.去重"></a>2.去重</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.dromara.hutool.core.collection.CollUtil.distinc(CollectionName)</span><br></pre></td></tr></table></figure>
@@ -201,9 +201,269 @@
       </tags>
   </entry>
   <entry>
-    <title>maven初级</title>
-    <url>/2023/12/08/maven%E5%88%9D%E7%BA%A7/</url>
-    <content><![CDATA[<h1 id="一-概述"><a href="#一-概述" class="headerlink" title="一.概述"></a>一.概述</h1><p>maven的两大功能，依赖管理和构建项目</p>
+    <title>请求头信息</title>
+    <url>/2022/02/28/%E8%AF%B7%E6%B1%82%E5%A4%B4%E4%BF%A1%E6%81%AF/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>技术</category>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>request</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>git上传文件（超过100MB）</title>
+    <url>/2021/12/23/git%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%EF%BC%88%E8%B6%85%E8%BF%87100MB%EF%BC%89/</url>
+    <content><![CDATA[<h3 id="问题：git无法上传超过100mb的文件"><a href="#问题：git无法上传超过100mb的文件" class="headerlink" title="问题：git无法上传超过100mb的文件"></a><strong>问题：git无法上传超过100mb的文件</strong></h3><h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><h4 id="1-安装lfs（windows10）"><a href="#1-安装lfs（windows10）" class="headerlink" title="1.安装lfs（windows10）"></a>1.安装lfs（windows10）</h4><p>进入<a href="https://git-lfs.com/">git-lfs官网</a>下载安装包，双击安装程序按提示安装即可。</p>
+<h4 id="2-开启lfs功能"><a href="#2-开启lfs功能" class="headerlink" title="2.开启lfs功能"></a>2.开启lfs功能</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git lfs install</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-选择文件类型（）这里选择的是zip类型"><a href="#3-选择文件类型（）这里选择的是zip类型" class="headerlink" title="3.选择文件类型（）这里选择的是zip类型"></a>3.选择文件类型（）这里选择的是zip类型</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git lfs track &quot;*.zip&quot;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-然后配置远程仓库"><a href="#4-然后配置远程仓库" class="headerlink" title="4.然后配置远程仓库"></a>4.然后配置远程仓库</h4><p>执行完上面的命令后，会生成一个.gitattributes文件，要将其上传到远程gitee仓库。这里我把.gitattributes和大文件分开上传。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git add .gitattributes</span><br><span class="line">$ git commit -m &#x27;上传文件&#x27;</span><br><span class="line">$ git push origin master（如果提交不了，后面可以加一个-f）</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-上传大文件"><a href="#5-上传大文件" class="headerlink" title="5.上传大文件"></a>5.上传大文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add mysql-5.7.36-win64.zip</span><br><span class="line">git commit -m &quot;上传MySQL安装包&quot;</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-解决报错"><a href="#6-解决报错" class="headerlink" title="6.解决报错"></a>6.解决报错</h4><p>这里的报错主要有两个</p>
+<p>WARNING: Authentication error: Authentication required: LFS only supported repository in paid enterprise.<br>batch response: LFS only supported repository in paid enterprise.</p>
+<h5 id="6-1-第一个错误的解决方式是"><a href="#6-1-第一个错误的解决方式是" class="headerlink" title="6.1.第一个错误的解决方式是"></a>6.1.第一个错误的解决方式是</h5><p>git config lfs.<a href="https://gitee.com/%7Byour_gitee%7D/%7Byour_repo%7D.git/info/lfs.locksverify">https://gitee.com/{your_gitee}/{your_repo}.git/info/lfs.locksverify</a> false<br>命令中的{your_gitee}&#x2F;{your_repo}是你的远程仓库地址，根据自己情况替换。</p>
+<h5 id="6-2-第二个错误的解决方式"><a href="#6-2-第二个错误的解决方式" class="headerlink" title="6.2.第二个错误的解决方式"></a>6.2.第二个错误的解决方式</h5><figure class="highlight vbscript"><table><tr><td class="code"><pre><span class="line">batch <span class="built_in">response</span>: LFS only supported repository <span class="keyword">in</span> paid enterprise.</span><br></pre></td></tr></table></figure>
+
+<p>删除<code>./git/hooks/pre-push</code>文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> .git/hooks/pre-push</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-上传文件"><a href="#7-上传文件" class="headerlink" title="7.上传文件"></a>7.上传文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push orgin master</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>项目管理</tag>
+        <tag>gitee</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo部署gitee</title>
+    <url>/2020/12/05/hexo%E9%83%A8%E7%BD%B2gitee/</url>
+    <content><![CDATA[<ol>
+<li><p>访问<a href="https://hexo.io/zh-cn/index.html">官网</a>，获取hexo源码</p>
+</li>
+<li><p>在gitee网站，新建仓库</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.email &quot;你的邮箱&quot;</span><br><span class="line">git config --global user.name &quot;用户名&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取SSH公钥</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 通过命令 ssh-keygen 生成 SSH Key</span><br><span class="line">ssh-keygen -t rsa -C &quot;你的邮箱&quot;</span><br><span class="line">// 读取公钥文件</span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将公钥复制，在gitee官网设置中，添加公钥</p>
+</li>
+<li><p>通过 <code>ssh -T</code> 测试，输出 SSH Key 绑定的<strong>用户名</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@gitee.com</span><br><span class="line">Hi USERNAME! You&#x27;ve successfully authenticated, but GITEE.COM does not provide shell access.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装，完成后可以部署到gitee</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>生成网页</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>本地运行，预览网页</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>部署博客</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>gitee</tag>
+        <tag>hexo</tag>
+        <tag>博客</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java数据结构LinkedList，ArrayList，HashMap，TreeMap等集合的类实现</title>
+    <url>/2022/01/05/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84LinkedList%EF%BC%8CArrayList%EF%BC%8CHashMap%EF%BC%8CTreeMap%E7%9A%84%E7%B1%BB%E5%AE%9E%E7%8E%B0/</url>
+    <content><![CDATA[<h1 id="一-概述"><a href="#一-概述" class="headerlink" title="一.概述"></a>一.概述</h1><p>list集合</p>
+<p>​	ArrayList（有序，可重复，底层结构数组）</p>
+<p>​	LinkedList（有序，可重复，底层结构链表，双向链表）</p>
+<p>Set集合</p>
+<p>​	HashSet（无序，不可重复，底层HashMap） </p>
+<p>​	LinkedHashSet （有序，不可重复，底层链表 和 哈希表）</p>
+<p>​	TreeSet（无序，不可重复，可排序，底层TreeMap）</p>
+<p>Map集合：</p>
+<p>​    HashMap（无序，不可重复，哈希表结构）</p>
+<p>​    LinkedHashMap（有序，可重复，哈希表结构+链表结构，单向链表）</p>
+<p>​    TreeMap（有序，不可重复，可排序，默认升序，底层结构红黑树）</p>
+<h1 id="二-map集合的使用"><a href="#二-map集合的使用" class="headerlink" title="二.map集合的使用"></a>二.map集合的使用</h1><p>​		1、一般情况下，我们用的最多的是HashMap。HashMap里面存入的键值对在取出的时候是随机的，它根据键的HashCode值存储数据，根据键可以直接获取它的值，具有很快的访问速度。在Map 中<strong>插入、删除和定位元素</strong>，HashMap 是最好的选择。<br>　　2、TreeMap取出来的是排序后的键值对。但如果您要<strong>按自然顺序或自定义顺序遍历键</strong>，那么TreeMap会更好。<br>　　3、LinkedHashMap 是HashMap的一个子类，它内部有一个链表，保持Key插入的顺序。如果需要<strong>输出的顺序和输入的相同</strong>,那么用LinkedHashMap可以实现,它还可以按读取顺序来排列，像连接池中可以应用。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>底层</tag>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java数据结构哈希表的类实现</title>
+    <url>/2021/12/25/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%93%88%E5%B8%8C%E8%A1%A8%E7%9A%84%E7%B1%BB%E5%AE%9E%E7%8E%B0/</url>
+    <content><![CDATA[<h1 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h1><p>哈希表是将一组关键字根据散列算法，确定存放位置的数据结构</p>
+<h1 id="2-用途"><a href="#2-用途" class="headerlink" title="2.用途"></a>2.用途</h1><p>哈希表由于是算法计算出的存储位置，可以不用遍历，直接根据关键字获取vaule，大大提升查询效率</p>
+<p>在HashMap，HashSet，LinkedHashSet ，LinkedHashMap中(带hash)都可以找到哈希表的实现</p>
+<h1 id="3-使用哈希表带来的问题"><a href="#3-使用哈希表带来的问题" class="headerlink" title="3.使用哈希表带来的问题"></a>3.使用哈希表带来的问题</h1><p>hash冲突，关键字不一样，但是f(key)一样</p>
+<h2 id="1）如何减少hash冲突"><a href="#1）如何减少hash冲突" class="headerlink" title="1）如何减少hash冲突"></a>1）如何减少hash冲突</h2><p>使用更好的散列算法</p>
+<h2 id="2）如何处理hash冲突"><a href="#2）如何处理hash冲突" class="headerlink" title="2）如何处理hash冲突"></a>2）如何处理hash冲突</h2><p>再哈希法即选取若干个不同的哈希函数，在产生哈希冲突的时候计算另一个哈希函数，直到不再发生冲突为止。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>底层</tag>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaWeb简介</title>
+    <url>/2022/02/23/JavaWeb%E7%AE%80%E4%BB%8B/</url>
+    <content><![CDATA[<h1 id="一-基本概念"><a href="#一-基本概念" class="headerlink" title="一.基本概念"></a>一.基本概念</h1><h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h2><p>静态web：数据始终不会发生变化</p>
+<p>动态web：数据在不同时间不同地点发生变化</p>
+<p>在Java中，动态web资源开发的技术统称JavaWeb</p>
+<h2 id="2-web应用"><a href="#2-web应用" class="headerlink" title="2.web应用"></a>2.web应用</h2><p>一个web应用应该由多部分组成：</p>
+<ul>
+<li>html，css，js</li>
+<li>jsp,servlet</li>
+<li>Java程序</li>
+<li>jar包</li>
+<li>配置文件</li>
+</ul>
+<h2 id="3-静态web"><a href="#3-静态web" class="headerlink" title="3.静态web"></a>3.静态web</h2><p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/20240229112731.png" alt="静态web"></p>
+<p>缺点：</p>
+<ol>
+<li>页面无法动态更新</li>
+<li>无法和数据库交互</li>
+</ol>
+<h2 id="4-动态web"><a href="#4-动态web" class="headerlink" title="4.动态web"></a>4.动态web</h2><p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/20240229111501.png" alt="动态web"></p>
+<p>缺点：</p>
+<ol>
+<li>动态web资源出现错误，重新编写后台程序，重新发布</li>
+</ol>
+<h1 id="二-web服务器"><a href="#二-web服务器" class="headerlink" title="二. web服务器"></a>二. web服务器</h1><p>服务器是一个被动的操作，用来处理用户请求和返回响应，常见的有IIS和tomcat（实际运行JSP和Servlet）</p>
+<h2 id="1-一个具体的servlet实现"><a href="#1-一个具体的servlet实现" class="headerlink" title="1. 一个具体的servlet实现"></a>1. 一个具体的servlet实现</h2><h3 id="1-1-继承servlet实现类HttpServlet，重写doGet方法，doPost方法"><a href="#1-1-继承servlet实现类HttpServlet，重写doGet方法，doPost方法" class="headerlink" title="1.1 继承servlet实现类HttpServlet，重写doGet方法，doPost方法"></a>1.1 继承servlet实现类HttpServlet，重写doGet方法，doPost方法</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.PrintWriter;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> user </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HelloServlet</span> <span class="keyword">extends</span> <span class="title class_">HttpServlet</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException &#123;</span><br><span class="line">        <span class="comment">// get方法操作逻辑</span></span><br><span class="line">        <span class="type">PrintWriter</span> <span class="variable">writer</span> <span class="operator">=</span> resp.getWriter();</span><br><span class="line">        writer.println(<span class="string">&quot;hello&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException &#123;</span><br><span class="line">        <span class="built_in">super</span>.doPost(req, resp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-在web-xml文件里注册servlet，并映射路径"><a href="#1-2-在web-xml文件里注册servlet，并映射路径" class="headerlink" title="1.2 在web.xml文件里注册servlet，并映射路径"></a>1.2 在web.xml文件里注册servlet，并映射路径</h3><p>原理：浏览器发送请求到web服务器，为了能找到需要的资源，在web服务中注册Servlet并配置访问路径</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">&lt;servlet&gt;</span><br><span class="line">  &lt;servlet-name&gt;hello&lt;/servlet-name&gt;</span><br><span class="line">  &lt;servlet-class&gt;com.example.HelloServlet&lt;/servlet-class&gt;</span><br><span class="line">&lt;/servlet&gt;</span><br><span class="line"></span><br><span class="line">&lt;servlet-mapping&gt;</span><br><span class="line">  &lt;servlet-name&gt;hello&lt;/servlet-name&gt;</span><br><span class="line">  &lt;url-pattern&gt;/hello&lt;/url-pattern&gt;</span><br><span class="line">&lt;/servlet-mapping&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3-配置tomcat"><a href="#1-3-配置tomcat" class="headerlink" title="1.3 配置tomcat"></a>1.3 配置tomcat</h3><p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/20240304094943.png" alt="配置tomcat"></p>
+<p>需要在Depolyment中添加项目发布路径</p>
+<h3 id="1-4-发送请求，访问路径"><a href="#1-4-发送请求，访问路径" class="headerlink" title="1.4 发送请求，访问路径"></a>1.4 发送请求，访问路径</h3><p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/20240304095259.png" alt="请求结果"></p>
+<h2 id="2-Servlet原理"><a href="#2-Servlet原理" class="headerlink" title="2. Servlet原理"></a>2. Servlet原理</h2><p>Servlet由web服务器调用</p>
+<p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/20240304101917.png" alt="Servlet原理"></p>
+<h2 id="3-Servlet的"><a href="#3-Servlet的" class="headerlink" title="3. Servlet的"></a>3. Servlet的</h2><h3 id="3-1-ServletContext"><a href="#3-1-ServletContext" class="headerlink" title="3.1 ServletContext"></a>3.1 ServletContext</h3><p>web容器启动的时候，会为每个web程序都创建一个对应的ServletContext对象，他代表当前的web应用</p>
+<ul>
+<li>共享数据 -&gt; session来做</li>
+<li>请求转发（dispacher）-&gt; request来做</li>
+<li>读取资源文件（properties）</li>
+<li>获取初始化参数</li>
+</ul>
+<h3 id="3-2-Cookie-Session"><a href="#3-2-Cookie-Session" class="headerlink" title="3.2 Cookie,Session"></a>3.2 Cookie,Session</h3><h4 id="3-2-1-会话"><a href="#3-2-1-会话" class="headerlink" title="3.2.1 会话"></a>3.2.1 会话</h4><p>会话：用户打开一个浏览器，点击了很多超链接，访问多个web资源，关闭浏览器，这个过程称之为会话。</p>
+<p>有状态会话</p>
+<h4 id="3-2-2-保存会话的两种技术"><a href="#3-2-2-保存会话的两种技术" class="headerlink" title="3.2.2 保存会话的两种技术"></a>3.2.2 保存会话的两种技术</h4><p>Cookie</p>
+<ul>
+<li>客户端技术</li>
+</ul>
+<p>Session</p>
+<ul>
+<li>服务器技术</li>
+</ul>
+<h4 id="3-2-3-Cookie"><a href="#3-2-3-Cookie" class="headerlink" title="3.2.3 Cookie"></a>3.2.3 Cookie</h4><p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/20240307182027.png" alt="Cookie"></p>
+<ul>
+<li>保存到本地目录下appdata</li>
+<li>一个cookie只能保存一个信息</li>
+<li>一个web站点可以给浏览器发送多个cookie</li>
+<li>删除cookie：</li>
+</ul>
+<ol>
+<li>不设置过期时间，关闭浏览器，自动失效</li>
+<li>设置过期时间为0</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.*;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> user liujing</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HelloServlet</span> <span class="keyword">extends</span> <span class="title class_">HttpServlet</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException &#123;</span><br><span class="line">        Cookie[] cookies = req.getCookies();</span><br><span class="line">        <span class="keyword">for</span> (Cookie cookie : cookies)&#123;</span><br><span class="line">            resp.getWriter().println(cookie.toString());</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="type">Cookie</span> <span class="variable">cookie</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Cookie</span>(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;name&quot;</span>);</span><br><span class="line">        resp.addCookie(cookie);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException &#123;</span><br><span class="line">        <span class="built_in">super</span>.doPost(req, resp);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-2-4-Session"><a href="#3-2-4-Session" class="headerlink" title="3.2.4 Session"></a>3.2.4 Session</h4><p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/20240307181453.png" alt="Session"></p>
+<p>服务器给每个用户（浏览器）创建一个Session对象，浏览器不关，Session就存在</p>
+<p>object类型，保存用户信息</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.*;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> user </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HelloServlet</span> <span class="keyword">extends</span> <span class="title class_">HttpServlet</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException &#123;</span><br><span class="line">        <span class="type">HttpSession</span> <span class="variable">session</span> <span class="operator">=</span> req.getSession();</span><br><span class="line">        session.setAttribute(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;name&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (session.isNew())&#123;</span><br><span class="line">            resp.getWriter().print(<span class="string">&quot;session新创建&quot;</span> + session.getId());</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            resp.getWriter().print(<span class="string">&quot;session已经创建&quot;</span> + session.getId());</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 注销session，但是马上会生成一个新的</span></span><br><span class="line">        session.invalidate();</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException &#123;</span><br><span class="line">        <span class="built_in">super</span>.doPost(req, resp);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Maven高级</title>
+    <url>/2022/06/10/Maven%E9%AB%98%E7%BA%A7/</url>
+    <content><![CDATA[<ol>
+<li><p>当某个项目被修改时，他的私服并未修改，其他项目不能使用</p>
+<p>聚合：为所有模块添加父模块，统一管理，同时编译，同时部署，父模块仅作为项目管理用</p>
+</li>
+<li><p>当项目之间依赖版本出现冲突时</p>
+<p> 继承：在父模块中加入版本，子模块直接引用</p>
+</li>
+<li><p>如何添加版本</p>
+<p>通过自定义属性标签</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;properties&gt;</span><br><span class="line">    &lt;自定义属性名&gt;属性值&lt;/自定义属性名&gt;</span><br><span class="line">&lt;/properties&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在pom文件中，还可以获取以下属性：</p>
+<ul>
+<li>自定义属性</li>
+<li>maven内置属性</li>
+<li>setting文件夹中的属性</li>
+<li>Java系统属性</li>
+<li>环境变量属性</li>
+</ul>
+</li>
+<li><p>资源配置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;resources&gt;</span><br><span class="line">      引入配置文件信息</span><br><span class="line">&lt;/resources&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>版本管理</p>
+<ul>
+<li>snapshot 快照版本</li>
+<li>release 发布版本</li>
+</ul>
+</li>
+</ol>
+<p>​      </p>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>maven</tag>
+        <tag>项目管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Maven初级</title>
+    <url>/2022/06/08/Maven%E5%88%9D%E7%BA%A7/</url>
+    <content><![CDATA[<h1 id="一-概述"><a href="#一-概述" class="headerlink" title="一.概述"></a>一.概述</h1><p>Maven的两大功能，依赖管理和构建项目</p>
 <h1 id="二-依赖管理"><a href="#二-依赖管理" class="headerlink" title="二.依赖管理"></a>二.依赖管理</h1><h2 id="1-仓库"><a href="#1-仓库" class="headerlink" title="1.仓库"></a>1.仓库</h2><ul>
 <li>本地仓库：在setting.xml文件配置的，本机存放依赖的仓库</li>
 <li>私服：公司搭建的局域网仓库，包含中央仓库+私有</li>
@@ -213,7 +473,7 @@
 <h2 id="2-坐标"><a href="#2-坐标" class="headerlink" title="2.坐标"></a>2.坐标</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">       &lt;groupId&gt;组织名&lt;/groupId&gt;</span><br><span class="line">       &lt;artifactId&gt;模块名&lt;/artifactId&gt;</span><br><span class="line">       &lt;version&gt;版本号&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
 
 <h2 id="3-依赖传递"><a href="#3-依赖传递" class="headerlink" title="3.依赖传递"></a>3.依赖传递</h2><h3 id="1）原则"><a href="#1）原则" class="headerlink" title="1）原则"></a>1）原则</h3><p>项目引用时，依赖也被引用</p>
-<h3 id="2）依赖传递"><a href="#2）依赖传递" class="headerlink" title="2）依赖传递"></a>2）依赖传递</h3><p><img src="C:\Users\user\AppData\Roaming\Typora\typora-user-images\image-20231208145517446.png" alt="image-20231208145517446"></p>
+<h3 id="2）依赖传递"><a href="#2）依赖传递" class="headerlink" title="2）依赖传递"></a>2）依赖传递</h3><p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/maven%E5%88%9D%E7%BA%A71.png" alt="maven初级1">)</p>
 <h3 id="3）解决依赖冲突"><a href="#3）解决依赖冲突" class="headerlink" title="3）解决依赖冲突"></a>3）解决依赖冲突</h3><p>总原则：不是我用的就调</p>
 <h4 id="（1）scope标签"><a href="#（1）scope标签" class="headerlink" title="（1）scope标签"></a>（1）scope标签</h4><p>1.设定依赖使用范围，范围包括：</p>
 <ul>
@@ -327,85 +587,270 @@
       </tags>
   </entry>
   <entry>
-    <title>请求头信息</title>
-    <url>/2023/12/08/%E8%AF%B7%E6%B1%82%E5%A4%B4%E4%BF%A1%E6%81%AF/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>技术</category>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>request</tag>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>maven高级</title>
-    <url>/2023/12/08/maven%E9%AB%98%E7%BA%A7/</url>
-    <content><![CDATA[<ol>
-<li><p>当某个项目被修改时，他的私服并未修改，其他项目不能使用</p>
-<p>聚合：为所有模块添加父模块，统一管理，同时编译，同时部署，父模块仅作为项目管理用</p>
-</li>
-<li><p>当项目之间依赖版本出现冲突时</p>
-<p> 继承：在父模块中加入版本，子模块直接引用</p>
-</li>
-<li><p>如何添加版本</p>
-<p>通过自定义属性标签</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;properties&gt;</span><br><span class="line">    &lt;自定义属性名&gt;属性值&lt;/自定义属性名&gt;</span><br><span class="line">&lt;/properties&gt;</span><br></pre></td></tr></table></figure>
+    <title>Mysql使用技巧</title>
+    <url>/2024/02/28/Mysql%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<h1 id="一-内置函数"><a href="#一-内置函数" class="headerlink" title="一.内置函数"></a>一.内置函数</h1><p>1.isnull(exper) 判断exper是否为空，是则返回1，否则返回0</p>
+<p>2.ifnull(exper1,exper2)判断exper1是否为空，是则用exper2代替</p>
+<p>3.nullif(exper1,exper2)如果expr1&#x3D; expr2 成立，那么返回值为NULL，否则返回值为  expr1。</p>
+<p>limit num offset num </p>
+<p>如果没有，什么都不返回，如果要求返回null，则加个临时表</p>
+<p>存储过程</p>
+<p>查找第n高的薪水</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT</span><br><span class="line">BEGIN</span><br><span class="line">DECLARE M INT; </span><br><span class="line">SET M = N-1;</span><br><span class="line">  RETURN (</span><br><span class="line">      # Write your MySQL query statement below.</span><br><span class="line">        SELECT DISTINCT salary</span><br><span class="line">      FROM Employee</span><br><span class="line">      ORDER BY salary DESC</span><br><span class="line">      LIMIT M, 1</span><br><span class="line"> );</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
 
-<p>在pom文件中，还可以获取以下属性：</p>
-<ul>
-<li>自定义属性</li>
-<li>maven内置属性</li>
-<li>setting文件夹中的属性</li>
-<li>Java系统属性</li>
-<li>环境变量属性</li>
-</ul>
-</li>
-<li><p>资源配置</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;resources&gt;</span><br><span class="line">      引入配置文件信息</span><br><span class="line">&lt;/resources&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>版本管理</p>
-<ul>
-<li>snapshot 快照版本</li>
-<li>release 发布版本</li>
-</ul>
-</li>
-</ol>
-<p>​      </p>
 ]]></content>
       <categories>
         <category>技术</category>
         <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mysql慢查询的优化</title>
+    <url>/2023/07/03/Mysql%E6%85%A2%E6%9F%A5%E8%AF%A2%E7%9A%84%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<h1 id="一-Mysql慢查询如何优化？"><a href="#一-Mysql慢查询如何优化？" class="headerlink" title="一.Mysql慢查询如何优化？"></a>一.Mysql慢查询如何优化？</h1><ol>
+<li>检查是否使用了索引，优化SQL使用索引</li>
+<li>检查所用索引，是否为最有索引</li>
+<li>检查所查字段是否都是必须，是否查询了过多字段，查出了多余数据</li>
+<li>检查表中数据是否过多，是否进行分库分表</li>
+<li>检查数据库所在服务器配置，适当增加资源</li>
+</ol>
+<h1 id="二-索引"><a href="#二-索引" class="headerlink" title="二.索引"></a>二.索引</h1><h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h2><p>索引是一种特殊的文件(InnoDB数据表上的索引是表空间的一个组成部分)，它 们包含着对数据表里所有记录的引用指针。</p>
+<h2 id="2-分类"><a href="#2-分类" class="headerlink" title="2.分类"></a>2.分类</h2><p>主键索引:数据列不允许重复，不允许为NULL， 一个表只能有一个主键。 </p>
+<p>唯一索引:数据列不允许重复，允许为NULL值， 一个表允许多个列创建唯一索引。 </p>
+<ul>
+<li><p>可以通过</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ALTER TABLE table_name ADD UNIQUE(column);</span><br></pre></td></tr></table></figure>
+
+<p> 创建唯一索引 </p>
+</li>
+<li><p>可以通过</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ALTER TABLE table_name ADD UNIQUE(column1,column2);</span><br></pre></td></tr></table></figure>
+
+<p> 创建唯一组合索引</p>
+</li>
+</ul>
+<p>普通索引:基本的索引类型，没有唯一性的限制，允许为NULL值。 </p>
+<ul>
+<li><p>可以通过</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ALTER TABLE table_name ADD INDEX index_name(column); </span><br></pre></td></tr></table></figure>
+
+<p>创建普通索引 </p>
+</li>
+<li><p>可以通过</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ALTER TABLE table_name ADD INDEX index_name(column1,column2,column3);</span><br></pre></td></tr></table></figure>
+
+<p> 创建组合索引</p>
+</li>
+</ul>
+<p>全文索引：是目前搜索引擎使用的一种关键技术。 </p>
+<ul>
+<li><p>可以通过</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ALTER TABLE table_name ADD FULLTEXT(column);</span><br></pre></td></tr></table></figure>
+
+<p> 创建全文索引</p>
+</li>
+</ul>
+<h2 id="3-索引的数据结构"><a href="#3-索引的数据结构" class="headerlink" title="3.索引的数据结构"></a>3.索引的数据结构</h2><p>B树的特点：</p>
+<ol>
+<li>节点排序</li>
+<li>一个节点存多个元素，多个元素也排序</li>
+</ol>
+<p>B+树的特点：</p>
+<ol>
+<li>拥有B树的特点</li>
+<li>叶子节点之间有指针</li>
+<li>叶子节点存储所有元素，并且排好顺序</li>
+</ol>
+<p>Mysql索引使用的是B+树，因为索引是用来加快查询速度的，而B+树通过对数据进行排序，叶子节点存储了所有元素，从而使B+树不会太高，而且叶子节点有指针，可以支持全表扫描，范围查找等SQL语句</p>
+<h2 id="4-索引失效"><a href="#4-索引失效" class="headerlink" title="4.索引失效"></a>4.索引失效</h2><ol>
+<li>查询条件中有or,即使有部分条件带索引也会失效</li>
+<li>like查询是以%开头</li>
+<li>如果列类型是字符串，那在查询条件中需要将数据用引号引用起来，否则不走索引</li>
+<li>索引列上参与计算会导致索引失效</li>
+<li>违背最左匹配原则</li>
+<li>如果mysql估计全表扫描要比使用索引要快，会不适用索引</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mysql的存储机制和锁</title>
+    <url>/2023/04/17/Mysql%E7%9A%84%E5%AD%98%E5%82%A8%E6%9C%BA%E5%88%B6%E5%92%8C%E9%94%81/</url>
+    <content><![CDATA[<h4 id="1-Mysql的存储引擎"><a href="#1-Mysql的存储引擎" class="headerlink" title="1.Mysql的存储引擎"></a>1.Mysql的存储引擎</h4><p>默认为InnoDB</p>
+<p>还有<strong>MyISAM存储引擎</strong></p>
+<h4 id="2-InnoDB的特性"><a href="#2-InnoDB的特性" class="headerlink" title="2.InnoDB的特性"></a>2.InnoDB的特性</h4><p>1）支持提交，回滚等事务</p>
+<p>2）支持完整的外键约束</p>
+<p>3）专为大数量设计</p>
+<p>4）实现了行级锁，共享锁和排他锁</p>
+<h4 id="3-MyISAM的特性"><a href="#3-MyISAM的特性" class="headerlink" title="3.MyISAM的特性"></a>3.MyISAM的特性</h4><p>MyISAM拥有较高的插入、查询速度，但<strong>不支持事物</strong>和行级锁</p>
+<h4 id="4-锁的分类"><a href="#4-锁的分类" class="headerlink" title="4.锁的分类"></a>4.锁的分类</h4><p>按锁粒度分：</p>
+<p>​	行锁：锁某行数据，颗粒度最小，并发度高</p>
+<p>​	表锁：锁整张表，颗粒度大，并发度低</p>
+<p>​	间隙锁：锁一个区间</p>
+<p>还可以分为：</p>
+<p>​	共享锁：也就是读锁，一个事务给某行数据加了读锁，其他事务也可以读，但是不能写</p>
+<p>​	排他锁：也就是写锁，一个事务给某行数据加了写锁，其他事务不能读，也不能写</p>
+<p>还可以分为：</p>
+<p>​	乐观锁：并不会真正锁某行记录，而是通过一个版本号来实现</p>
+<p>​	悲观锁：行锁，表锁都是悲观锁</p>
+<p>在事务的隔离级别实现中，需要用锁来解决幻读</p>
+<h4 id="4-事务"><a href="#4-事务" class="headerlink" title="4.事务"></a>4.事务</h4><h5 id="1）并发带来的问题"><a href="#1）并发带来的问题" class="headerlink" title="1）并发带来的问题"></a>1）并发带来的问题</h5><ul>
+<li><strong>脏读：</strong>一个事务读取另一个<strong>未提交</strong>的数据。</li>
+<li><strong>不可重复读：</strong>一个事务范围内两个相同的查询却返回了不同数据。</li>
+<li><strong>幻读：</strong>一个事务范围内两个相同的查询却返回了不同数据。对应的是插入操作。</li>
+</ul>
+<p><strong>数据库通常会通过锁机制来解决数据并发访问问题，直接使用锁非常麻烦，为此</strong>数据库为用户提供了自动锁机制，用户指定会话的事务隔离级别，数据库就会通过分析SQL语句然后为事务访问的资源加上合适的锁</p>
+<h5 id="2）事务的隔离级别"><a href="#2）事务的隔离级别" class="headerlink" title="2）事务的隔离级别"></a>2）事务的隔离级别</h5><p>从上到下，由低到高</p>
+<ul>
+<li>Read Uncommited，读未提交，即一个事务可以读取另一个未提交事务的数据；并发操作会导致脏读</li>
+<li>Read Commited，读操作，即一个事务要等到另一个事务提交后才能读取数据；解决脏读问题；并发操作会导致不可重复读</li>
+<li>Repeatable Read，重复读，即开始读取数据（事务开启）时，不再允许修改操作；解决不可重复读问题；并发操作会导致幻读（对应insert操作）</li>
+<li>Serializable，序列化，最高的事务隔离级别，该级别下，事务串行化顺序执行；避免脏读、不可重复读与幻读；但是该级别效率低下，比较消耗数据库性能，一般不用。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/20240223145953.png" alt="事务的隔离级别"></p>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring AOP和代理模式</title>
+    <url>/2023/11/17/Spring-AOP%E5%92%8C%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="一-代理模式"><a href="#一-代理模式" class="headerlink" title="一.代理模式"></a>一.代理模式</h1><h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h2><p>对一个对象提供一个代理对象，使用代理对象控制对原对象的引用</p>
+<p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/20240223182254.png" alt="结构类图"></p>
+<p>RealSubject类实现Subject接口，Proxy类实现Subject接口，并定义RealSubject对象作为成员变量</p>
+<p>客户端不直接依赖代理类</p>
+<h2 id="2-分类"><a href="#2-分类" class="headerlink" title="2.分类"></a>2.分类</h2><ul>
+<li>静态代理：通过代码编译生成代理类</li>
+<li>动态代理：运行时动态生成代理类</li>
+</ul>
+<h2 id="3-实现"><a href="#3-实现" class="headerlink" title="3.实现"></a>3.实现</h2><p>1）jdk的动态代理</p>
+<p>自定义Proxy类，实现InvocationHandle接口，重写invoke方法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public interface Subject &#123;</span><br><span class="line">    public void rent();</span><br><span class="line"></span><br><span class="line">    public void hello(String str);</span><br><span class="line">&#125;</span><br><span class="line">public class SubjectImpl implements Subject&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void rent() &#123;</span><br><span class="line">        System.out.println(&quot;I want to rent my house&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void hello(String str) &#123;</span><br><span class="line">        System.out.println(&quot;hello: &quot; + str);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public class DynamicProxy implements InvocationHandler &#123;</span><br><span class="line">    // 这个就是要代理的真实对象</span><br><span class="line">    private Object subject;</span><br><span class="line"></span><br><span class="line">    // 构造方法，给要代理的真实对象赋初值</span><br><span class="line">    public DynamicProxy(Object subject) &#123;</span><br><span class="line">        this.subject = subject;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Object invoke(Object object, Method method, Object[] args) throws Throwable &#123;</span><br><span class="line">        // 在代理真实对象前可以添加一些自己的操作</span><br><span class="line">        System.out.println(&quot;before rent house&quot;);</span><br><span class="line">        System.out.println(&quot;Method:&quot; + method);</span><br><span class="line"></span><br><span class="line">        // 当代理对象调用真实对象的方法时，其会自动的跳转到代理对象关联的handler对象的invoke方法来进行调用</span><br><span class="line">        Object result = method.invoke(subject, args);</span><br><span class="line"></span><br><span class="line">        // 在代理真实对象后也可以添加一些自己的操作</span><br><span class="line">        System.out.println(&quot;after rent house&quot;);</span><br><span class="line"></span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">public class Client &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        //    要代理的真实对象</span><br><span class="line">        Subject realSubject = new SubjectImpl();</span><br><span class="line">        //   要代理哪个真实对象，就将该对象传进去，最后是通过该真实对象来调用其方法的</span><br><span class="line">        InvocationHandler handler = new DynamicProxy(realSubject);</span><br><span class="line">        /*</span><br><span class="line">         * 通过Proxy的newProxyInstance方法来创建我们的代理对象，来看看其三个参数</span><br><span class="line">         * 第一个参数 handler.getClass().getClassLoader() ，这里使用handler这个类的ClassLoader对象来加载我们的代理对象</span><br><span class="line">         * 第二个参数realSubject.getClass().getInterfaces()，这里为代理对象提供的接口是真实对象所实行的接口，</span><br><span class="line">         * 表示要代理的是该真实对象，这样就能调用这组接口中的方法了</span><br><span class="line">         * 第三个参数handler， 这里将这个代理对象关联到了上方的 InvocationHandler 这个对象上</span><br><span class="line">         */</span><br><span class="line">        Subject subject = (Subject) Proxy.newProxyInstance(handler.getClass().getClassLoader(), realSubject.getClass().getInterfaces(), handler);</span><br><span class="line">        System.out.println(subject.getClass().getName());</span><br><span class="line">        subject.rent();</span><br><span class="line">        subject.hello(&quot;world&quot;);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>自定义工厂类，返回代理对象</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>Spring</tag>
+        <tag>JAVA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringMVC简介</title>
+    <url>/2022/03/02/SpringMVC%E7%AE%80%E4%BB%8B/</url>
+    <content><![CDATA[<h1 id="一-MVC"><a href="#一-MVC" class="headerlink" title="一.MVC"></a>一.MVC</h1><h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h2><p>一种软件架构思想，将软件按照模型，视图，控制器来划分</p>
+<p>M：Model，模型层，指工程中的JavaBean，作用是处理数据</p>
+<p>V：View，视图层，指工程中的html或jsp等页面，作用是与用户进行交互，展示数据</p>
+<p>C：Controller，控制层，指工程中的servlet，作用是接受请求和相应浏览器</p>
+<h2 id="2-工作流程"><a href="#2-工作流程" class="headerlink" title="2.工作流程"></a>2.工作流程</h2><p>用户通过视图层发送请求到服务器，在服务器中请求被Controller接受，Controller调用相应的Model层处理请求，处理完毕将结果返回到Controller，Controller再根据请求处理的结果找到对应的View视图，渲染数据后最终响应给浏览器。</p>
+<h1 id="二-SpringMVC"><a href="#二-SpringMVC" class="headerlink" title="二.SpringMVC"></a>二.SpringMVC</h1><p>springMVC是spring的一个子项目，是spring为表述层（前台页面+servlet）提供的一整套完备的解决方案。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>Spring</tag>
+        <tag>JAVA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Springboot及其它第三方框架注解</title>
+    <url>/2024/04/24/Springboot%E5%8F%8A%E5%85%B6%E5%AE%83%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A1%86%E6%9E%B6%E6%B3%A8%E8%A7%A3/</url>
+    <content><![CDATA[<h2 id="JsonFormat"><a href="#JsonFormat" class="headerlink" title="@JsonFormat"></a>@JsonFormat</h2><p>从mongo里面读出来的时间类型，在实体类里面用Date接收，然后将bean传给前端的时候json中是Sun Apr 28 16:02:56 CST 2019这么显示的，但是前端要的是2019-4-28 16:02:56这样子的显示格式，而且mongo中的时间类型的时区转换到实体类里面还不一样。</p>
+<p>主要就是解决实体类和json之间互相转换的时候时间类型格式和时区不一致的问题，当然也可以用在枚举中和集合里面。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Param</span> &#123;</span><br><span class="line">    <span class="meta">@JsonFormat(shape = JsonFormat.Shape.STRING , pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;, timezone = &quot;Asia/Shanghai&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Date date;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Date <span class="title function_">getDate</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> date;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setDate</span><span class="params">(Date date)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.date = date;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="DateTimeFormat"><a href="#DateTimeFormat" class="headerlink" title="@DateTimeFormat"></a>@DateTimeFormat</h2><p>与@JsonFormat类似，也是对时间格式进行规范的。主要处理前端时间类型与后端pojo对象中的成员变量进行数据绑定，所约束的时间格式并不会影响后端返回前端的时间类型数据格式。</p>
+<h2 id="Autowired"><a href="#Autowired" class="headerlink" title="@Autowired"></a>@Autowired</h2><p>启用注解注入后，可以在属性、Setter 和构造器上使用自动装配。</p>
+<h3 id="一-Autowired使用"><a href="#一-Autowired使用" class="headerlink" title="一.@Autowired使用"></a>一.@Autowired使用</h3><h4 id="1-在属性上使用-Autowired"><a href="#1-在属性上使用-Autowired" class="headerlink" title="1.在属性上使用 @Autowired"></a>1.在属性上使用 @Autowired</h4><p>使用 <code>@Autowired</code> 对属性进行注解。这样就不需要使用 Getter 和 Setter 了。</p>
+<h4 id="2-在-Setter-方法上使用-Autowired"><a href="#2-在-Setter-方法上使用-Autowired" class="headerlink" title="2.在 Setter 方法上使用 @Autowired"></a>2.在 Setter 方法上使用 @Autowired</h4><h4 id="3-在构造函数上使用-Autowired"><a href="#3-在构造函数上使用-Autowired" class="headerlink" title="3.在构造函数上使用 @Autowired"></a>3.在构造函数上使用 @Autowired</h4><h4 id="4-Autowired-和可选依赖"><a href="#4-Autowired-和可选依赖" class="headerlink" title="4.@Autowired 和可选依赖"></a>4.@Autowired 和可选依赖</h4><p>在构建 Bean 时，<code>@Autowired</code> 依赖应该可用。否则，如果 Spring 无法解析用于装配的 Bean，它就会阻止 Spring 容器成功启动，并抛出 <code>NoSuchBeanDefinitionException</code> 异常：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: </span><br><span class="line">No qualifying bean of type [com.autowire.sample.FooDAO] found <span class="keyword">for</span> dependency: </span><br><span class="line">expected at least <span class="number">1</span> bean which qualifies as autowire candidate <span class="keyword">for</span> <span class="built_in">this</span> dependency. </span><br><span class="line">Dependency annotations: </span><br><span class="line">&#123;<span class="meta">@org</span>.springframework.beans.factory.annotation.Autowired(required=<span class="literal">true</span>)&#125;</span><br></pre></td></tr></table></figure>
+
+<p>要解决这个问题，需要声明一个 <code>required</code> 类型的 Bean：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FooService</span> &#123;</span><br><span class="line">    <span class="meta">@Autowired(required = false)</span></span><br><span class="line">    <span class="keyword">private</span> FooDAO dataAccessor; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二-自动装配消岐"><a href="#二-自动装配消岐" class="headerlink" title="二.自动装配消岐"></a>二.自动装配消岐</h3><p>默认情况下，Spring 按类型解析 <code>@Autowired</code> 依赖。如果容器中存在多个相同类型的 Bean，框架将抛出异常。</p>
+<p>要解决这一冲突，需要明确告诉 Spring 要注入哪个 Bean。</p>
+<h4 id="1-使用-Qualifier-进行自动装配"><a href="#1-使用-Qualifier-进行自动装配" class="headerlink" title="1.使用 @Qualifier 进行自动装配"></a>1.使用 @Qualifier 进行自动装配</h4><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Component(&quot;fooFormatter&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FooFormatter</span> <span class="keyword">implements</span> <span class="title class_">Formatter</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">format</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;foo&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Component(&quot;barFormatter&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BarFormatter</span> <span class="keyword">implements</span> <span class="title class_">Formatter</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">format</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;bar&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此时由于有两种类型的bean对象，Spring会抛出<code>NoUniqueBeanDefinitionException</code> 异常，此时使用@Qualifier注解缩小实现范围来避免这种情况。有多个相同类型的bean，最好使用@Qualifier注解。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FooService</span> &#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="meta">@Qualifier(&quot;fooFormatter&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Formatter formatter;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-根据-Bean-名称装配"><a href="#2-根据-Bean-名称装配" class="headerlink" title="2.根据 Bean 名称装配"></a>2.根据 Bean 名称装配</h4><p>Spring 使用 Bean 的名称作为默认 Qualifier value。它会检查容器，并查找与要自动装配的属性名称完全相同的 Bean 来进行装配。</p>
+<p>因此，在如下示例中，Spring 将 <code>fooFormatter</code> 属性名与 <code>FooFormatter</code> 实现相匹配。因此，在构建 <code>FooService</code> 时，它会注入该特定实现：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FooService</span> &#123;</span><br><span class="line"> <span class="meta">@Qualifier</span> </span><br><span class="line"> <span class="keyword">private</span> Formatter fooFormatter; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Resource"><a href="#Resource" class="headerlink" title="@Resource"></a>@Resource</h2><p>@Resource注解默认通过byName方式注入，如果没有匹配则通过byType注入。<strong>byName就是变量名去匹配bean的id属性，而byType则是变量类型去匹配bean的class属性</strong>。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 默认方式：byName</span></span><br><span class="line"><span class="meta">@Resource</span>  </span><br><span class="line"><span class="keyword">private</span> UserService userDao; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 指定byName</span></span><br><span class="line"><span class="meta">@Resource(name=&quot;userService&quot;)</span>  </span><br><span class="line"><span class="keyword">private</span> UserService userService; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 指定byType</span></span><br><span class="line"><span class="meta">@Resource(type=UserService.class)</span>  </span><br><span class="line"><span class="keyword">private</span> UserService userService; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 指定byName和byType</span></span><br><span class="line"><span class="meta">@Resource(name=&quot;userService&quot;,type=UserService.class)</span>  </span><br><span class="line"><span class="keyword">private</span> UserService userService; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>既没指定name属性，也没指定type属性：默认通过byName方式注入，如果byName匹配失败，则使用byType方式注入（也就是上面的那个例子）</li>
+<li>指定name属性：通过byName方式注入，把变量名和IOC容器中的id去匹配，匹配失败则报错</li>
+<li>指定type属性：通过byType方式注入，在IOC容器中匹配对应的类型，如果匹配不到或者匹配到多个则报错</li>
+<li>同时指定name属性和type属性：在IOC容器中匹配，名字和类型同时匹配则成功，否则失败</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+        <category>实践</category>
+      </categories>
+      <tags>
+        <tag>Spring</tag>
+        <tag>JAVA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jar中没有主清单属性</title>
+    <url>/2023/12/12/jar%E4%B8%AD%E6%B2%A1%E6%9C%89%E4%B8%BB%E6%B8%85%E5%8D%95%E5%B1%9E%E6%80%A7/</url>
+    <content><![CDATA[<p>问题：cmd窗口，运行jar包时，出现如下报错</p>
+<p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/jar%E4%B8%AD%E6%B2%A1%E6%9C%89%E4%B8%BB%E6%B8%85%E5%8D%95%E5%B1%9E%E6%80%A7.png" alt="jar中没有主清单属性"></p>
+<p>解决方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;plugin&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">    &lt;executions&gt;</span><br><span class="line">        &lt;execution&gt;</span><br><span class="line">            &lt;goals&gt;</span><br><span class="line">                &lt;goal&gt;repackage&lt;/goal&gt;</span><br><span class="line">            &lt;/goals&gt;</span><br><span class="line">        &lt;/execution&gt;</span><br><span class="line">    &lt;/executions&gt;</span><br><span class="line">&lt;/plugin&gt;</span><br></pre></td></tr></table></figure>
+
+<p>repackage：多打了源码Jar包，并将其他代码和环境加入原来jar包（其中加入了主启动类信息，解决了此次报错）</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+        <category>实践</category>
       </categories>
       <tags>
         <tag>JAVA</tag>
         <tag>maven</tag>
-        <tag>项目管理</tag>
+        <tag>bug</tag>
       </tags>
   </entry>
   <entry>
-    <title>git上传文件（超过100MB）</title>
-    <url>/2021/12/11/git%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%EF%BC%88%E8%B6%85%E8%BF%87100MB%EF%BC%89/</url>
-    <content><![CDATA[<h3 id="问题：git无法上传超过100mb的文件"><a href="#问题：git无法上传超过100mb的文件" class="headerlink" title="问题：git无法上传超过100mb的文件"></a><strong>问题：git无法上传超过100mb的文件</strong></h3><h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><h4 id="1-安装lfs（windows10）"><a href="#1-安装lfs（windows10）" class="headerlink" title="1.安装lfs（windows10）"></a>1.安装lfs（windows10）</h4><p>进入<a href="https://git-lfs.com/">git-lfs官网</a>下载安装包，双击安装程序按提示安装即可。</p>
-<h4 id="2-开启lfs功能"><a href="#2-开启lfs功能" class="headerlink" title="2.开启lfs功能"></a>2.开启lfs功能</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git lfs install</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-选择文件类型（）这里选择的是zip类型"><a href="#3-选择文件类型（）这里选择的是zip类型" class="headerlink" title="3.选择文件类型（）这里选择的是zip类型"></a>3.选择文件类型（）这里选择的是zip类型</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git lfs track &quot;*.zip&quot;</span><br></pre></td></tr></table></figure>
-
-<h4 id="4-然后配置远程仓库"><a href="#4-然后配置远程仓库" class="headerlink" title="4.然后配置远程仓库"></a>4.然后配置远程仓库</h4><p>执行完上面的命令后，会生成一个.gitattributes文件，要将其上传到远程gitee仓库。这里我把.gitattributes和大文件分开上传。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git add .gitattributes</span><br><span class="line">$ git commit -m &#x27;上传文件&#x27;</span><br><span class="line">$ git push origin master（如果提交不了，后面可以加一个-f）</span><br></pre></td></tr></table></figure>
-
-<h4 id="5-上传大文件"><a href="#5-上传大文件" class="headerlink" title="5.上传大文件"></a>5.上传大文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add mysql-5.7.36-win64.zip</span><br><span class="line">git commit -m &quot;上传MySQL安装包&quot;</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
-
-<h4 id="6-解决报错"><a href="#6-解决报错" class="headerlink" title="6.解决报错"></a>6.解决报错</h4><p>这里的报错主要有两个</p>
-<p>WARNING: Authentication error: Authentication required: LFS only supported repository in paid enterprise.<br>batch response: LFS only supported repository in paid enterprise.</p>
-<h5 id="6-1-第一个错误的解决方式是"><a href="#6-1-第一个错误的解决方式是" class="headerlink" title="6.1.第一个错误的解决方式是"></a>6.1.第一个错误的解决方式是</h5><p>git config lfs.<a href="https://gitee.com/%7Byour_gitee%7D/%7Byour_repo%7D.git/info/lfs.locksverify">https://gitee.com/{your_gitee}/{your_repo}.git/info/lfs.locksverify</a> false<br>命令中的{your_gitee}&#x2F;{your_repo}是你的远程仓库地址，根据自己情况替换。</p>
-<h5 id="6-2-第二个错误的解决方式"><a href="#6-2-第二个错误的解决方式" class="headerlink" title="6.2.第二个错误的解决方式"></a>6.2.第二个错误的解决方式</h5><figure class="highlight vbscript"><table><tr><td class="code"><pre><span class="line">batch <span class="built_in">response</span>: LFS only supported repository <span class="keyword">in</span> paid enterprise.</span><br></pre></td></tr></table></figure>
-
-<p>删除<code>./git/hooks/pre-push</code>文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> .git/hooks/pre-push</span><br></pre></td></tr></table></figure>
-
-<h4 id="7-上传文件"><a href="#7-上传文件" class="headerlink" title="7.上传文件"></a>7.上传文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push orgin master</span><br></pre></td></tr></table></figure>
+    <title>一年中的第几天</title>
+    <url>/2021/01/28/%E4%B8%80%E5%B9%B4%E4%B8%AD%E7%9A%84%E7%AC%AC%E5%87%A0%E5%A4%A9/</url>
+    <content><![CDATA[<p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/20240228113219.png" alt="一年中的第几天"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int dayOfYear(String date) &#123;</span><br><span class="line">        int year = Integer.parseInt(date.substring(0, 4));</span><br><span class="line">        int month = Integer.parseInt(date.substring(5, 7));</span><br><span class="line">        int day = Integer.parseInt(date.substring(8, 10));</span><br><span class="line"></span><br><span class="line">        int[] amount = &#123;31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31&#125;;</span><br><span class="line">        if(year % 400 == 0 || (year % 4 == 0 &amp;&amp; year % 100 != 0))&#123;</span><br><span class="line">            amount[1] += 1;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        int temp = 0;</span><br><span class="line">        for(int i = 0; i &lt; month-1; i ++)&#123;</span><br><span class="line">            temp += amount[i];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return temp + day;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -414,53 +859,112 @@
       </categories>
       <tags>
         <tag>JAVA</tag>
-        <tag>项目管理</tag>
-        <tag>gitee</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
-    <title>hexo部署gitee</title>
-    <url>/2023/12/08/hexo%E9%83%A8%E7%BD%B2gitee/</url>
-    <content><![CDATA[<ol>
-<li><p>访问<a href="https://hexo.io/zh-cn/index.html">官网</a>，获取hexo源码</p>
-</li>
-<li><p>在gitee网站，新建仓库</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git config --global user.email &quot;你的邮箱&quot;</span><br><span class="line">git config --global user.name &quot;用户名&quot;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>获取SSH公钥</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">// 通过命令 ssh-keygen 生成 SSH Key</span><br><span class="line">ssh-keygen -t rsa -C &quot;你的邮箱&quot;</span><br><span class="line">// 读取公钥文件</span><br><span class="line">cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>将公钥复制，在gitee官网设置中，添加公钥</p>
-</li>
-<li><p>通过 <code>ssh -T</code> 测试，输出 SSH Key 绑定的<strong>用户名</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ ssh -T git@gitee.com</span><br><span class="line">Hi USERNAME! You&#x27;ve successfully authenticated, but GITEE.COM does not provide shell access.</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>安装，完成后可以部署到gitee</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>生成网页</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>本地运行，预览网页</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>部署博客</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure></li>
-</ol>
+    <title>线程死锁的解决方案</title>
+    <url>/2023/02/23/%E7%BA%BF%E7%A8%8B%E6%AD%BB%E9%94%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+    <content><![CDATA[<h1 id="一-问题"><a href="#一-问题" class="headerlink" title="一.问题"></a>一.问题</h1><p>Process.waitFor导致死锁</p>
+<h1 id="二-产生原因"><a href="#二-产生原因" class="headerlink" title="二.产生原因"></a>二.产生原因</h1><p>使用Runtime.exec执行命令时，JAVA的线程会创建一个子进程，用于执行命令，而且子进程和JAVA线程会分别独立运行。主线程需要等待脚本进程，即子进程的返回结果和日志信息，在JAVA线程中调用Process.waitFor挂起来等待子进程完成。</p>
+<p>子进程执行时，不断的打印日志信息，我们通过Process.getInputStream和 Process.getErrorStream进行获取正常输出日志和错误日志进行处理。</p>
+<p>这个时候子进程不断的向JAVA线程写入数据，而JAVA线程调用Process.waitFor后已经阻塞挂起，而子进程在不断的向JAVA线程进行写入数据，当我们的Process.getInputStream的buffer缓冲区被写满，而JAVA线程依然挂起并未消费buffer中的数据，导致子进程无法继续向buffer缓冲区中继续写入数据，导致子进程也挂起。 </p>
+<p>JAVA线程和子进程都处于挂起的状态，JAVA线程等待子进程的结束，子进程等待JAVA线程对buffer缓冲区中的数据进行消费。两者在相互等待导致死锁。</p>
+<p>综上：由于缓存区的日志信息无法消费，导致线程相互等待，从而发生死锁</p>
+<h1 id="三-解决方案"><a href="#三-解决方案" class="headerlink" title="三.解决方案"></a>三.解决方案</h1><p>创建线程池，每次使用一个线程处理缓存区的日志</p>
+<p>&#96;&#96;</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">private static ThreadPoolExecutor executor;</span><br><span class="line"> </span><br><span class="line">static &#123;</span><br><span class="line">    ThreadFactory namedThreadFactory = new ThreadFactoryBuilder()</span><br><span class="line">            .setNameFormat(&quot;cmd-pool-%d&quot;).build();</span><br><span class="line">    //根据实际情况创建线程池</span><br><span class="line">    executor = new ThreadPoolExecutor(6, 10, 5,</span><br><span class="line">            TimeUnit.SECONDS, new LinkedBlockingQueue&lt;Runnable&gt;(1024),</span><br><span class="line">            namedThreadFactory, new ThreadPoolExecutor.AbortPolicy());</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">/**</span><br><span class="line"> * 流处理</span><br><span class="line"> * @param stream</span><br><span class="line"> */</span><br><span class="line">private static void clearStream(InputStream stream) &#123;</span><br><span class="line">    //处理buffer的线程</span><br><span class="line">    executor.execute(new Runnable() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void run() &#123;</span><br><span class="line"> </span><br><span class="line">            String line = null;</span><br><span class="line"> </span><br><span class="line">            try (BufferedReader in = new BufferedReader(new InputStreamReader(stream));) &#123;</span><br><span class="line">                while ((line = in.readLine()) != null) &#123;</span><br><span class="line">                    LoggerUtils.debug(CmdExecUtils.class,line);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; catch (IOException e) &#123;</span><br><span class="line">                LoggerUtils.error(CmdExecUtils.class,&quot;exec error : &#123;&#125;&quot;, e);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">public static boolean execCommond(String... args) &#123;</span><br><span class="line">    boolean flg = true;</span><br><span class="line">    Runtime run = Runtime.getRuntime();</span><br><span class="line">    try &#123;</span><br><span class="line">        Process p;</span><br><span class="line">        if (args != null &amp;&amp; args.length == 1) &#123;</span><br><span class="line">            p = run.exec(args[0]);</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            p = run.exec(args);</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">        InputStream stream=p.getInputStream();</span><br><span class="line">        LoggerUtils.info(CmdExecUtils.class, stream + &quot;....getInputStream..&quot;);</span><br><span class="line"> </span><br><span class="line">        //消费正常日志</span><br><span class="line">        clearStream(stream);</span><br><span class="line">        //消费错误日志</span><br><span class="line">        clearStream(p.getErrorStream());</span><br><span class="line"> </span><br><span class="line">        if (p.waitFor() != 0) &#123;</span><br><span class="line">            if (p.exitValue() == 1) &#123;</span><br><span class="line">                LoggerUtils.info(CmdExecUtils.class,&quot;=============exec=====================命令执行失败!&quot;);</span><br><span class="line">                flg = false;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line">    &#125; catch (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">        flg = false;</span><br><span class="line">    &#125;</span><br><span class="line">    return flg;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="四-死锁如何避免"><a href="#四-死锁如何避免" class="headerlink" title="四.死锁如何避免"></a>四.死锁如何避免</h1><p>1.死锁造成的条件</p>
+<p>1）一个资源只能被一个线程使用</p>
+<p>2）一个线程在阻塞等待某个资源，不释放占有资源</p>
+<p>3）一个线程已经获得的资源，在未使用之前，不能强行进行剥夺</p>
+<p>4）线程头尾形成循环等待资源关系</p>
+<p>只要不满足其中一个条件，就不会发生死锁</p>
+<p>2.在开发过程中，要注意：</p>
+<p>1）注意加锁顺序，保证每个线程按照同样的顺序加锁</p>
+<p>2）注意加锁时间，对锁设置超时时间</p>
+<p>3）检查死锁，预防机制，确保第一时间解决</p>
+<h1 id="五-线程池的实现原理"><a href="#五-线程池的实现原理" class="headerlink" title="五.线程池的实现原理"></a>五.线程池的实现原理</h1><p>提交一个任务到线程池中，线程池的处理流程如下： </p>
+<p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/Java%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B.jpeg" alt="线程池的处理流程"></p>
+<p>1）判断线程池里的核心线程是否都在执行任务，如果不是（核心线程空闲或者还有核心线程没有被创建）则创建一个新的工作线程来执行任务。如果核心线程都在执行任务，则进入下个流程。 </p>
+<p>2）线程池判断工作队列是否已满，如果工作队列没有满，则将新提交的任务存储在这个工作队列里。如果工作队列满了，则进入下个流程。 </p>
+<p>3）判断线程池里的线程是否都处于工作状态，如果没有，则创建一个新的工作线程来执行任务。如果已经满了，则交给饱和策略来处理这个任务。</p>
+<h1 id="六-线程池的使用"><a href="#六-线程池的使用" class="headerlink" title="六.线程池的使用"></a>六.线程池的使用</h1><h2 id="1-线程池的创建"><a href="#1-线程池的创建" class="headerlink" title="1.线程池的创建"></a>1.线程池的创建</h2><p>查看源码，线程池有七个参数</p>
+<p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%8F%82%E6%95%B0.png" alt="线程池参数"></p>
+<h3 id="1）corePoolSize"><a href="#1）corePoolSize" class="headerlink" title="1）corePoolSize"></a>1）corePoolSize</h3><p>线程池核心线程大小</p>
+<p>线程池中会维护一个最小的线程数量，即使这些线程处理空闲状态，他们也不会被销毁，除非设置了allowCoreThreadTimeOut。这里的最小线程数量即是corePoolSize。任务提交到线程池后，首先会检查当前线程数是否达到了corePoolSize，如果没有达到的话，则会创建一个新线程来处理这个任务。</p>
+<h3 id="2）maximumPoolSize"><a href="#2）maximumPoolSize" class="headerlink" title="2）maximumPoolSize"></a>2）maximumPoolSize</h3><p>线程池最大线程数量</p>
+<p>当前线程数达到corePoolSize后，如果继续有任务被提交到线程池，会将任务缓存到工作队列（后面会介绍）中。如果队列也已满，则会去创建一个新线程来出来这个处理。线程池不会无限制的去创建新线程，它会有一个最大线程数量的限制，这个数量即由maximunPoolSize指定。</p>
+<h3 id="3）keepAliveTime"><a href="#3）keepAliveTime" class="headerlink" title="3）keepAliveTime"></a>3）keepAliveTime</h3><p>空闲线程存活时间</p>
+<p>一个线程如果处于空闲状态，并且当前的线程数量大于corePoolSize，那么在指定时间后，这个空闲线程会被销毁，这里的指定时间由keepAliveTime来设定</p>
+<h3 id="4）unit"><a href="#4）unit" class="headerlink" title="4）unit"></a>4）unit</h3><p>空闲线程存活时间单位</p>
+<p>keepAliveTime的计量单位</p>
+<h3 id="5）workQueue"><a href="#5）workQueue" class="headerlink" title="5）workQueue"></a>5）workQueue</h3><p>工作队列</p>
+<p>新任务被提交后，会先进入到此工作队列中，任务调度时再从队列中取出任务。jdk中提供了四种工作队列：</p>
+<h4 id="①ArrayBlockingQueue"><a href="#①ArrayBlockingQueue" class="headerlink" title="①ArrayBlockingQueue"></a>①ArrayBlockingQueue</h4><p>基于数组的有界阻塞队列，按FIFO排序。新任务进来后，会放到该队列的队尾，有界的数组可以防止资源耗尽问题。当线程池中线程数量达到corePoolSize后，再有新任务进来，则会将任务放入该队列的队尾，等待被调度。如果队列已经是满的，则创建一个新线程，如果线程数量已经达到maxPoolSize，则会执行拒绝策略。</p>
+<h4 id="②LinkedBlockingQuene"><a href="#②LinkedBlockingQuene" class="headerlink" title="②LinkedBlockingQuene"></a>②LinkedBlockingQuene</h4><p>基于链表的无界阻塞队列（其实最大容量为Interger.MAX），按照FIFO排序。由于该队列的近似无界性，当线程池中线程数量达到corePoolSize后，再有新任务进来，会一直存入该队列，而基本不会去创建新线程直到maxPoolSize（很难达到Interger.MAX这个数），因此使用该工作队列时，参数maxPoolSize其实是不起作用的。</p>
+<h4 id="③SynchronousQuene"><a href="#③SynchronousQuene" class="headerlink" title="③SynchronousQuene"></a>③SynchronousQuene</h4><p>一个不缓存任务的阻塞队列，生产者放入一个任务必须等到消费者取出这个任务。也就是说新任务进来时，不会缓存，而是直接被调度执行该任务，如果没有可用线程，则创建新线程，如果线程数量达到maxPoolSize，则执行拒绝策略。</p>
+<h4 id="④PriorityBlockingQueue"><a href="#④PriorityBlockingQueue" class="headerlink" title="④PriorityBlockingQueue"></a>④PriorityBlockingQueue</h4><p>具有优先级的无界阻塞队列，优先级通过参数Comparator实现。</p>
+<h3 id="6）threadFactory"><a href="#6）threadFactory" class="headerlink" title="6）threadFactory"></a>6）threadFactory</h3><p>线程工厂</p>
+<p>创建一个新线程时使用的工厂，可以用来设定线程名、是否为daemon线程等等</p>
+<h3 id="7）handler"><a href="#7）handler" class="headerlink" title="7）handler"></a>7）handler</h3><p>拒绝策略</p>
+<p>当工作队列中的任务已到达最大限制，并且线程池中的线程数量也达到最大限制，这时如果有新任务提交进来，该如何处理呢。这里的拒绝策略，就是解决这个问题的，jdk中提供了4中拒绝策略：</p>
+<h4 id="①CallerRunsPolicy"><a href="#①CallerRunsPolicy" class="headerlink" title="①CallerRunsPolicy"></a>①CallerRunsPolicy</h4><p>该策略下，在调用者线程中直接执行被拒绝任务的run方法，除非线程池已经shutdown，则直接抛弃任务。</p>
+<h4 id="②AbortPolicy"><a href="#②AbortPolicy" class="headerlink" title="②AbortPolicy"></a>②AbortPolicy</h4><p>该策略下，直接丢弃任务，并抛出RejectedExecutionException异常。</p>
+<h4 id="③DiscardPolicy"><a href="#③DiscardPolicy" class="headerlink" title="③DiscardPolicy"></a>③DiscardPolicy</h4><p>该策略下，直接丢弃任务，什么都不做。</p>
+<h4 id="④DiscardOldestPolicy"><a href="#④DiscardOldestPolicy" class="headerlink" title="④DiscardOldestPolicy"></a>④DiscardOldestPolicy</h4><p>该策略下，抛弃进入队列最早的那个任务，然后尝试把这次拒绝的任务放入队列</p>
+<h2 id="2-向线程池提交任务"><a href="#2-向线程池提交任务" class="headerlink" title="2.向线程池提交任务"></a>2.向线程池提交任务</h2><p>可以使用两个方法向线程池提交任务，分别为execute()和submit()方法。</p>
+<p>execute()方法用于提交不需要返回值的任务，所以无法判断任务被线程池执行成功。</p>
+<p>submit方法用于提交需要返回值的任务。线程池会返回一个Future类型的对象，通过这个future对象可以判断任务是否执行成功，并且可以通过future的get()方法来获取返回值，get()方法会阻塞当前线程直到任务完成，而使用get(long timeout, TimeUnit unit)方法则会阻塞当前线程一段时间后立即返回，这时候有可能任务没有执行完成。</p>
+<h2 id="3、关闭线程池"><a href="#3、关闭线程池" class="headerlink" title="3、关闭线程池"></a>3、关闭线程池</h2><p>可以通过调用线程池的shutdown或shutdownNow方法来关闭线程池。</p>
+<p>它们的原理是遍历线程池中的工作线程，然后逐个调用线程的interrupt方法来中断线程，所以<strong>无法响应中断的任务可能永远无法终止</strong>。但是它们存在一定的区别，shutdownNow首先将线程池状态设置成STOP，然后尝试停止所有的正在执行或暂停任务线程，并返回等待执行任务的列表，而shutdown只是将线程池的状态设置成SHUTDOWN状态，然后中断所有没有正在执行任务的线程。</p>
+<p>只要调用了这两个关闭方法中的任意一个，isShutdown方法就会返回true。当所有的任务都已关闭后，才表示线程池关闭成功，这时调用isTerminaed方法会返回true。至于应该调用哪种方法来关闭线程池，应该由线程池的任务特性决定，通常调用shutdown方法来关闭线程池，如果任务不一定要执行完，则可以调用shutdownNow方法（通俗的理解，shutdownNow是强制关闭，返回为未执行任务列表；而shutdown会等待当前任务执行完毕才真正关闭）。</p>
+<h2 id="4、合理地配置线程池"><a href="#4、合理地配置线程池" class="headerlink" title="4、合理地配置线程池"></a>4、合理地配置线程池</h2><p>要想合理地配置线程池，就必须首先分析任务特性，可以从以下几个角度来分析。</p>
+<ul>
+<li>任务的性质：CPU密集型任务、IO密集型任务和混合型任务。</li>
+<li>任务的优先级：高、中和低。</li>
+<li>任务的执行时间：长、中和短。</li>
+<li>任务的依赖性：是否依赖其他系统资源，如数据库连接。</li>
+</ul>
+<p>性质不同的任务可以用不同规模的线程池分开处理。CPU密集性任务应配置尽可能小的线程，如配置N(cpu) + 1个线程的线程池。由于IO密集型任务线程并不是一直在执行任务，则应配置尽可能多的线程，如2 × N(cpu)。混合型任务，如果可以拆分，将其拆分成一个CPU密集型任务和一个IO密集型任务，只要这两个任务执行的时间相差不是太大，那么分解后执行的吞吐量将高于串行执行的吞吐量。如果这两个任务执行时间相差不是很大，则没必要进行分解。可以通过Runtime.getRuntime().availableProcessors()方法获取当前设备的CPU个数。</p>
+<p>优先级不同的任务可以使用优先级队列PriorityBlockingQueue来处理。他可以让优先级高的任务先执行。</p>
+<p>执行时间不同的任务可以交给不同规模的线程池来处理，或者可以使用优先级队列，让执行时间短的任务先执行。</p>
+<p>依赖数据库连接池的任务，因为线程提交SQL后需要等待数据库返回结果，等待的时间越长，则CPU空闲的时间就越长，那么线程数应该设置得越大，这样才能更好地利用CPU。</p>
+<p><strong>建议使用有界队列</strong>。有界队列能增加系统的稳定性和预警能力，可以根据需要设大一点，比如几千。</p>
+<h2 id="5、线程池的监控"><a href="#5、线程池的监控" class="headerlink" title="5、线程池的监控"></a>5、线程池的监控</h2><p>如果在系统中大量使用线程池，则有必要对线程池进行监控，方便在出现问题时，可以根据线程池的使用状况快速定位问题。可以通过线程池提供的参数进行监控，在监控线程池的时候可以使用以下属性。</p>
+<ul>
+<li>taskCount：线程池需要执行的任务数量。</li>
+<li>completedTaskCount：线程池在运行过程中已完成的任务数量，小于或等于taskCount。</li>
+<li>largestPoolSize：线程池曾经创建过的最大线程数量。通过这个数据可以知道线程是否曾经满过。如该数值等于线程池的最大大小，则表示线程池曾经满过。</li>
+<li>getPoolSize：线程池的线程数量。如果线程池不销毁的话，线程池里的线程不会自动销毁，所以这个值只增不减。</li>
+<li>getActiveCount：获取活动的线程数。</li>
+</ul>
+<p>通过扩展线程池进行监控。可以通过继承线程池来自定义线程池，重写线程池的beforeExecute、afterExecute和terminated方法，也可以在任务执行前、执行后和线程池关闭前执行一些代码来进行监控。例如，监控任务的平均执行时间、最大执行时间和最小执行时间等。这几个方法在线程池里都是空方法。</p>
 ]]></content>
       <categories>
         <category>技术</category>
-        <category>博客</category>
+        <category>JAVA</category>
       </categories>
       <tags>
-        <tag>gitee</tag>
-        <tag>hexo</tag>
-        <tag>博客</tag>
+        <tag>JAVA</tag>
+        <tag>多线程</tag>
       </tags>
   </entry>
   <entry>
-    <title>Java数据结构LinkedList，ArrayList，HashMap，TreeMap的类实现</title>
-    <url>/2024/02/22/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84LinkedList%EF%BC%8CArrayList%EF%BC%8CHashMap%EF%BC%8CTreeMap%E7%9A%84%E7%B1%BB%E5%AE%9E%E7%8E%B0/</url>
-    <content><![CDATA[]]></content>
+    <title>输入n打印菱形</title>
+    <url>/2021/01/30/%E8%BE%93%E5%85%A5n%E6%89%93%E5%8D%B0%E8%8F%B1%E5%BD%A2/</url>
+    <content><![CDATA[<p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/20240228113723.png" alt="打印菱形"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int demo(int n) &#123;</span><br><span class="line">        for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">            for (int a = 0; a &lt; n-i-1; a++)&#123;</span><br><span class="line">                System.out.print(&quot; &quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            for (int b = 0; b &lt; 2 * i + 1; b++) &#123;</span><br><span class="line">                System.out.print(&quot;*&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        for (int i = 1; i &lt; n; i++)&#123;</span><br><span class="line">            for (int a = 0; a &lt; i; a++)&#123;</span><br><span class="line">                System.out.print(&quot; &quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            for (int b = 0; b &lt; 2*(n-i-1)+1; b++)&#123;</span><br><span class="line">                System.out.print(&quot;*&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>算法</tag>
+      </tags>
   </entry>
 </search>
