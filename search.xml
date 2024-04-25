@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Java数据结构哈希表的类实现</title>
+    <url>/2021/12/25/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%93%88%E5%B8%8C%E8%A1%A8%E7%9A%84%E7%B1%BB%E5%AE%9E%E7%8E%B0/</url>
+    <content><![CDATA[<h1 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h1><p>哈希表是将一组关键字根据散列算法，确定存放位置的数据结构</p>
+<h1 id="2-用途"><a href="#2-用途" class="headerlink" title="2.用途"></a>2.用途</h1><p>哈希表由于是算法计算出的存储位置，可以不用遍历，直接根据关键字获取vaule，大大提升查询效率</p>
+<p>在HashMap，HashSet，LinkedHashSet ，LinkedHashMap中(带hash)都可以找到哈希表的实现</p>
+<h1 id="3-使用哈希表带来的问题"><a href="#3-使用哈希表带来的问题" class="headerlink" title="3.使用哈希表带来的问题"></a>3.使用哈希表带来的问题</h1><p>hash冲突，关键字不一样，但是f(key)一样</p>
+<h2 id="1）如何减少hash冲突"><a href="#1）如何减少hash冲突" class="headerlink" title="1）如何减少hash冲突"></a>1）如何减少hash冲突</h2><p>使用更好的散列算法</p>
+<h2 id="2）如何处理hash冲突"><a href="#2）如何处理hash冲突" class="headerlink" title="2）如何处理hash冲突"></a>2）如何处理hash冲突</h2><p>再哈希法即选取若干个不同的哈希函数，在产生哈希冲突的时候计算另一个哈希函数，直到不再发生冲突为止。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>底层</tag>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JavaWeb简介</title>
     <url>/2022/02/23/JavaWeb%E7%AE%80%E4%BB%8B/</url>
     <content><![CDATA[<h1 id="一-基本概念"><a href="#一-基本概念" class="headerlink" title="一.基本概念"></a>一.基本概念</h1><h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h2><p>静态web：数据始终不会发生变化</p>
@@ -83,52 +103,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Java数据结构哈希表的类实现</title>
-    <url>/2021/12/25/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%93%88%E5%B8%8C%E8%A1%A8%E7%9A%84%E7%B1%BB%E5%AE%9E%E7%8E%B0/</url>
-    <content><![CDATA[<h1 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h1><p>哈希表是将一组关键字根据散列算法，确定存放位置的数据结构</p>
-<h1 id="2-用途"><a href="#2-用途" class="headerlink" title="2.用途"></a>2.用途</h1><p>哈希表由于是算法计算出的存储位置，可以不用遍历，直接根据关键字获取vaule，大大提升查询效率</p>
-<p>在HashMap，HashSet，LinkedHashSet ，LinkedHashMap中(带hash)都可以找到哈希表的实现</p>
-<h1 id="3-使用哈希表带来的问题"><a href="#3-使用哈希表带来的问题" class="headerlink" title="3.使用哈希表带来的问题"></a>3.使用哈希表带来的问题</h1><p>hash冲突，关键字不一样，但是f(key)一样</p>
-<h2 id="1）如何减少hash冲突"><a href="#1）如何减少hash冲突" class="headerlink" title="1）如何减少hash冲突"></a>1）如何减少hash冲突</h2><p>使用更好的散列算法</p>
-<h2 id="2）如何处理hash冲突"><a href="#2）如何处理hash冲突" class="headerlink" title="2）如何处理hash冲突"></a>2）如何处理hash冲突</h2><p>再哈希法即选取若干个不同的哈希函数，在产生哈希冲突的时候计算另一个哈希函数，直到不再发生冲突为止。</p>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>JAVA</category>
-      </categories>
-      <tags>
-        <tag>JAVA</tag>
-        <tag>底层</tag>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java数据结构LinkedList，ArrayList，HashMap，TreeMap等集合的类实现</title>
-    <url>/2022/01/05/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84LinkedList%EF%BC%8CArrayList%EF%BC%8CHashMap%EF%BC%8CTreeMap%E7%9A%84%E7%B1%BB%E5%AE%9E%E7%8E%B0/</url>
-    <content><![CDATA[<h1 id="一-概述"><a href="#一-概述" class="headerlink" title="一.概述"></a>一.概述</h1><p>list集合</p>
-<p>​	ArrayList（有序，可重复，底层结构数组）</p>
-<p>​	LinkedList（有序，可重复，底层结构链表，双向链表）</p>
-<p>Set集合</p>
-<p>​	HashSet（无序，不可重复，底层HashMap） </p>
-<p>​	LinkedHashSet （有序，不可重复，底层链表 和 哈希表）</p>
-<p>​	TreeSet（无序，不可重复，可排序，底层TreeMap）</p>
-<p>Map集合：</p>
-<p>​    HashMap（无序，不可重复，哈希表结构）</p>
-<p>​    LinkedHashMap（有序，可重复，哈希表结构+链表结构，单向链表）</p>
-<p>​    TreeMap（有序，不可重复，可排序，默认升序，底层结构红黑树）</p>
-<h1 id="二-map集合的使用"><a href="#二-map集合的使用" class="headerlink" title="二.map集合的使用"></a>二.map集合的使用</h1><p>​		1、一般情况下，我们用的最多的是HashMap。HashMap里面存入的键值对在取出的时候是随机的，它根据键的HashCode值存储数据，根据键可以直接获取它的值，具有很快的访问速度。在Map 中<strong>插入、删除和定位元素</strong>，HashMap 是最好的选择。<br>　　2、TreeMap取出来的是排序后的键值对。但如果您要<strong>按自然顺序或自定义顺序遍历键</strong>，那么TreeMap会更好。<br>　　3、LinkedHashMap 是HashMap的一个子类，它内部有一个链表，保持Key插入的顺序。如果需要<strong>输出的顺序和输入的相同</strong>,那么用LinkedHashMap可以实现,它还可以按读取顺序来排列，像连接池中可以应用。</p>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>JAVA</category>
-      </categories>
-      <tags>
-        <tag>JAVA</tag>
-        <tag>底层</tag>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Maven高级</title>
     <url>/2022/06/10/Maven%E9%AB%98%E7%BA%A7/</url>
     <content><![CDATA[<ol>
@@ -171,149 +145,6 @@
         <tag>JAVA</tag>
         <tag>maven</tag>
         <tag>项目管理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mysql慢查询的优化</title>
-    <url>/2023/07/03/Mysql%E6%85%A2%E6%9F%A5%E8%AF%A2%E7%9A%84%E4%BC%98%E5%8C%96/</url>
-    <content><![CDATA[<h1 id="一-Mysql慢查询如何优化？"><a href="#一-Mysql慢查询如何优化？" class="headerlink" title="一.Mysql慢查询如何优化？"></a>一.Mysql慢查询如何优化？</h1><ol>
-<li>检查是否使用了索引，优化SQL使用索引</li>
-<li>检查所用索引，是否为最有索引</li>
-<li>检查所查字段是否都是必须，是否查询了过多字段，查出了多余数据</li>
-<li>检查表中数据是否过多，是否进行分库分表</li>
-<li>检查数据库所在服务器配置，适当增加资源</li>
-</ol>
-<h1 id="二-索引"><a href="#二-索引" class="headerlink" title="二.索引"></a>二.索引</h1><h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h2><p>索引是一种特殊的文件(InnoDB数据表上的索引是表空间的一个组成部分)，它 们包含着对数据表里所有记录的引用指针。</p>
-<h2 id="2-分类"><a href="#2-分类" class="headerlink" title="2.分类"></a>2.分类</h2><p>主键索引:数据列不允许重复，不允许为NULL， 一个表只能有一个主键。 </p>
-<p>唯一索引:数据列不允许重复，允许为NULL值， 一个表允许多个列创建唯一索引。 </p>
-<ul>
-<li><p>可以通过</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ALTER TABLE table_name ADD UNIQUE(column);</span><br></pre></td></tr></table></figure>
-
-<p> 创建唯一索引 </p>
-</li>
-<li><p>可以通过</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ALTER TABLE table_name ADD UNIQUE(column1,column2);</span><br></pre></td></tr></table></figure>
-
-<p> 创建唯一组合索引</p>
-</li>
-</ul>
-<p>普通索引:基本的索引类型，没有唯一性的限制，允许为NULL值。 </p>
-<ul>
-<li><p>可以通过</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ALTER TABLE table_name ADD INDEX index_name(column); </span><br></pre></td></tr></table></figure>
-
-<p>创建普通索引 </p>
-</li>
-<li><p>可以通过</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ALTER TABLE table_name ADD INDEX index_name(column1,column2,column3);</span><br></pre></td></tr></table></figure>
-
-<p> 创建组合索引</p>
-</li>
-</ul>
-<p>全文索引：是目前搜索引擎使用的一种关键技术。 </p>
-<ul>
-<li><p>可以通过</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ALTER TABLE table_name ADD FULLTEXT(column);</span><br></pre></td></tr></table></figure>
-
-<p> 创建全文索引</p>
-</li>
-</ul>
-<h2 id="3-索引的数据结构"><a href="#3-索引的数据结构" class="headerlink" title="3.索引的数据结构"></a>3.索引的数据结构</h2><p>B树的特点：</p>
-<ol>
-<li>节点排序</li>
-<li>一个节点存多个元素，多个元素也排序</li>
-</ol>
-<p>B+树的特点：</p>
-<ol>
-<li>拥有B树的特点</li>
-<li>叶子节点之间有指针</li>
-<li>叶子节点存储所有元素，并且排好顺序</li>
-</ol>
-<p>Mysql索引使用的是B+树，因为索引是用来加快查询速度的，而B+树通过对数据进行排序，叶子节点存储了所有元素，从而使B+树不会太高，而且叶子节点有指针，可以支持全表扫描，范围查找等SQL语句</p>
-<h2 id="4-索引失效"><a href="#4-索引失效" class="headerlink" title="4.索引失效"></a>4.索引失效</h2><ol>
-<li>查询条件中有or,即使有部分条件带索引也会失效</li>
-<li>like查询是以%开头</li>
-<li>如果列类型是字符串，那在查询条件中需要将数据用引号引用起来，否则不走索引</li>
-<li>索引列上参与计算会导致索引失效</li>
-<li>违背最左匹配原则</li>
-<li>如果mysql估计全表扫描要比使用索引要快，会不适用索引</li>
-</ol>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>JAVA</category>
-      </categories>
-      <tags>
-        <tag>JAVA</tag>
-        <tag>mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mysql使用技巧</title>
-    <url>/2024/02/28/Mysql%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0/</url>
-    <content><![CDATA[<h1 id="一-内置函数"><a href="#一-内置函数" class="headerlink" title="一.内置函数"></a>一.内置函数</h1><p>1.isnull(exper) 判断exper是否为空，是则返回1，否则返回0</p>
-<p>2.ifnull(exper1,exper2)判断exper1是否为空，是则用exper2代替</p>
-<p>3.nullif(exper1,exper2)如果expr1&#x3D; expr2 成立，那么返回值为NULL，否则返回值为  expr1。</p>
-<p>limit num offset num </p>
-<p>如果没有，什么都不返回，如果要求返回null，则加个临时表</p>
-<p>存储过程</p>
-<p>查找第n高的薪水</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT</span><br><span class="line">BEGIN</span><br><span class="line">DECLARE M INT; </span><br><span class="line">SET M = N-1;</span><br><span class="line">  RETURN (</span><br><span class="line">      # Write your MySQL query statement below.</span><br><span class="line">        SELECT DISTINCT salary</span><br><span class="line">      FROM Employee</span><br><span class="line">      ORDER BY salary DESC</span><br><span class="line">      LIMIT M, 1</span><br><span class="line"> );</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>JAVA</category>
-      </categories>
-      <tags>
-        <tag>JAVA</tag>
-        <tag>Mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mysql的存储机制和锁</title>
-    <url>/2023/04/17/Mysql%E7%9A%84%E5%AD%98%E5%82%A8%E6%9C%BA%E5%88%B6%E5%92%8C%E9%94%81/</url>
-    <content><![CDATA[<h4 id="1-Mysql的存储引擎"><a href="#1-Mysql的存储引擎" class="headerlink" title="1.Mysql的存储引擎"></a>1.Mysql的存储引擎</h4><p>默认为InnoDB</p>
-<p>还有<strong>MyISAM存储引擎</strong></p>
-<h4 id="2-InnoDB的特性"><a href="#2-InnoDB的特性" class="headerlink" title="2.InnoDB的特性"></a>2.InnoDB的特性</h4><p>1）支持提交，回滚等事务</p>
-<p>2）支持完整的外键约束</p>
-<p>3）专为大数量设计</p>
-<p>4）实现了行级锁，共享锁和排他锁</p>
-<h4 id="3-MyISAM的特性"><a href="#3-MyISAM的特性" class="headerlink" title="3.MyISAM的特性"></a>3.MyISAM的特性</h4><p>MyISAM拥有较高的插入、查询速度，但<strong>不支持事物</strong>和行级锁</p>
-<h4 id="4-锁的分类"><a href="#4-锁的分类" class="headerlink" title="4.锁的分类"></a>4.锁的分类</h4><p>按锁粒度分：</p>
-<p>​	行锁：锁某行数据，颗粒度最小，并发度高</p>
-<p>​	表锁：锁整张表，颗粒度大，并发度低</p>
-<p>​	间隙锁：锁一个区间</p>
-<p>还可以分为：</p>
-<p>​	共享锁：也就是读锁，一个事务给某行数据加了读锁，其他事务也可以读，但是不能写</p>
-<p>​	排他锁：也就是写锁，一个事务给某行数据加了写锁，其他事务不能读，也不能写</p>
-<p>还可以分为：</p>
-<p>​	乐观锁：并不会真正锁某行记录，而是通过一个版本号来实现</p>
-<p>​	悲观锁：行锁，表锁都是悲观锁</p>
-<p>在事务的隔离级别实现中，需要用锁来解决幻读</p>
-<h4 id="4-事务"><a href="#4-事务" class="headerlink" title="4.事务"></a>4.事务</h4><h5 id="1）并发带来的问题"><a href="#1）并发带来的问题" class="headerlink" title="1）并发带来的问题"></a>1）并发带来的问题</h5><ul>
-<li><strong>脏读：</strong>一个事务读取另一个<strong>未提交</strong>的数据。</li>
-<li><strong>不可重复读：</strong>一个事务范围内两个相同的查询却返回了不同数据。</li>
-<li><strong>幻读：</strong>一个事务范围内两个相同的查询却返回了不同数据。对应的是插入操作。</li>
-</ul>
-<p><strong>数据库通常会通过锁机制来解决数据并发访问问题，直接使用锁非常麻烦，为此</strong>数据库为用户提供了自动锁机制，用户指定会话的事务隔离级别，数据库就会通过分析SQL语句然后为事务访问的资源加上合适的锁</p>
-<h5 id="2）事务的隔离级别"><a href="#2）事务的隔离级别" class="headerlink" title="2）事务的隔离级别"></a>2）事务的隔离级别</h5><p>从上到下，由低到高</p>
-<ul>
-<li>Read Uncommited，读未提交，即一个事务可以读取另一个未提交事务的数据；并发操作会导致脏读</li>
-<li>Read Commited，读操作，即一个事务要等到另一个事务提交后才能读取数据；解决脏读问题；并发操作会导致不可重复读</li>
-<li>Repeatable Read，重复读，即开始读取数据（事务开启）时，不再允许修改操作；解决不可重复读问题；并发操作会导致幻读（对应insert操作）</li>
-<li>Serializable，序列化，最高的事务隔离级别，该级别下，事务串行化顺序执行；避免脏读、不可重复读与幻读；但是该级别效率低下，比较消耗数据库性能，一般不用。</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/20240223145953.png" alt="事务的隔离级别"></p>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>JAVA</category>
-      </categories>
-      <tags>
-        <tag>JAVA</tag>
-        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -443,6 +274,175 @@
       </tags>
   </entry>
   <entry>
+    <title>Java数据结构LinkedList，ArrayList，HashMap，TreeMap等集合的类实现</title>
+    <url>/2022/01/05/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84LinkedList%EF%BC%8CArrayList%EF%BC%8CHashMap%EF%BC%8CTreeMap%E7%9A%84%E7%B1%BB%E5%AE%9E%E7%8E%B0/</url>
+    <content><![CDATA[<h1 id="一-概述"><a href="#一-概述" class="headerlink" title="一.概述"></a>一.概述</h1><p>list集合</p>
+<p>​	ArrayList（有序，可重复，底层结构数组）</p>
+<p>​	LinkedList（有序，可重复，底层结构链表，双向链表）</p>
+<p>Set集合</p>
+<p>​	HashSet（无序，不可重复，底层HashMap） </p>
+<p>​	LinkedHashSet （有序，不可重复，底层链表 和 哈希表）</p>
+<p>​	TreeSet（无序，不可重复，可排序，底层TreeMap）</p>
+<p>Map集合：</p>
+<p>​    HashMap（无序，不可重复，哈希表结构）</p>
+<p>​    LinkedHashMap（有序，可重复，哈希表结构+链表结构，单向链表）</p>
+<p>​    TreeMap（有序，不可重复，可排序，默认升序，底层结构红黑树）</p>
+<h1 id="二-map集合的使用"><a href="#二-map集合的使用" class="headerlink" title="二.map集合的使用"></a>二.map集合的使用</h1><p>​		1、一般情况下，我们用的最多的是HashMap。HashMap里面存入的键值对在取出的时候是随机的，它根据键的HashCode值存储数据，根据键可以直接获取它的值，具有很快的访问速度。在Map 中<strong>插入、删除和定位元素</strong>，HashMap 是最好的选择。<br>　　2、TreeMap取出来的是排序后的键值对。但如果您要<strong>按自然顺序或自定义顺序遍历键</strong>，那么TreeMap会更好。<br>　　3、LinkedHashMap 是HashMap的一个子类，它内部有一个链表，保持Key插入的顺序。如果需要<strong>输出的顺序和输入的相同</strong>,那么用LinkedHashMap可以实现,它还可以按读取顺序来排列，像连接池中可以应用。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>底层</tag>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mysql使用技巧</title>
+    <url>/2024/02/28/Mysql%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<h1 id="一-内置函数"><a href="#一-内置函数" class="headerlink" title="一.内置函数"></a>一.内置函数</h1><p>1.isnull(exper) 判断exper是否为空，是则返回1，否则返回0</p>
+<p>2.ifnull(exper1,exper2)判断exper1是否为空，是则用exper2代替</p>
+<p>3.nullif(exper1,exper2)如果expr1&#x3D; expr2 成立，那么返回值为NULL，否则返回值为  expr1。</p>
+<p>limit num offset num </p>
+<p>如果没有，什么都不返回，如果要求返回null，则加个临时表</p>
+<p>存储过程</p>
+<p>查找第n高的薪水</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT</span><br><span class="line">BEGIN</span><br><span class="line">DECLARE M INT; </span><br><span class="line">SET M = N-1;</span><br><span class="line">  RETURN (</span><br><span class="line">      # Write your MySQL query statement below.</span><br><span class="line">        SELECT DISTINCT salary</span><br><span class="line">      FROM Employee</span><br><span class="line">      ORDER BY salary DESC</span><br><span class="line">      LIMIT M, 1</span><br><span class="line"> );</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mysql的存储机制和锁</title>
+    <url>/2023/04/17/Mysql%E7%9A%84%E5%AD%98%E5%82%A8%E6%9C%BA%E5%88%B6%E5%92%8C%E9%94%81/</url>
+    <content><![CDATA[<h4 id="1-Mysql的存储引擎"><a href="#1-Mysql的存储引擎" class="headerlink" title="1.Mysql的存储引擎"></a>1.Mysql的存储引擎</h4><p>默认为InnoDB</p>
+<p>还有<strong>MyISAM存储引擎</strong></p>
+<h4 id="2-InnoDB的特性"><a href="#2-InnoDB的特性" class="headerlink" title="2.InnoDB的特性"></a>2.InnoDB的特性</h4><p>1）支持提交，回滚等事务</p>
+<p>2）支持完整的外键约束</p>
+<p>3）专为大数量设计</p>
+<p>4）实现了行级锁，共享锁和排他锁</p>
+<h4 id="3-MyISAM的特性"><a href="#3-MyISAM的特性" class="headerlink" title="3.MyISAM的特性"></a>3.MyISAM的特性</h4><p>MyISAM拥有较高的插入、查询速度，但<strong>不支持事物</strong>和行级锁</p>
+<h4 id="4-锁的分类"><a href="#4-锁的分类" class="headerlink" title="4.锁的分类"></a>4.锁的分类</h4><p>按锁粒度分：</p>
+<p>​	行锁：锁某行数据，颗粒度最小，并发度高</p>
+<p>​	表锁：锁整张表，颗粒度大，并发度低</p>
+<p>​	间隙锁：锁一个区间</p>
+<p>还可以分为：</p>
+<p>​	共享锁：也就是读锁，一个事务给某行数据加了读锁，其他事务也可以读，但是不能写</p>
+<p>​	排他锁：也就是写锁，一个事务给某行数据加了写锁，其他事务不能读，也不能写</p>
+<p>还可以分为：</p>
+<p>​	乐观锁：并不会真正锁某行记录，而是通过一个版本号来实现</p>
+<p>​	悲观锁：行锁，表锁都是悲观锁</p>
+<p>在事务的隔离级别实现中，需要用锁来解决幻读</p>
+<h4 id="4-事务"><a href="#4-事务" class="headerlink" title="4.事务"></a>4.事务</h4><h5 id="1）并发带来的问题"><a href="#1）并发带来的问题" class="headerlink" title="1）并发带来的问题"></a>1）并发带来的问题</h5><ul>
+<li><strong>脏读：</strong>一个事务读取另一个<strong>未提交</strong>的数据。</li>
+<li><strong>不可重复读：</strong>一个事务范围内两个相同的查询却返回了不同数据。</li>
+<li><strong>幻读：</strong>一个事务范围内两个相同的查询却返回了不同数据。对应的是插入操作。</li>
+</ul>
+<p><strong>数据库通常会通过锁机制来解决数据并发访问问题，直接使用锁非常麻烦，为此</strong>数据库为用户提供了自动锁机制，用户指定会话的事务隔离级别，数据库就会通过分析SQL语句然后为事务访问的资源加上合适的锁</p>
+<h5 id="2）事务的隔离级别"><a href="#2）事务的隔离级别" class="headerlink" title="2）事务的隔离级别"></a>2）事务的隔离级别</h5><p>从上到下，由低到高</p>
+<ul>
+<li>Read Uncommited，读未提交，即一个事务可以读取另一个未提交事务的数据；并发操作会导致脏读</li>
+<li>Read Commited，读操作，即一个事务要等到另一个事务提交后才能读取数据；解决脏读问题；并发操作会导致不可重复读</li>
+<li>Repeatable Read，重复读，即开始读取数据（事务开启）时，不再允许修改操作；解决不可重复读问题；并发操作会导致幻读（对应insert操作）</li>
+<li>Serializable，序列化，最高的事务隔离级别，该级别下，事务串行化顺序执行；避免脏读、不可重复读与幻读；但是该级别效率低下，比较消耗数据库性能，一般不用。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/20240223145953.png" alt="事务的隔离级别"></p>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mysql慢查询的优化</title>
+    <url>/2023/07/03/Mysql%E6%85%A2%E6%9F%A5%E8%AF%A2%E7%9A%84%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<h1 id="一-Mysql慢查询如何优化？"><a href="#一-Mysql慢查询如何优化？" class="headerlink" title="一.Mysql慢查询如何优化？"></a>一.Mysql慢查询如何优化？</h1><ol>
+<li>检查是否使用了索引，优化SQL使用索引</li>
+<li>检查所用索引，是否为最有索引</li>
+<li>检查所查字段是否都是必须，是否查询了过多字段，查出了多余数据</li>
+<li>检查表中数据是否过多，是否进行分库分表</li>
+<li>检查数据库所在服务器配置，适当增加资源</li>
+</ol>
+<h1 id="二-索引"><a href="#二-索引" class="headerlink" title="二.索引"></a>二.索引</h1><h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h2><p>索引是一种特殊的文件(InnoDB数据表上的索引是表空间的一个组成部分)，它 们包含着对数据表里所有记录的引用指针。</p>
+<h2 id="2-分类"><a href="#2-分类" class="headerlink" title="2.分类"></a>2.分类</h2><p>主键索引:数据列不允许重复，不允许为NULL， 一个表只能有一个主键。 </p>
+<p>唯一索引:数据列不允许重复，允许为NULL值， 一个表允许多个列创建唯一索引。 </p>
+<ul>
+<li><p>可以通过</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ALTER TABLE table_name ADD UNIQUE(column);</span><br></pre></td></tr></table></figure>
+
+<p> 创建唯一索引 </p>
+</li>
+<li><p>可以通过</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ALTER TABLE table_name ADD UNIQUE(column1,column2);</span><br></pre></td></tr></table></figure>
+
+<p> 创建唯一组合索引</p>
+</li>
+</ul>
+<p>普通索引:基本的索引类型，没有唯一性的限制，允许为NULL值。 </p>
+<ul>
+<li><p>可以通过</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ALTER TABLE table_name ADD INDEX index_name(column); </span><br></pre></td></tr></table></figure>
+
+<p>创建普通索引 </p>
+</li>
+<li><p>可以通过</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ALTER TABLE table_name ADD INDEX index_name(column1,column2,column3);</span><br></pre></td></tr></table></figure>
+
+<p> 创建组合索引</p>
+</li>
+</ul>
+<p>全文索引：是目前搜索引擎使用的一种关键技术。 </p>
+<ul>
+<li><p>可以通过</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ALTER TABLE table_name ADD FULLTEXT(column);</span><br></pre></td></tr></table></figure>
+
+<p> 创建全文索引</p>
+</li>
+</ul>
+<h2 id="3-索引的数据结构"><a href="#3-索引的数据结构" class="headerlink" title="3.索引的数据结构"></a>3.索引的数据结构</h2><p>B树的特点：</p>
+<ol>
+<li>节点排序</li>
+<li>一个节点存多个元素，多个元素也排序</li>
+</ol>
+<p>B+树的特点：</p>
+<ol>
+<li>拥有B树的特点</li>
+<li>叶子节点之间有指针</li>
+<li>叶子节点存储所有元素，并且排好顺序</li>
+</ol>
+<p>Mysql索引使用的是B+树，因为索引是用来加快查询速度的，而B+树通过对数据进行排序，叶子节点存储了所有元素，从而使B+树不会太高，而且叶子节点有指针，可以支持全表扫描，范围查找等SQL语句</p>
+<h2 id="4-索引失效"><a href="#4-索引失效" class="headerlink" title="4.索引失效"></a>4.索引失效</h2><ol>
+<li>查询条件中有or,即使有部分条件带索引也会失效</li>
+<li>like查询是以%开头</li>
+<li>如果列类型是字符串，那在查询条件中需要将数据用引号引用起来，否则不走索引</li>
+<li>索引列上参与计算会导致索引失效</li>
+<li>违背最左匹配原则</li>
+<li>如果mysql估计全表扫描要比使用索引要快，会不适用索引</li>
+</ol>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Spring AOP和代理模式</title>
     <url>/2023/11/17/Spring-AOP%E5%92%8C%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<h1 id="一-代理模式"><a href="#一-代理模式" class="headerlink" title="一.代理模式"></a>一.代理模式</h1><h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h2><p>对一个对象提供一个代理对象，使用代理对象控制对原对象的引用</p>
@@ -458,6 +458,31 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public interface Subject &#123;</span><br><span class="line">    public void rent();</span><br><span class="line"></span><br><span class="line">    public void hello(String str);</span><br><span class="line">&#125;</span><br><span class="line">public class SubjectImpl implements Subject&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void rent() &#123;</span><br><span class="line">        System.out.println(&quot;I want to rent my house&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void hello(String str) &#123;</span><br><span class="line">        System.out.println(&quot;hello: &quot; + str);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public class DynamicProxy implements InvocationHandler &#123;</span><br><span class="line">    // 这个就是要代理的真实对象</span><br><span class="line">    private Object subject;</span><br><span class="line"></span><br><span class="line">    // 构造方法，给要代理的真实对象赋初值</span><br><span class="line">    public DynamicProxy(Object subject) &#123;</span><br><span class="line">        this.subject = subject;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Object invoke(Object object, Method method, Object[] args) throws Throwable &#123;</span><br><span class="line">        // 在代理真实对象前可以添加一些自己的操作</span><br><span class="line">        System.out.println(&quot;before rent house&quot;);</span><br><span class="line">        System.out.println(&quot;Method:&quot; + method);</span><br><span class="line"></span><br><span class="line">        // 当代理对象调用真实对象的方法时，其会自动的跳转到代理对象关联的handler对象的invoke方法来进行调用</span><br><span class="line">        Object result = method.invoke(subject, args);</span><br><span class="line"></span><br><span class="line">        // 在代理真实对象后也可以添加一些自己的操作</span><br><span class="line">        System.out.println(&quot;after rent house&quot;);</span><br><span class="line"></span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">public class Client &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        //    要代理的真实对象</span><br><span class="line">        Subject realSubject = new SubjectImpl();</span><br><span class="line">        //   要代理哪个真实对象，就将该对象传进去，最后是通过该真实对象来调用其方法的</span><br><span class="line">        InvocationHandler handler = new DynamicProxy(realSubject);</span><br><span class="line">        /*</span><br><span class="line">         * 通过Proxy的newProxyInstance方法来创建我们的代理对象，来看看其三个参数</span><br><span class="line">         * 第一个参数 handler.getClass().getClassLoader() ，这里使用handler这个类的ClassLoader对象来加载我们的代理对象</span><br><span class="line">         * 第二个参数realSubject.getClass().getInterfaces()，这里为代理对象提供的接口是真实对象所实行的接口，</span><br><span class="line">         * 表示要代理的是该真实对象，这样就能调用这组接口中的方法了</span><br><span class="line">         * 第三个参数handler， 这里将这个代理对象关联到了上方的 InvocationHandler 这个对象上</span><br><span class="line">         */</span><br><span class="line">        Subject subject = (Subject) Proxy.newProxyInstance(handler.getClass().getClassLoader(), realSubject.getClass().getInterfaces(), handler);</span><br><span class="line">        System.out.println(subject.getClass().getName());</span><br><span class="line">        subject.rent();</span><br><span class="line">        subject.hello(&quot;world&quot;);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 <p>自定义工厂类，返回代理对象</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Spring Web工具类</title>
+    <url>/2023/12/08/Spring-Web%E5%B7%A5%E5%85%B7%E7%B1%BB/</url>
+    <content><![CDATA[<p>继承WebUtils类 </p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">package com.example.common.utils;</span><br><span class="line"></span><br><span class="line">import com.xoao.sms.common.exception.BusinessErrorEnum;</span><br><span class="line">import com.xoao.sms.common.exception.BusinessException;</span><br><span class="line">import jakarta.servlet.http.Cookie;</span><br><span class="line">import jakarta.servlet.http.HttpServletRequest;</span><br><span class="line">import jakarta.servlet.http.HttpServletResponse;</span><br><span class="line">import lombok.experimental.UtilityClass;</span><br><span class="line">import lombok.extern.slf4j.Slf4j;</span><br><span class="line">import org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line">import org.springframework.web.context.request.RequestContextHolder;</span><br><span class="line">import org.springframework.web.context.request.ServletRequestAttributes;</span><br><span class="line">import org.springframework.web.method.HandlerMethod;</span><br><span class="line"></span><br><span class="line">import java.util.Optional;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Miscellaneous utilities for web applications.</span><br><span class="line"> *</span><br><span class="line"> * @author </span><br><span class="line"> */</span><br><span class="line">@Slf4j</span><br><span class="line">@UtilityClass</span><br><span class="line">public class WebUtils extends org.springframework.web.util.WebUtils &#123;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 判断是否ajax请求 spring ajax 返回含有 ResponseBody 或者 RestController注解</span><br><span class="line">	 * @param handlerMethod HandlerMethod</span><br><span class="line">	 * @return 是否ajax请求</span><br><span class="line">	 */</span><br><span class="line">	public boolean isBody(HandlerMethod handlerMethod) &#123;</span><br><span class="line">		ResponseBody responseBody = ClassUtils.getAnnotation(handlerMethod, ResponseBody.class);</span><br><span class="line">		return responseBody != null;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 读取cookie</span><br><span class="line">	 * @param name cookie name</span><br><span class="line">	 * @return cookie value</span><br><span class="line">	 */</span><br><span class="line">	public String getCookieVal(String name) &#123;</span><br><span class="line">		if (WebUtils.getRequest().isPresent()) &#123;</span><br><span class="line">			return getCookieVal(WebUtils.getRequest().get(), name);</span><br><span class="line">		&#125;</span><br><span class="line">		return null;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 读取cookie</span><br><span class="line">	 * @param request HttpServletRequest</span><br><span class="line">	 * @param name cookie name</span><br><span class="line">	 * @return cookie value</span><br><span class="line">	 */</span><br><span class="line">	public String getCookieVal(HttpServletRequest request, String name) &#123;</span><br><span class="line">		Cookie cookie = getCookie(request, name);</span><br><span class="line">		return cookie != null ? cookie.getValue() : null;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 清除 某个指定的cookie</span><br><span class="line">	 * @param response HttpServletResponse</span><br><span class="line">	 * @param key cookie key</span><br><span class="line">	 */</span><br><span class="line">	public void removeCookie(HttpServletResponse response, String key) &#123;</span><br><span class="line">		setCookie(response, key, null, 0);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 设置cookie</span><br><span class="line">	 * @param response HttpServletResponse</span><br><span class="line">	 * @param name cookie name</span><br><span class="line">	 * @param value cookie value</span><br><span class="line">	 * @param maxAgeInSeconds maxage</span><br><span class="line">	 */</span><br><span class="line">	public void setCookie(HttpServletResponse response, String name, String value, int maxAgeInSeconds) &#123;</span><br><span class="line">		Cookie cookie = new Cookie(name, value);</span><br><span class="line">		cookie.setPath(&quot;/&quot;);</span><br><span class="line">		cookie.setMaxAge(maxAgeInSeconds);</span><br><span class="line">		cookie.setHttpOnly(true);</span><br><span class="line">		response.addCookie(cookie);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 获取 HttpServletRequest</span><br><span class="line">	 * @return &#123;HttpServletRequest&#125;</span><br><span class="line">	 */</span><br><span class="line">	public Optional&lt;HttpServletRequest&gt; getRequest() &#123;</span><br><span class="line">		return Optional</span><br><span class="line">			.ofNullable(((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public HttpServletRequest getRequestOrElseThrow() &#123;</span><br><span class="line">		return WebUtils.getRequest().orElseThrow(() -&gt; new BusinessException(BusinessErrorEnum.SYSTEM_ERROR));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 获取 HttpServletResponse</span><br><span class="line">	 * @return &#123;HttpServletResponse&#125;</span><br><span class="line">	 */</span><br><span class="line">	public HttpServletResponse getResponse() &#123;</span><br><span class="line">		return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getResponse();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>类工具类</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">package com.xoao.sms.common.utils;</span><br><span class="line"></span><br><span class="line">import lombok.experimental.UtilityClass;</span><br><span class="line">import org.springframework.core.BridgeMethodResolver;</span><br><span class="line">import org.springframework.core.DefaultParameterNameDiscoverer;</span><br><span class="line">import org.springframework.core.MethodParameter;</span><br><span class="line">import org.springframework.core.ParameterNameDiscoverer;</span><br><span class="line">import org.springframework.core.annotation.AnnotatedElementUtils;</span><br><span class="line">import org.springframework.core.annotation.SynthesizingMethodParameter;</span><br><span class="line">import org.springframework.web.method.HandlerMethod;</span><br><span class="line"></span><br><span class="line">import java.lang.annotation.Annotation;</span><br><span class="line">import java.lang.reflect.Constructor;</span><br><span class="line">import java.lang.reflect.Method;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 类工具类</span><br><span class="line"> */</span><br><span class="line">@UtilityClass</span><br><span class="line">public class ClassUtils extends org.springframework.util.ClassUtils &#123;</span><br><span class="line"></span><br><span class="line">	private final ParameterNameDiscoverer PARAMETERNAMEDISCOVERER = new DefaultParameterNameDiscoverer();</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 获取方法参数信息</span><br><span class="line">	 * @param constructor 构造器</span><br><span class="line">	 * @param parameterIndex 参数序号</span><br><span class="line">	 * @return &#123;MethodParameter&#125;</span><br><span class="line">	 */</span><br><span class="line">	public MethodParameter getMethodParameter(Constructor&lt;?&gt; constructor, int parameterIndex) &#123;</span><br><span class="line">		MethodParameter methodParameter = new SynthesizingMethodParameter(constructor, parameterIndex);</span><br><span class="line">		methodParameter.initParameterNameDiscovery(PARAMETERNAMEDISCOVERER);</span><br><span class="line">		return methodParameter;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 获取方法参数信息</span><br><span class="line">	 * @param method 方法</span><br><span class="line">	 * @param parameterIndex 参数序号</span><br><span class="line">	 * @return &#123;MethodParameter&#125;</span><br><span class="line">	 */</span><br><span class="line">	public MethodParameter getMethodParameter(Method method, int parameterIndex) &#123;</span><br><span class="line">		MethodParameter methodParameter = new SynthesizingMethodParameter(method, parameterIndex);</span><br><span class="line">		methodParameter.initParameterNameDiscovery(PARAMETERNAMEDISCOVERER);</span><br><span class="line">		return methodParameter;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 获取Annotation</span><br><span class="line">	 * @param method Method</span><br><span class="line">	 * @param annotationType 注解类</span><br><span class="line">	 * @param &lt;A&gt; 泛型标记</span><br><span class="line">	 * @return &#123;Annotation&#125;</span><br><span class="line">	 */</span><br><span class="line">	public &lt;A extends Annotation&gt; A getAnnotation(Method method, Class&lt;A&gt; annotationType) &#123;</span><br><span class="line">		Class&lt;?&gt; targetClass = method.getDeclaringClass();</span><br><span class="line">		// The method may be on an interface, but we need attributes from the target</span><br><span class="line">		// class.</span><br><span class="line">		// If the target class is null, the method will be unchanged.</span><br><span class="line">		Method specificMethod = ClassUtils.getMostSpecificMethod(method, targetClass);</span><br><span class="line">		// If we are dealing with method with generic parameters, find the original</span><br><span class="line">		// method.</span><br><span class="line">		specificMethod = BridgeMethodResolver.findBridgedMethod(specificMethod);</span><br><span class="line">		// 先找方法，再找方法上的类</span><br><span class="line">		A annotation = AnnotatedElementUtils.findMergedAnnotation(specificMethod, annotationType);</span><br><span class="line">		;</span><br><span class="line">		if (null != annotation) &#123;</span><br><span class="line">			return annotation;</span><br><span class="line">		&#125;</span><br><span class="line">		// 获取类上面的Annotation，可能包含组合注解，故采用spring的工具类</span><br><span class="line">		return AnnotatedElementUtils.findMergedAnnotation(specificMethod.getDeclaringClass(), annotationType);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 获取Annotation</span><br><span class="line">	 * @param handlerMethod HandlerMethod</span><br><span class="line">	 * @param annotationType 注解类</span><br><span class="line">	 * @param &lt;A&gt; 泛型标记</span><br><span class="line">	 * @return &#123;Annotation&#125;</span><br><span class="line">	 */</span><br><span class="line">	public &lt;A extends Annotation&gt; A getAnnotation(HandlerMethod handlerMethod, Class&lt;A&gt; annotationType) &#123;</span><br><span class="line">		// 先找方法，再找方法上的类</span><br><span class="line">		A annotation = handlerMethod.getMethodAnnotation(annotationType);</span><br><span class="line">		if (null != annotation) &#123;</span><br><span class="line">			return annotation;</span><br><span class="line">		&#125;</span><br><span class="line">		// 获取类上面的Annotation，可能包含组合注解，故采用spring的工具类</span><br><span class="line">		Class&lt;?&gt; beanType = handlerMethod.getBeanType();</span><br><span class="line">		return AnnotatedElementUtils.findMergedAnnotation(beanType, annotationType);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Spring 上下文工具类</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">package com.xoao.sms.common.utils;</span><br><span class="line"></span><br><span class="line">import lombok.SneakyThrows;</span><br><span class="line">import lombok.extern.slf4j.Slf4j;</span><br><span class="line">import org.springframework.beans.factory.DisposableBean;</span><br><span class="line">import org.springframework.context.ApplicationContext;</span><br><span class="line">import org.springframework.context.ApplicationContextAware;</span><br><span class="line">import org.springframework.context.ApplicationEvent;</span><br><span class="line">import org.springframework.context.annotation.Lazy;</span><br><span class="line">import org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @author </span><br><span class="line"> * @date 2019/2/1 Spring 工具类</span><br><span class="line"> */</span><br><span class="line">@Slf4j</span><br><span class="line">@Service</span><br><span class="line">@Lazy(false)</span><br><span class="line">public class SpringContextHolder implements ApplicationContextAware, DisposableBean &#123;</span><br><span class="line"></span><br><span class="line">	private static ApplicationContext applicationContext = null;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 取得存储在静态变量中的ApplicationContext.</span><br><span class="line">	 */</span><br><span class="line">	public static ApplicationContext getApplicationContext() &#123;</span><br><span class="line">		return applicationContext;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 实现ApplicationContextAware接口, 注入Context到静态变量中.</span><br><span class="line">	 */</span><br><span class="line">	@Override</span><br><span class="line">	public void setApplicationContext(ApplicationContext applicationContext) &#123;</span><br><span class="line">		SpringContextHolder.applicationContext = applicationContext;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 从静态变量applicationContext中取得Bean, 自动转型为所赋值对象的类型.</span><br><span class="line">	 */</span><br><span class="line">	@SuppressWarnings(&quot;unchecked&quot;)</span><br><span class="line">	public static &lt;T&gt; T getBean(String name) &#123;</span><br><span class="line">		return (T) applicationContext.getBean(name);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 从静态变量applicationContext中取得Bean, 自动转型为所赋值对象的类型.</span><br><span class="line">	 */</span><br><span class="line">	public static &lt;T&gt; T getBean(Class&lt;T&gt; requiredType) &#123;</span><br><span class="line">		return applicationContext.getBean(requiredType);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 清除SpringContextHolder中的ApplicationContext为Null.</span><br><span class="line">	 */</span><br><span class="line">	public static void clearHolder() &#123;</span><br><span class="line">		if (log.isDebugEnabled()) &#123;</span><br><span class="line">			log.debug(&quot;清除SpringContextHolder中的ApplicationContext:&quot; + applicationContext);</span><br><span class="line">		&#125;</span><br><span class="line">		applicationContext = null;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 发布事件</span><br><span class="line">	 * @param event</span><br><span class="line">	 */</span><br><span class="line">	public static void publishEvent(ApplicationEvent event) &#123;</span><br><span class="line">		if (applicationContext == null) &#123;</span><br><span class="line">			return;</span><br><span class="line">		&#125;</span><br><span class="line">		applicationContext.publishEvent(event);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 实现DisposableBean接口, 在Context关闭时清理静态变量.</span><br><span class="line">	 */</span><br><span class="line">	@Override</span><br><span class="line">	@SneakyThrows</span><br><span class="line">	public void destroy() &#123;</span><br><span class="line">		SpringContextHolder.clearHolder();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>具体使用</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HttpServletResponse response = WebUtils.getResponse();</span><br><span class="line">        response.setStatus(HttpStatus.HTTP_OK);</span><br><span class="line">        response.setContentType(ContentType.OCTET_STREAM.toString());</span><br><span class="line">        response.setHeader(HeaderName.CONTENT_DISPOSITION.getValue(), CharSequenceUtil</span><br><span class="line">                .format(&quot;attachment;filename=\&quot;&#123;&#125;.txt\&quot;&quot;, new String(fileName.getBytes(), StandardCharsets.ISO_8859_1)));</span><br><span class="line">        // 读取文件并写入响应输出流，IoUtil是hutool工具包下的类</span><br><span class="line">        IoUtil.write(response.getOutputStream(), content.getBytes());</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>技术</category>
@@ -562,19 +587,27 @@
       </tags>
   </entry>
   <entry>
-    <title>Spring Web工具类</title>
-    <url>/2023/12/08/Spring-Web%E5%B7%A5%E5%85%B7%E7%B1%BB/</url>
-    <content><![CDATA[<p>继承WebUtils类 </p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">package com.example.common.utils;</span><br><span class="line"></span><br><span class="line">import com.xoao.sms.common.exception.BusinessErrorEnum;</span><br><span class="line">import com.xoao.sms.common.exception.BusinessException;</span><br><span class="line">import jakarta.servlet.http.Cookie;</span><br><span class="line">import jakarta.servlet.http.HttpServletRequest;</span><br><span class="line">import jakarta.servlet.http.HttpServletResponse;</span><br><span class="line">import lombok.experimental.UtilityClass;</span><br><span class="line">import lombok.extern.slf4j.Slf4j;</span><br><span class="line">import org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line">import org.springframework.web.context.request.RequestContextHolder;</span><br><span class="line">import org.springframework.web.context.request.ServletRequestAttributes;</span><br><span class="line">import org.springframework.web.method.HandlerMethod;</span><br><span class="line"></span><br><span class="line">import java.util.Optional;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Miscellaneous utilities for web applications.</span><br><span class="line"> *</span><br><span class="line"> * @author </span><br><span class="line"> */</span><br><span class="line">@Slf4j</span><br><span class="line">@UtilityClass</span><br><span class="line">public class WebUtils extends org.springframework.web.util.WebUtils &#123;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 判断是否ajax请求 spring ajax 返回含有 ResponseBody 或者 RestController注解</span><br><span class="line">	 * @param handlerMethod HandlerMethod</span><br><span class="line">	 * @return 是否ajax请求</span><br><span class="line">	 */</span><br><span class="line">	public boolean isBody(HandlerMethod handlerMethod) &#123;</span><br><span class="line">		ResponseBody responseBody = ClassUtils.getAnnotation(handlerMethod, ResponseBody.class);</span><br><span class="line">		return responseBody != null;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 读取cookie</span><br><span class="line">	 * @param name cookie name</span><br><span class="line">	 * @return cookie value</span><br><span class="line">	 */</span><br><span class="line">	public String getCookieVal(String name) &#123;</span><br><span class="line">		if (WebUtils.getRequest().isPresent()) &#123;</span><br><span class="line">			return getCookieVal(WebUtils.getRequest().get(), name);</span><br><span class="line">		&#125;</span><br><span class="line">		return null;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 读取cookie</span><br><span class="line">	 * @param request HttpServletRequest</span><br><span class="line">	 * @param name cookie name</span><br><span class="line">	 * @return cookie value</span><br><span class="line">	 */</span><br><span class="line">	public String getCookieVal(HttpServletRequest request, String name) &#123;</span><br><span class="line">		Cookie cookie = getCookie(request, name);</span><br><span class="line">		return cookie != null ? cookie.getValue() : null;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 清除 某个指定的cookie</span><br><span class="line">	 * @param response HttpServletResponse</span><br><span class="line">	 * @param key cookie key</span><br><span class="line">	 */</span><br><span class="line">	public void removeCookie(HttpServletResponse response, String key) &#123;</span><br><span class="line">		setCookie(response, key, null, 0);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 设置cookie</span><br><span class="line">	 * @param response HttpServletResponse</span><br><span class="line">	 * @param name cookie name</span><br><span class="line">	 * @param value cookie value</span><br><span class="line">	 * @param maxAgeInSeconds maxage</span><br><span class="line">	 */</span><br><span class="line">	public void setCookie(HttpServletResponse response, String name, String value, int maxAgeInSeconds) &#123;</span><br><span class="line">		Cookie cookie = new Cookie(name, value);</span><br><span class="line">		cookie.setPath(&quot;/&quot;);</span><br><span class="line">		cookie.setMaxAge(maxAgeInSeconds);</span><br><span class="line">		cookie.setHttpOnly(true);</span><br><span class="line">		response.addCookie(cookie);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 获取 HttpServletRequest</span><br><span class="line">	 * @return &#123;HttpServletRequest&#125;</span><br><span class="line">	 */</span><br><span class="line">	public Optional&lt;HttpServletRequest&gt; getRequest() &#123;</span><br><span class="line">		return Optional</span><br><span class="line">			.ofNullable(((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public HttpServletRequest getRequestOrElseThrow() &#123;</span><br><span class="line">		return WebUtils.getRequest().orElseThrow(() -&gt; new BusinessException(BusinessErrorEnum.SYSTEM_ERROR));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 获取 HttpServletResponse</span><br><span class="line">	 * @return &#123;HttpServletResponse&#125;</span><br><span class="line">	 */</span><br><span class="line">	public HttpServletResponse getResponse() &#123;</span><br><span class="line">		return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getResponse();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    <title>git上传文件（超过100MB）</title>
+    <url>/2021/12/23/git%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%EF%BC%88%E8%B6%85%E8%BF%87100MB%EF%BC%89/</url>
+    <content><![CDATA[<h3 id="问题：git无法上传超过100mb的文件"><a href="#问题：git无法上传超过100mb的文件" class="headerlink" title="问题：git无法上传超过100mb的文件"></a><strong>问题：git无法上传超过100mb的文件</strong></h3><h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><h4 id="1-安装lfs（windows10）"><a href="#1-安装lfs（windows10）" class="headerlink" title="1.安装lfs（windows10）"></a>1.安装lfs（windows10）</h4><p>进入<a href="https://git-lfs.com/">git-lfs官网</a>下载安装包，双击安装程序按提示安装即可。</p>
+<h4 id="2-开启lfs功能"><a href="#2-开启lfs功能" class="headerlink" title="2.开启lfs功能"></a>2.开启lfs功能</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git lfs install</span><br></pre></td></tr></table></figure>
 
-<p>类工具类</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">package com.xoao.sms.common.utils;</span><br><span class="line"></span><br><span class="line">import lombok.experimental.UtilityClass;</span><br><span class="line">import org.springframework.core.BridgeMethodResolver;</span><br><span class="line">import org.springframework.core.DefaultParameterNameDiscoverer;</span><br><span class="line">import org.springframework.core.MethodParameter;</span><br><span class="line">import org.springframework.core.ParameterNameDiscoverer;</span><br><span class="line">import org.springframework.core.annotation.AnnotatedElementUtils;</span><br><span class="line">import org.springframework.core.annotation.SynthesizingMethodParameter;</span><br><span class="line">import org.springframework.web.method.HandlerMethod;</span><br><span class="line"></span><br><span class="line">import java.lang.annotation.Annotation;</span><br><span class="line">import java.lang.reflect.Constructor;</span><br><span class="line">import java.lang.reflect.Method;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 类工具类</span><br><span class="line"> */</span><br><span class="line">@UtilityClass</span><br><span class="line">public class ClassUtils extends org.springframework.util.ClassUtils &#123;</span><br><span class="line"></span><br><span class="line">	private final ParameterNameDiscoverer PARAMETERNAMEDISCOVERER = new DefaultParameterNameDiscoverer();</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 获取方法参数信息</span><br><span class="line">	 * @param constructor 构造器</span><br><span class="line">	 * @param parameterIndex 参数序号</span><br><span class="line">	 * @return &#123;MethodParameter&#125;</span><br><span class="line">	 */</span><br><span class="line">	public MethodParameter getMethodParameter(Constructor&lt;?&gt; constructor, int parameterIndex) &#123;</span><br><span class="line">		MethodParameter methodParameter = new SynthesizingMethodParameter(constructor, parameterIndex);</span><br><span class="line">		methodParameter.initParameterNameDiscovery(PARAMETERNAMEDISCOVERER);</span><br><span class="line">		return methodParameter;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 获取方法参数信息</span><br><span class="line">	 * @param method 方法</span><br><span class="line">	 * @param parameterIndex 参数序号</span><br><span class="line">	 * @return &#123;MethodParameter&#125;</span><br><span class="line">	 */</span><br><span class="line">	public MethodParameter getMethodParameter(Method method, int parameterIndex) &#123;</span><br><span class="line">		MethodParameter methodParameter = new SynthesizingMethodParameter(method, parameterIndex);</span><br><span class="line">		methodParameter.initParameterNameDiscovery(PARAMETERNAMEDISCOVERER);</span><br><span class="line">		return methodParameter;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 获取Annotation</span><br><span class="line">	 * @param method Method</span><br><span class="line">	 * @param annotationType 注解类</span><br><span class="line">	 * @param &lt;A&gt; 泛型标记</span><br><span class="line">	 * @return &#123;Annotation&#125;</span><br><span class="line">	 */</span><br><span class="line">	public &lt;A extends Annotation&gt; A getAnnotation(Method method, Class&lt;A&gt; annotationType) &#123;</span><br><span class="line">		Class&lt;?&gt; targetClass = method.getDeclaringClass();</span><br><span class="line">		// The method may be on an interface, but we need attributes from the target</span><br><span class="line">		// class.</span><br><span class="line">		// If the target class is null, the method will be unchanged.</span><br><span class="line">		Method specificMethod = ClassUtils.getMostSpecificMethod(method, targetClass);</span><br><span class="line">		// If we are dealing with method with generic parameters, find the original</span><br><span class="line">		// method.</span><br><span class="line">		specificMethod = BridgeMethodResolver.findBridgedMethod(specificMethod);</span><br><span class="line">		// 先找方法，再找方法上的类</span><br><span class="line">		A annotation = AnnotatedElementUtils.findMergedAnnotation(specificMethod, annotationType);</span><br><span class="line">		;</span><br><span class="line">		if (null != annotation) &#123;</span><br><span class="line">			return annotation;</span><br><span class="line">		&#125;</span><br><span class="line">		// 获取类上面的Annotation，可能包含组合注解，故采用spring的工具类</span><br><span class="line">		return AnnotatedElementUtils.findMergedAnnotation(specificMethod.getDeclaringClass(), annotationType);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 获取Annotation</span><br><span class="line">	 * @param handlerMethod HandlerMethod</span><br><span class="line">	 * @param annotationType 注解类</span><br><span class="line">	 * @param &lt;A&gt; 泛型标记</span><br><span class="line">	 * @return &#123;Annotation&#125;</span><br><span class="line">	 */</span><br><span class="line">	public &lt;A extends Annotation&gt; A getAnnotation(HandlerMethod handlerMethod, Class&lt;A&gt; annotationType) &#123;</span><br><span class="line">		// 先找方法，再找方法上的类</span><br><span class="line">		A annotation = handlerMethod.getMethodAnnotation(annotationType);</span><br><span class="line">		if (null != annotation) &#123;</span><br><span class="line">			return annotation;</span><br><span class="line">		&#125;</span><br><span class="line">		// 获取类上面的Annotation，可能包含组合注解，故采用spring的工具类</span><br><span class="line">		Class&lt;?&gt; beanType = handlerMethod.getBeanType();</span><br><span class="line">		return AnnotatedElementUtils.findMergedAnnotation(beanType, annotationType);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="3-选择文件类型（）这里选择的是zip类型"><a href="#3-选择文件类型（）这里选择的是zip类型" class="headerlink" title="3.选择文件类型（）这里选择的是zip类型"></a>3.选择文件类型（）这里选择的是zip类型</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git lfs track &quot;*.zip&quot;</span><br></pre></td></tr></table></figure>
 
-<p>Spring 上下文工具类</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">package com.xoao.sms.common.utils;</span><br><span class="line"></span><br><span class="line">import lombok.SneakyThrows;</span><br><span class="line">import lombok.extern.slf4j.Slf4j;</span><br><span class="line">import org.springframework.beans.factory.DisposableBean;</span><br><span class="line">import org.springframework.context.ApplicationContext;</span><br><span class="line">import org.springframework.context.ApplicationContextAware;</span><br><span class="line">import org.springframework.context.ApplicationEvent;</span><br><span class="line">import org.springframework.context.annotation.Lazy;</span><br><span class="line">import org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @author </span><br><span class="line"> * @date 2019/2/1 Spring 工具类</span><br><span class="line"> */</span><br><span class="line">@Slf4j</span><br><span class="line">@Service</span><br><span class="line">@Lazy(false)</span><br><span class="line">public class SpringContextHolder implements ApplicationContextAware, DisposableBean &#123;</span><br><span class="line"></span><br><span class="line">	private static ApplicationContext applicationContext = null;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 取得存储在静态变量中的ApplicationContext.</span><br><span class="line">	 */</span><br><span class="line">	public static ApplicationContext getApplicationContext() &#123;</span><br><span class="line">		return applicationContext;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 实现ApplicationContextAware接口, 注入Context到静态变量中.</span><br><span class="line">	 */</span><br><span class="line">	@Override</span><br><span class="line">	public void setApplicationContext(ApplicationContext applicationContext) &#123;</span><br><span class="line">		SpringContextHolder.applicationContext = applicationContext;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 从静态变量applicationContext中取得Bean, 自动转型为所赋值对象的类型.</span><br><span class="line">	 */</span><br><span class="line">	@SuppressWarnings(&quot;unchecked&quot;)</span><br><span class="line">	public static &lt;T&gt; T getBean(String name) &#123;</span><br><span class="line">		return (T) applicationContext.getBean(name);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 从静态变量applicationContext中取得Bean, 自动转型为所赋值对象的类型.</span><br><span class="line">	 */</span><br><span class="line">	public static &lt;T&gt; T getBean(Class&lt;T&gt; requiredType) &#123;</span><br><span class="line">		return applicationContext.getBean(requiredType);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 清除SpringContextHolder中的ApplicationContext为Null.</span><br><span class="line">	 */</span><br><span class="line">	public static void clearHolder() &#123;</span><br><span class="line">		if (log.isDebugEnabled()) &#123;</span><br><span class="line">			log.debug(&quot;清除SpringContextHolder中的ApplicationContext:&quot; + applicationContext);</span><br><span class="line">		&#125;</span><br><span class="line">		applicationContext = null;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 发布事件</span><br><span class="line">	 * @param event</span><br><span class="line">	 */</span><br><span class="line">	public static void publishEvent(ApplicationEvent event) &#123;</span><br><span class="line">		if (applicationContext == null) &#123;</span><br><span class="line">			return;</span><br><span class="line">		&#125;</span><br><span class="line">		applicationContext.publishEvent(event);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 实现DisposableBean接口, 在Context关闭时清理静态变量.</span><br><span class="line">	 */</span><br><span class="line">	@Override</span><br><span class="line">	@SneakyThrows</span><br><span class="line">	public void destroy() &#123;</span><br><span class="line">		SpringContextHolder.clearHolder();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-然后配置远程仓库"><a href="#4-然后配置远程仓库" class="headerlink" title="4.然后配置远程仓库"></a>4.然后配置远程仓库</h4><p>执行完上面的命令后，会生成一个.gitattributes文件，要将其上传到远程gitee仓库。这里我把.gitattributes和大文件分开上传。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git add .gitattributes</span><br><span class="line">$ git commit -m &#x27;上传文件&#x27;</span><br><span class="line">$ git push origin master（如果提交不了，后面可以加一个-f）</span><br></pre></td></tr></table></figure>
 
-<p>具体使用</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HttpServletResponse response = WebUtils.getResponse();</span><br><span class="line">        response.setStatus(HttpStatus.HTTP_OK);</span><br><span class="line">        response.setContentType(ContentType.OCTET_STREAM.toString());</span><br><span class="line">        response.setHeader(HeaderName.CONTENT_DISPOSITION.getValue(), CharSequenceUtil</span><br><span class="line">                .format(&quot;attachment;filename=\&quot;&#123;&#125;.txt\&quot;&quot;, new String(fileName.getBytes(), StandardCharsets.ISO_8859_1)));</span><br><span class="line">        // 读取文件并写入响应输出流，IoUtil是hutool工具包下的类</span><br><span class="line">        IoUtil.write(response.getOutputStream(), content.getBytes());</span><br></pre></td></tr></table></figure>
+<h4 id="5-上传大文件"><a href="#5-上传大文件" class="headerlink" title="5.上传大文件"></a>5.上传大文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add mysql-5.7.36-win64.zip</span><br><span class="line">git commit -m &quot;上传MySQL安装包&quot;</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-解决报错"><a href="#6-解决报错" class="headerlink" title="6.解决报错"></a>6.解决报错</h4><p>这里的报错主要有两个</p>
+<p>WARNING: Authentication error: Authentication required: LFS only supported repository in paid enterprise.<br>batch response: LFS only supported repository in paid enterprise.</p>
+<h5 id="6-1-第一个错误的解决方式是"><a href="#6-1-第一个错误的解决方式是" class="headerlink" title="6.1.第一个错误的解决方式是"></a>6.1.第一个错误的解决方式是</h5><p>git config lfs.<a href="https://gitee.com/%7Byour_gitee%7D/%7Byour_repo%7D.git/info/lfs.locksverify">https://gitee.com/{your_gitee}/{your_repo}.git/info/lfs.locksverify</a> false<br>命令中的{your_gitee}&#x2F;{your_repo}是你的远程仓库地址，根据自己情况替换。</p>
+<h5 id="6-2-第二个错误的解决方式"><a href="#6-2-第二个错误的解决方式" class="headerlink" title="6.2.第二个错误的解决方式"></a>6.2.第二个错误的解决方式</h5><figure class="highlight vbscript"><table><tr><td class="code"><pre><span class="line">batch <span class="built_in">response</span>: LFS only supported repository <span class="keyword">in</span> paid enterprise.</span><br></pre></td></tr></table></figure>
+
+<p>删除<code>./git/hooks/pre-push</code>文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> .git/hooks/pre-push</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-上传文件"><a href="#7-上传文件" class="headerlink" title="7.上传文件"></a>7.上传文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push orgin master</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -583,7 +616,8 @@
       </categories>
       <tags>
         <tag>JAVA</tag>
-        <tag>Spring</tag>
+        <tag>项目管理</tag>
+        <tag>gitee</tag>
       </tags>
   </entry>
   <entry>
@@ -638,6 +672,24 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2020/12/01/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>hexo部署gitee</title>
     <url>/2020/12/05/hexo%E9%83%A8%E7%BD%B2gitee/</url>
     <content><![CDATA[<ol>
@@ -672,9 +724,9 @@
         <category>博客</category>
       </categories>
       <tags>
+        <tag>gitee</tag>
         <tag>hexo</tag>
         <tag>博客</tag>
-        <tag>gitee</tag>
       </tags>
   </entry>
   <entry>
@@ -695,24 +747,6 @@
         <tag>hutool</tag>
         <tag>工具类</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2020/12/01/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>jar中没有主清单属性</title>
@@ -841,6 +875,35 @@
       </tags>
   </entry>
   <entry>
+    <title>输入n打印菱形</title>
+    <url>/2021/01/30/%E8%BE%93%E5%85%A5n%E6%89%93%E5%8D%B0%E8%8F%B1%E5%BD%A2/</url>
+    <content><![CDATA[<p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/20240228113723.png" alt="打印菱形"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int demo(int n) &#123;</span><br><span class="line">        for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">            for (int a = 0; a &lt; n-i-1; a++)&#123;</span><br><span class="line">                System.out.print(&quot; &quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            for (int b = 0; b &lt; 2 * i + 1; b++) &#123;</span><br><span class="line">                System.out.print(&quot;*&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        for (int i = 1; i &lt; n; i++)&#123;</span><br><span class="line">            for (int a = 0; a &lt; i; a++)&#123;</span><br><span class="line">                System.out.print(&quot; &quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            for (int b = 0; b &lt; 2*(n-i-1)+1; b++)&#123;</span><br><span class="line">                System.out.print(&quot;*&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>请求头信息</title>
+    <url>/2022/02/28/%E8%AF%B7%E6%B1%82%E5%A4%B4%E4%BF%A1%E6%81%AF/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>技术</category>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>request</tag>
+        <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>工具类常用</title>
     <url>/2020/12/11/%E5%B7%A5%E5%85%B7%E7%B1%BB%E5%B8%B8%E7%94%A8/</url>
     <content><![CDATA[<h1 id="一-集合"><a href="#一-集合" class="headerlink" title="一.集合"></a>一.集合</h1><h5 id="1-判空"><a href="#1-判空" class="headerlink" title="1.判空"></a>1.判空</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.dromara.hutool.core.collection.CollUtil.isNotEmpty(CollectionName)</span><br></pre></td></tr></table></figure>
@@ -902,69 +965,6 @@
         <tag>hutool</tag>
         <tag>工具类</tag>
         <tag>fastjson</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>请求头信息</title>
-    <url>/2022/02/28/%E8%AF%B7%E6%B1%82%E5%A4%B4%E4%BF%A1%E6%81%AF/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>技术</category>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>request</tag>
-        <tag>前端</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>输入n打印菱形</title>
-    <url>/2021/01/30/%E8%BE%93%E5%85%A5n%E6%89%93%E5%8D%B0%E8%8F%B1%E5%BD%A2/</url>
-    <content><![CDATA[<p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/20240228113723.png" alt="打印菱形"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int demo(int n) &#123;</span><br><span class="line">        for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">            for (int a = 0; a &lt; n-i-1; a++)&#123;</span><br><span class="line">                System.out.print(&quot; &quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            for (int b = 0; b &lt; 2 * i + 1; b++) &#123;</span><br><span class="line">                System.out.print(&quot;*&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        for (int i = 1; i &lt; n; i++)&#123;</span><br><span class="line">            for (int a = 0; a &lt; i; a++)&#123;</span><br><span class="line">                System.out.print(&quot; &quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            for (int b = 0; b &lt; 2*(n-i-1)+1; b++)&#123;</span><br><span class="line">                System.out.print(&quot;*&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>JAVA</category>
-      </categories>
-      <tags>
-        <tag>JAVA</tag>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>git上传文件（超过100MB）</title>
-    <url>/2021/12/23/git%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%EF%BC%88%E8%B6%85%E8%BF%87100MB%EF%BC%89/</url>
-    <content><![CDATA[<h3 id="问题：git无法上传超过100mb的文件"><a href="#问题：git无法上传超过100mb的文件" class="headerlink" title="问题：git无法上传超过100mb的文件"></a><strong>问题：git无法上传超过100mb的文件</strong></h3><h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><h4 id="1-安装lfs（windows10）"><a href="#1-安装lfs（windows10）" class="headerlink" title="1.安装lfs（windows10）"></a>1.安装lfs（windows10）</h4><p>进入<a href="https://git-lfs.com/">git-lfs官网</a>下载安装包，双击安装程序按提示安装即可。</p>
-<h4 id="2-开启lfs功能"><a href="#2-开启lfs功能" class="headerlink" title="2.开启lfs功能"></a>2.开启lfs功能</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git lfs install</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-选择文件类型（）这里选择的是zip类型"><a href="#3-选择文件类型（）这里选择的是zip类型" class="headerlink" title="3.选择文件类型（）这里选择的是zip类型"></a>3.选择文件类型（）这里选择的是zip类型</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git lfs track &quot;*.zip&quot;</span><br></pre></td></tr></table></figure>
-
-<h4 id="4-然后配置远程仓库"><a href="#4-然后配置远程仓库" class="headerlink" title="4.然后配置远程仓库"></a>4.然后配置远程仓库</h4><p>执行完上面的命令后，会生成一个.gitattributes文件，要将其上传到远程gitee仓库。这里我把.gitattributes和大文件分开上传。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ git add .gitattributes</span><br><span class="line">$ git commit -m &#x27;上传文件&#x27;</span><br><span class="line">$ git push origin master（如果提交不了，后面可以加一个-f）</span><br></pre></td></tr></table></figure>
-
-<h4 id="5-上传大文件"><a href="#5-上传大文件" class="headerlink" title="5.上传大文件"></a>5.上传大文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git add mysql-5.7.36-win64.zip</span><br><span class="line">git commit -m &quot;上传MySQL安装包&quot;</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
-
-<h4 id="6-解决报错"><a href="#6-解决报错" class="headerlink" title="6.解决报错"></a>6.解决报错</h4><p>这里的报错主要有两个</p>
-<p>WARNING: Authentication error: Authentication required: LFS only supported repository in paid enterprise.<br>batch response: LFS only supported repository in paid enterprise.</p>
-<h5 id="6-1-第一个错误的解决方式是"><a href="#6-1-第一个错误的解决方式是" class="headerlink" title="6.1.第一个错误的解决方式是"></a>6.1.第一个错误的解决方式是</h5><p>git config lfs.<a href="https://gitee.com/%7Byour_gitee%7D/%7Byour_repo%7D.git/info/lfs.locksverify">https://gitee.com/{your_gitee}/{your_repo}.git/info/lfs.locksverify</a> false<br>命令中的{your_gitee}&#x2F;{your_repo}是你的远程仓库地址，根据自己情况替换。</p>
-<h5 id="6-2-第二个错误的解决方式"><a href="#6-2-第二个错误的解决方式" class="headerlink" title="6.2.第二个错误的解决方式"></a>6.2.第二个错误的解决方式</h5><figure class="highlight vbscript"><table><tr><td class="code"><pre><span class="line">batch <span class="built_in">response</span>: LFS only supported repository <span class="keyword">in</span> paid enterprise.</span><br></pre></td></tr></table></figure>
-
-<p>删除<code>./git/hooks/pre-push</code>文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> .git/hooks/pre-push</span><br></pre></td></tr></table></figure>
-
-<h4 id="7-上传文件"><a href="#7-上传文件" class="headerlink" title="7.上传文件"></a>7.上传文件</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git push orgin master</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>JAVA</category>
-      </categories>
-      <tags>
-        <tag>JAVA</tag>
-        <tag>项目管理</tag>
-        <tag>gitee</tag>
       </tags>
   </entry>
 </search>
