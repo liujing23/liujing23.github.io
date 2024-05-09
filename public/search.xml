@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Java数据结构哈希表的类实现</title>
+    <url>/2021/12/25/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%93%88%E5%B8%8C%E8%A1%A8%E7%9A%84%E7%B1%BB%E5%AE%9E%E7%8E%B0/</url>
+    <content><![CDATA[<h1 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h1><p>哈希表是将一组关键字根据散列算法，确定存放位置的数据结构</p>
+<h1 id="2-用途"><a href="#2-用途" class="headerlink" title="2.用途"></a>2.用途</h1><p>哈希表由于是算法计算出的存储位置，可以不用遍历，直接根据关键字获取vaule，大大提升查询效率</p>
+<p>在HashMap，HashSet，LinkedHashSet ，LinkedHashMap中(带hash)都可以找到哈希表的实现</p>
+<h1 id="3-使用哈希表带来的问题"><a href="#3-使用哈希表带来的问题" class="headerlink" title="3.使用哈希表带来的问题"></a>3.使用哈希表带来的问题</h1><p>hash冲突，关键字不一样，但是f(key)一样</p>
+<h2 id="1）如何减少hash冲突"><a href="#1）如何减少hash冲突" class="headerlink" title="1）如何减少hash冲突"></a>1）如何减少hash冲突</h2><p>使用更好的散列算法</p>
+<h2 id="2）如何处理hash冲突"><a href="#2）如何处理hash冲突" class="headerlink" title="2）如何处理hash冲突"></a>2）如何处理hash冲突</h2><p>再哈希法即选取若干个不同的哈希函数，在产生哈希冲突的时候计算另一个哈希函数，直到不再发生冲突为止。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>底层</tag>
+        <tag>数据结构</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JavaWeb简介</title>
     <url>/2022/02/23/JavaWeb%E7%AE%80%E4%BB%8B/</url>
     <content><![CDATA[<h1 id="一-基本概念"><a href="#一-基本概念" class="headerlink" title="一.基本概念"></a>一.基本概念</h1><h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h2><p>静态web：数据始终不会发生变化</p>
@@ -80,6 +100,51 @@
       </categories>
       <tags>
         <tag>JAVA</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Maven高级</title>
+    <url>/2022/06/10/Maven%E9%AB%98%E7%BA%A7/</url>
+    <content><![CDATA[<ol>
+<li><p>当某个项目被修改时，他的私服并未修改，其他项目不能使用</p>
+<p>聚合：为所有模块添加父模块，统一管理，同时编译，同时部署，父模块仅作为项目管理用</p>
+</li>
+<li><p>当项目之间依赖版本出现冲突时</p>
+<p> 继承：在父模块中加入版本，子模块直接引用</p>
+</li>
+<li><p>如何添加版本</p>
+<p>通过自定义属性标签</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;properties&gt;</span><br><span class="line">    &lt;自定义属性名&gt;属性值&lt;/自定义属性名&gt;</span><br><span class="line">&lt;/properties&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在pom文件中，还可以获取以下属性：</p>
+<ul>
+<li>自定义属性</li>
+<li>maven内置属性</li>
+<li>setting文件夹中的属性</li>
+<li>Java系统属性</li>
+<li>环境变量属性</li>
+</ul>
+</li>
+<li><p>资源配置</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;resources&gt;</span><br><span class="line">      引入配置文件信息</span><br><span class="line">&lt;/resources&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>版本管理</p>
+<ul>
+<li>snapshot 快照版本</li>
+<li>release 发布版本</li>
+</ul>
+</li>
+</ol>
+<p>​      </p>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>maven</tag>
+        <tag>项目管理</tag>
       </tags>
   </entry>
   <entry>
@@ -209,71 +274,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Java数据结构哈希表的类实现</title>
-    <url>/2021/12/25/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%93%88%E5%B8%8C%E8%A1%A8%E7%9A%84%E7%B1%BB%E5%AE%9E%E7%8E%B0/</url>
-    <content><![CDATA[<h1 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h1><p>哈希表是将一组关键字根据散列算法，确定存放位置的数据结构</p>
-<h1 id="2-用途"><a href="#2-用途" class="headerlink" title="2.用途"></a>2.用途</h1><p>哈希表由于是算法计算出的存储位置，可以不用遍历，直接根据关键字获取vaule，大大提升查询效率</p>
-<p>在HashMap，HashSet，LinkedHashSet ，LinkedHashMap中(带hash)都可以找到哈希表的实现</p>
-<h1 id="3-使用哈希表带来的问题"><a href="#3-使用哈希表带来的问题" class="headerlink" title="3.使用哈希表带来的问题"></a>3.使用哈希表带来的问题</h1><p>hash冲突，关键字不一样，但是f(key)一样</p>
-<h2 id="1）如何减少hash冲突"><a href="#1）如何减少hash冲突" class="headerlink" title="1）如何减少hash冲突"></a>1）如何减少hash冲突</h2><p>使用更好的散列算法</p>
-<h2 id="2）如何处理hash冲突"><a href="#2）如何处理hash冲突" class="headerlink" title="2）如何处理hash冲突"></a>2）如何处理hash冲突</h2><p>再哈希法即选取若干个不同的哈希函数，在产生哈希冲突的时候计算另一个哈希函数，直到不再发生冲突为止。</p>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>JAVA</category>
-      </categories>
-      <tags>
-        <tag>JAVA</tag>
-        <tag>底层</tag>
-        <tag>数据结构</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Maven高级</title>
-    <url>/2022/06/10/Maven%E9%AB%98%E7%BA%A7/</url>
-    <content><![CDATA[<ol>
-<li><p>当某个项目被修改时，他的私服并未修改，其他项目不能使用</p>
-<p>聚合：为所有模块添加父模块，统一管理，同时编译，同时部署，父模块仅作为项目管理用</p>
-</li>
-<li><p>当项目之间依赖版本出现冲突时</p>
-<p> 继承：在父模块中加入版本，子模块直接引用</p>
-</li>
-<li><p>如何添加版本</p>
-<p>通过自定义属性标签</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;properties&gt;</span><br><span class="line">    &lt;自定义属性名&gt;属性值&lt;/自定义属性名&gt;</span><br><span class="line">&lt;/properties&gt;</span><br></pre></td></tr></table></figure>
-
-<p>在pom文件中，还可以获取以下属性：</p>
-<ul>
-<li>自定义属性</li>
-<li>maven内置属性</li>
-<li>setting文件夹中的属性</li>
-<li>Java系统属性</li>
-<li>环境变量属性</li>
-</ul>
-</li>
-<li><p>资源配置</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;resources&gt;</span><br><span class="line">      引入配置文件信息</span><br><span class="line">&lt;/resources&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>版本管理</p>
-<ul>
-<li>snapshot 快照版本</li>
-<li>release 发布版本</li>
-</ul>
-</li>
-</ol>
-<p>​      </p>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>JAVA</category>
-      </categories>
-      <tags>
-        <tag>JAVA</tag>
-        <tag>maven</tag>
-        <tag>项目管理</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java数据结构LinkedList，ArrayList，HashMap，TreeMap等集合的类实现</title>
     <url>/2022/01/05/Java%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84LinkedList%EF%BC%8CArrayList%EF%BC%8CHashMap%EF%BC%8CTreeMap%E7%9A%84%E7%B1%BB%E5%AE%9E%E7%8E%B0/</url>
     <content><![CDATA[<h1 id="一-概述"><a href="#一-概述" class="headerlink" title="一.概述"></a>一.概述</h1><p>list集合</p>
@@ -319,6 +319,51 @@
       <tags>
         <tag>JAVA</tag>
         <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mysql的存储机制和锁</title>
+    <url>/2023/04/17/Mysql%E7%9A%84%E5%AD%98%E5%82%A8%E6%9C%BA%E5%88%B6%E5%92%8C%E9%94%81/</url>
+    <content><![CDATA[<h4 id="1-Mysql的存储引擎"><a href="#1-Mysql的存储引擎" class="headerlink" title="1.Mysql的存储引擎"></a>1.Mysql的存储引擎</h4><p>默认为InnoDB</p>
+<p>还有<strong>MyISAM存储引擎</strong></p>
+<h4 id="2-InnoDB的特性"><a href="#2-InnoDB的特性" class="headerlink" title="2.InnoDB的特性"></a>2.InnoDB的特性</h4><p>1）支持提交，回滚等事务</p>
+<p>2）支持完整的外键约束</p>
+<p>3）专为大数量设计</p>
+<p>4）实现了行级锁，共享锁和排他锁</p>
+<h4 id="3-MyISAM的特性"><a href="#3-MyISAM的特性" class="headerlink" title="3.MyISAM的特性"></a>3.MyISAM的特性</h4><p>MyISAM拥有较高的插入、查询速度，但<strong>不支持事物</strong>和行级锁</p>
+<h4 id="4-锁的分类"><a href="#4-锁的分类" class="headerlink" title="4.锁的分类"></a>4.锁的分类</h4><p>按锁粒度分：</p>
+<p>​	行锁：锁某行数据，颗粒度最小，并发度高</p>
+<p>​	表锁：锁整张表，颗粒度大，并发度低</p>
+<p>​	间隙锁：锁一个区间</p>
+<p>还可以分为：</p>
+<p>​	共享锁：也就是读锁，一个事务给某行数据加了读锁，其他事务也可以读，但是不能写</p>
+<p>​	排他锁：也就是写锁，一个事务给某行数据加了写锁，其他事务不能读，也不能写</p>
+<p>还可以分为：</p>
+<p>​	乐观锁：并不会真正锁某行记录，而是通过一个版本号来实现</p>
+<p>​	悲观锁：行锁，表锁都是悲观锁</p>
+<p>在事务的隔离级别实现中，需要用锁来解决幻读</p>
+<h4 id="4-事务"><a href="#4-事务" class="headerlink" title="4.事务"></a>4.事务</h4><h5 id="1）并发带来的问题"><a href="#1）并发带来的问题" class="headerlink" title="1）并发带来的问题"></a>1）并发带来的问题</h5><ul>
+<li><strong>脏读：</strong>一个事务读取另一个<strong>未提交</strong>的数据。</li>
+<li><strong>不可重复读：</strong>一个事务范围内两个相同的查询却返回了不同数据。</li>
+<li><strong>幻读：</strong>一个事务范围内两个相同的查询却返回了不同数据。对应的是插入操作。</li>
+</ul>
+<p><strong>数据库通常会通过锁机制来解决数据并发访问问题，直接使用锁非常麻烦，为此</strong>数据库为用户提供了自动锁机制，用户指定会话的事务隔离级别，数据库就会通过分析SQL语句然后为事务访问的资源加上合适的锁</p>
+<h5 id="2）事务的隔离级别"><a href="#2）事务的隔离级别" class="headerlink" title="2）事务的隔离级别"></a>2）事务的隔离级别</h5><p>从上到下，由低到高</p>
+<ul>
+<li>Read Uncommited，读未提交，即一个事务可以读取另一个未提交事务的数据；并发操作会导致脏读</li>
+<li>Read Commited，读操作，即一个事务要等到另一个事务提交后才能读取数据；解决脏读问题；并发操作会导致不可重复读</li>
+<li>Repeatable Read，重复读，即开始读取数据（事务开启）时，不再允许修改操作；解决不可重复读问题；并发操作会导致幻读（对应insert操作）</li>
+<li>Serializable，序列化，最高的事务隔离级别，该级别下，事务串行化顺序执行；避免脏读、不可重复读与幻读；但是该级别效率低下，比较消耗数据库性能，一般不用。</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/20240223145953.png" alt="事务的隔离级别"></p>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -398,40 +443,21 @@
       </tags>
   </entry>
   <entry>
-    <title>Mysql的存储机制和锁</title>
-    <url>/2023/04/17/Mysql%E7%9A%84%E5%AD%98%E5%82%A8%E6%9C%BA%E5%88%B6%E5%92%8C%E9%94%81/</url>
-    <content><![CDATA[<h4 id="1-Mysql的存储引擎"><a href="#1-Mysql的存储引擎" class="headerlink" title="1.Mysql的存储引擎"></a>1.Mysql的存储引擎</h4><p>默认为InnoDB</p>
-<p>还有<strong>MyISAM存储引擎</strong></p>
-<h4 id="2-InnoDB的特性"><a href="#2-InnoDB的特性" class="headerlink" title="2.InnoDB的特性"></a>2.InnoDB的特性</h4><p>1）支持提交，回滚等事务</p>
-<p>2）支持完整的外键约束</p>
-<p>3）专为大数量设计</p>
-<p>4）实现了行级锁，共享锁和排他锁</p>
-<h4 id="3-MyISAM的特性"><a href="#3-MyISAM的特性" class="headerlink" title="3.MyISAM的特性"></a>3.MyISAM的特性</h4><p>MyISAM拥有较高的插入、查询速度，但<strong>不支持事物</strong>和行级锁</p>
-<h4 id="4-锁的分类"><a href="#4-锁的分类" class="headerlink" title="4.锁的分类"></a>4.锁的分类</h4><p>按锁粒度分：</p>
-<p>​	行锁：锁某行数据，颗粒度最小，并发度高</p>
-<p>​	表锁：锁整张表，颗粒度大，并发度低</p>
-<p>​	间隙锁：锁一个区间</p>
-<p>还可以分为：</p>
-<p>​	共享锁：也就是读锁，一个事务给某行数据加了读锁，其他事务也可以读，但是不能写</p>
-<p>​	排他锁：也就是写锁，一个事务给某行数据加了写锁，其他事务不能读，也不能写</p>
-<p>还可以分为：</p>
-<p>​	乐观锁：并不会真正锁某行记录，而是通过一个版本号来实现</p>
-<p>​	悲观锁：行锁，表锁都是悲观锁</p>
-<p>在事务的隔离级别实现中，需要用锁来解决幻读</p>
-<h4 id="4-事务"><a href="#4-事务" class="headerlink" title="4.事务"></a>4.事务</h4><h5 id="1）并发带来的问题"><a href="#1）并发带来的问题" class="headerlink" title="1）并发带来的问题"></a>1）并发带来的问题</h5><ul>
-<li><strong>脏读：</strong>一个事务读取另一个<strong>未提交</strong>的数据。</li>
-<li><strong>不可重复读：</strong>一个事务范围内两个相同的查询却返回了不同数据。</li>
-<li><strong>幻读：</strong>一个事务范围内两个相同的查询却返回了不同数据。对应的是插入操作。</li>
+    <title>Spring AOP和代理模式</title>
+    <url>/2023/11/17/Spring-AOP%E5%92%8C%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="一-代理模式"><a href="#一-代理模式" class="headerlink" title="一.代理模式"></a>一.代理模式</h1><h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h2><p>对一个对象提供一个代理对象，使用代理对象控制对原对象的引用</p>
+<p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/20240223182254.png" alt="结构类图"></p>
+<p>RealSubject类实现Subject接口，Proxy类实现Subject接口，并定义RealSubject对象作为成员变量</p>
+<p>客户端不直接依赖代理类</p>
+<h2 id="2-分类"><a href="#2-分类" class="headerlink" title="2.分类"></a>2.分类</h2><ul>
+<li>静态代理：通过代码编译生成代理类</li>
+<li>动态代理：运行时动态生成代理类</li>
 </ul>
-<p><strong>数据库通常会通过锁机制来解决数据并发访问问题，直接使用锁非常麻烦，为此</strong>数据库为用户提供了自动锁机制，用户指定会话的事务隔离级别，数据库就会通过分析SQL语句然后为事务访问的资源加上合适的锁</p>
-<h5 id="2）事务的隔离级别"><a href="#2）事务的隔离级别" class="headerlink" title="2）事务的隔离级别"></a>2）事务的隔离级别</h5><p>从上到下，由低到高</p>
-<ul>
-<li>Read Uncommited，读未提交，即一个事务可以读取另一个未提交事务的数据；并发操作会导致脏读</li>
-<li>Read Commited，读操作，即一个事务要等到另一个事务提交后才能读取数据；解决脏读问题；并发操作会导致不可重复读</li>
-<li>Repeatable Read，重复读，即开始读取数据（事务开启）时，不再允许修改操作；解决不可重复读问题；并发操作会导致幻读（对应insert操作）</li>
-<li>Serializable，序列化，最高的事务隔离级别，该级别下，事务串行化顺序执行；避免脏读、不可重复读与幻读；但是该级别效率低下，比较消耗数据库性能，一般不用。</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/20240223145953.png" alt="事务的隔离级别"></p>
+<h2 id="3-实现"><a href="#3-实现" class="headerlink" title="3.实现"></a>3.实现</h2><p>1）jdk的动态代理</p>
+<p>自定义Proxy类，实现InvocationHandle接口，重写invoke方法</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public interface Subject &#123;</span><br><span class="line">    public void rent();</span><br><span class="line"></span><br><span class="line">    public void hello(String str);</span><br><span class="line">&#125;</span><br><span class="line">public class SubjectImpl implements Subject&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void rent() &#123;</span><br><span class="line">        System.out.println(&quot;I want to rent my house&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void hello(String str) &#123;</span><br><span class="line">        System.out.println(&quot;hello: &quot; + str);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public class DynamicProxy implements InvocationHandler &#123;</span><br><span class="line">    // 这个就是要代理的真实对象</span><br><span class="line">    private Object subject;</span><br><span class="line"></span><br><span class="line">    // 构造方法，给要代理的真实对象赋初值</span><br><span class="line">    public DynamicProxy(Object subject) &#123;</span><br><span class="line">        this.subject = subject;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Object invoke(Object object, Method method, Object[] args) throws Throwable &#123;</span><br><span class="line">        // 在代理真实对象前可以添加一些自己的操作</span><br><span class="line">        System.out.println(&quot;before rent house&quot;);</span><br><span class="line">        System.out.println(&quot;Method:&quot; + method);</span><br><span class="line"></span><br><span class="line">        // 当代理对象调用真实对象的方法时，其会自动的跳转到代理对象关联的handler对象的invoke方法来进行调用</span><br><span class="line">        Object result = method.invoke(subject, args);</span><br><span class="line"></span><br><span class="line">        // 在代理真实对象后也可以添加一些自己的操作</span><br><span class="line">        System.out.println(&quot;after rent house&quot;);</span><br><span class="line"></span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">public class Client &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        //    要代理的真实对象</span><br><span class="line">        Subject realSubject = new SubjectImpl();</span><br><span class="line">        //   要代理哪个真实对象，就将该对象传进去，最后是通过该真实对象来调用其方法的</span><br><span class="line">        InvocationHandler handler = new DynamicProxy(realSubject);</span><br><span class="line">        /*</span><br><span class="line">         * 通过Proxy的newProxyInstance方法来创建我们的代理对象，来看看其三个参数</span><br><span class="line">         * 第一个参数 handler.getClass().getClassLoader() ，这里使用handler这个类的ClassLoader对象来加载我们的代理对象</span><br><span class="line">         * 第二个参数realSubject.getClass().getInterfaces()，这里为代理对象提供的接口是真实对象所实行的接口，</span><br><span class="line">         * 表示要代理的是该真实对象，这样就能调用这组接口中的方法了</span><br><span class="line">         * 第三个参数handler， 这里将这个代理对象关联到了上方的 InvocationHandler 这个对象上</span><br><span class="line">         */</span><br><span class="line">        Subject subject = (Subject) Proxy.newProxyInstance(handler.getClass().getClassLoader(), realSubject.getClass().getInterfaces(), handler);</span><br><span class="line">        System.out.println(subject.getClass().getName());</span><br><span class="line">        subject.rent();</span><br><span class="line">        subject.hello(&quot;world&quot;);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>自定义工厂类，返回代理对象</p>
 ]]></content>
       <categories>
         <category>技术</category>
@@ -439,7 +465,7 @@
       </categories>
       <tags>
         <tag>JAVA</tag>
-        <tag>mysql</tag>
+        <tag>Spring</tag>
       </tags>
   </entry>
   <entry>
@@ -457,51 +483,6 @@
 <p>具体使用</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HttpServletResponse response = WebUtils.getResponse();</span><br><span class="line">        response.setStatus(HttpStatus.HTTP_OK);</span><br><span class="line">        response.setContentType(ContentType.OCTET_STREAM.toString());</span><br><span class="line">        response.setHeader(HeaderName.CONTENT_DISPOSITION.getValue(), CharSequenceUtil</span><br><span class="line">                .format(&quot;attachment;filename=\&quot;&#123;&#125;.txt\&quot;&quot;, new String(fileName.getBytes(), StandardCharsets.ISO_8859_1)));</span><br><span class="line">        // 读取文件并写入响应输出流，IoUtil是hutool工具包下的类</span><br><span class="line">        IoUtil.write(response.getOutputStream(), content.getBytes());</span><br></pre></td></tr></table></figure>
 
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>JAVA</category>
-      </categories>
-      <tags>
-        <tag>JAVA</tag>
-        <tag>Spring</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SpringMVC简介</title>
-    <url>/2022/03/02/SpringMVC%E7%AE%80%E4%BB%8B/</url>
-    <content><![CDATA[<h1 id="一-MVC"><a href="#一-MVC" class="headerlink" title="一.MVC"></a>一.MVC</h1><h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h2><p>一种软件架构思想，将软件按照模型，视图，控制器来划分</p>
-<p>M：Model，模型层，指工程中的JavaBean，作用是处理数据</p>
-<p>V：View，视图层，指工程中的html或jsp等页面，作用是与用户进行交互，展示数据</p>
-<p>C：Controller，控制层，指工程中的servlet，作用是接受请求和相应浏览器</p>
-<h2 id="2-工作流程"><a href="#2-工作流程" class="headerlink" title="2.工作流程"></a>2.工作流程</h2><p>用户通过视图层发送请求到服务器，在服务器中请求被Controller接受，Controller调用相应的Model层处理请求，处理完毕将结果返回到Controller，Controller再根据请求处理的结果找到对应的View视图，渲染数据后最终响应给浏览器。</p>
-<h1 id="二-SpringMVC"><a href="#二-SpringMVC" class="headerlink" title="二.SpringMVC"></a>二.SpringMVC</h1><p>springMVC是spring的一个子项目，是spring为表述层（前台页面+servlet）提供的一整套完备的解决方案。</p>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>JAVA</category>
-      </categories>
-      <tags>
-        <tag>JAVA</tag>
-        <tag>Spring</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Spring AOP和代理模式</title>
-    <url>/2023/11/17/Spring-AOP%E5%92%8C%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/</url>
-    <content><![CDATA[<h1 id="一-代理模式"><a href="#一-代理模式" class="headerlink" title="一.代理模式"></a>一.代理模式</h1><h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h2><p>对一个对象提供一个代理对象，使用代理对象控制对原对象的引用</p>
-<p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/20240223182254.png" alt="结构类图"></p>
-<p>RealSubject类实现Subject接口，Proxy类实现Subject接口，并定义RealSubject对象作为成员变量</p>
-<p>客户端不直接依赖代理类</p>
-<h2 id="2-分类"><a href="#2-分类" class="headerlink" title="2.分类"></a>2.分类</h2><ul>
-<li>静态代理：通过代码编译生成代理类</li>
-<li>动态代理：运行时动态生成代理类</li>
-</ul>
-<h2 id="3-实现"><a href="#3-实现" class="headerlink" title="3.实现"></a>3.实现</h2><p>1）jdk的动态代理</p>
-<p>自定义Proxy类，实现InvocationHandle接口，重写invoke方法</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">public interface Subject &#123;</span><br><span class="line">    public void rent();</span><br><span class="line"></span><br><span class="line">    public void hello(String str);</span><br><span class="line">&#125;</span><br><span class="line">public class SubjectImpl implements Subject&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void rent() &#123;</span><br><span class="line">        System.out.println(&quot;I want to rent my house&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void hello(String str) &#123;</span><br><span class="line">        System.out.println(&quot;hello: &quot; + str);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public class DynamicProxy implements InvocationHandler &#123;</span><br><span class="line">    // 这个就是要代理的真实对象</span><br><span class="line">    private Object subject;</span><br><span class="line"></span><br><span class="line">    // 构造方法，给要代理的真实对象赋初值</span><br><span class="line">    public DynamicProxy(Object subject) &#123;</span><br><span class="line">        this.subject = subject;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Object invoke(Object object, Method method, Object[] args) throws Throwable &#123;</span><br><span class="line">        // 在代理真实对象前可以添加一些自己的操作</span><br><span class="line">        System.out.println(&quot;before rent house&quot;);</span><br><span class="line">        System.out.println(&quot;Method:&quot; + method);</span><br><span class="line"></span><br><span class="line">        // 当代理对象调用真实对象的方法时，其会自动的跳转到代理对象关联的handler对象的invoke方法来进行调用</span><br><span class="line">        Object result = method.invoke(subject, args);</span><br><span class="line"></span><br><span class="line">        // 在代理真实对象后也可以添加一些自己的操作</span><br><span class="line">        System.out.println(&quot;after rent house&quot;);</span><br><span class="line"></span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">public class Client &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        //    要代理的真实对象</span><br><span class="line">        Subject realSubject = new SubjectImpl();</span><br><span class="line">        //   要代理哪个真实对象，就将该对象传进去，最后是通过该真实对象来调用其方法的</span><br><span class="line">        InvocationHandler handler = new DynamicProxy(realSubject);</span><br><span class="line">        /*</span><br><span class="line">         * 通过Proxy的newProxyInstance方法来创建我们的代理对象，来看看其三个参数</span><br><span class="line">         * 第一个参数 handler.getClass().getClassLoader() ，这里使用handler这个类的ClassLoader对象来加载我们的代理对象</span><br><span class="line">         * 第二个参数realSubject.getClass().getInterfaces()，这里为代理对象提供的接口是真实对象所实行的接口，</span><br><span class="line">         * 表示要代理的是该真实对象，这样就能调用这组接口中的方法了</span><br><span class="line">         * 第三个参数handler， 这里将这个代理对象关联到了上方的 InvocationHandler 这个对象上</span><br><span class="line">         */</span><br><span class="line">        Subject subject = (Subject) Proxy.newProxyInstance(handler.getClass().getClassLoader(), realSubject.getClass().getInterfaces(), handler);</span><br><span class="line">        System.out.println(subject.getClass().getName());</span><br><span class="line">        subject.rent();</span><br><span class="line">        subject.hello(&quot;world&quot;);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>自定义工厂类，返回代理对象</p>
 ]]></content>
       <categories>
         <category>技术</category>
@@ -576,6 +557,25 @@
 <p>因此，我们可以根据不同的需求和场景选择使用 ResponseEntity 或者 @ResponseBody。</p>
 <p>对于大多数情况，我们可以使用 @ResponseBody 注解来直接返回 JSON 结果，或者使用 @ResponseStatus 注解来设置响应状态码。对于一些需要更多定制的情况，我们可以使用 ResponseEntity 来完全控制 HTTP 响应。</p>
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a><strong>结语</strong></h3><p>这篇文章我们主要介绍了Spring ResponseEntity的原理、使用及其替代方案，并对比了ResponseEntity 和 @ResponseBody。</p>
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>Spring</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SpringMVC简介</title>
+    <url>/2022/03/02/SpringMVC%E7%AE%80%E4%BB%8B/</url>
+    <content><![CDATA[<h1 id="一-MVC"><a href="#一-MVC" class="headerlink" title="一.MVC"></a>一.MVC</h1><h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h2><p>一种软件架构思想，将软件按照模型，视图，控制器来划分</p>
+<p>M：Model，模型层，指工程中的JavaBean，作用是处理数据</p>
+<p>V：View，视图层，指工程中的html或jsp等页面，作用是与用户进行交互，展示数据</p>
+<p>C：Controller，控制层，指工程中的servlet，作用是接受请求和相应浏览器</p>
+<h2 id="2-工作流程"><a href="#2-工作流程" class="headerlink" title="2.工作流程"></a>2.工作流程</h2><p>用户通过视图层发送请求到服务器，在服务器中请求被Controller接受，Controller调用相应的Model层处理请求，处理完毕将结果返回到Controller，Controller再根据请求处理的结果找到对应的View视图，渲染数据后最终响应给浏览器。</p>
+<h1 id="二-SpringMVC"><a href="#二-SpringMVC" class="headerlink" title="二.SpringMVC"></a>二.SpringMVC</h1><p>springMVC是spring的一个子项目，是spring为表述层（前台页面+servlet）提供的一整套完备的解决方案。</p>
 ]]></content>
       <categories>
         <category>技术</category>
@@ -672,6 +672,24 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2020/12/01/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>hexo部署gitee</title>
     <url>/2020/12/05/hexo%E9%83%A8%E7%BD%B2gitee/</url>
     <content><![CDATA[<ol>
@@ -712,22 +730,23 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2020/12/01/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+    <title>hutool工具类</title>
+    <url>/2023/07/16/hutool%E5%B7%A5%E5%85%B7%E7%B1%BB/</url>
+    <content><![CDATA[<p>hutool涵盖了字符串、数字、集合、编码、日期、文件、IO、加密、数据库JDBC、JSON、HTTP客户端等一系列操作，包含以下组件：</p>
+<p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/hutool%E5%B7%A5%E5%85%B7%E7%B1%BB1.png" alt="hutool工具类1"></p>
+<p>可以根据需求对每个模块单独引入，也可以通过引入<code>hutool-all</code>方式引入所有模块。</p>
+<p><a href="https://www.hutool.cn/docs/#/">中文文档</a></p>
+<p><a href="https://apidoc.gitee.com/dromara/hutool/">api文档</a></p>
 ]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>hutool</tag>
+        <tag>工具类</tag>
+      </tags>
   </entry>
   <entry>
     <title>jar中没有主清单属性</title>
@@ -748,89 +767,6 @@
         <tag>JAVA</tag>
         <tag>maven</tag>
         <tag>bug</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hutool工具类</title>
-    <url>/2023/07/16/hutool%E5%B7%A5%E5%85%B7%E7%B1%BB/</url>
-    <content><![CDATA[<p>hutool涵盖了字符串、数字、集合、编码、日期、文件、IO、加密、数据库JDBC、JSON、HTTP客户端等一系列操作，包含以下组件：</p>
-<p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/hutool%E5%B7%A5%E5%85%B7%E7%B1%BB1.png" alt="hutool工具类1"></p>
-<p>可以根据需求对每个模块单独引入，也可以通过引入<code>hutool-all</code>方式引入所有模块。</p>
-<p><a href="https://www.hutool.cn/docs/#/">中文文档</a></p>
-<p><a href="https://apidoc.gitee.com/dromara/hutool/">api文档</a></p>
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>JAVA</category>
-      </categories>
-      <tags>
-        <tag>JAVA</tag>
-        <tag>hutool</tag>
-        <tag>工具类</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>工具类常用</title>
-    <url>/2020/12/11/%E5%B7%A5%E5%85%B7%E7%B1%BB%E5%B8%B8%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="一-集合"><a href="#一-集合" class="headerlink" title="一.集合"></a>一.集合</h1><h5 id="1-判空"><a href="#1-判空" class="headerlink" title="1.判空"></a>1.判空</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.dromara.hutool.core.collection.CollUtil.isNotEmpty(CollectionName)</span><br></pre></td></tr></table></figure>
-
-<h5 id="2-去重"><a href="#2-去重" class="headerlink" title="2.去重"></a>2.去重</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.dromara.hutool.core.collection.CollUtil.distinc(CollectionName)</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h1 id="二-IO流"><a href="#二-IO流" class="headerlink" title="二.IO流"></a>二.IO流</h1><h5 id="1-写入"><a href="#1-写入" class="headerlink" title="1.写入"></a>1.写入</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.dromara.hutool.core.io.IoUtil.write(OutputStream out, byte[] content)</span><br></pre></td></tr></table></figure>
-
-<h5 id="2-写出"><a href="#2-写出" class="headerlink" title="2.写出"></a>2.写出</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.dromara.hutool.core.io.IoUtil.read(InputStream in, Charset charset)</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h1 id="三-Bean对象"><a href="#三-Bean对象" class="headerlink" title="三.Bean对象"></a>三.Bean对象</h1><h5 id="1-属性复制"><a href="#1-属性复制" class="headerlink" title="1.属性复制"></a>1.属性复制</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.dromara.hutool.core.bean.BeanUtil.copyProperties(Object source, Object target, String... ignoreProperties)</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h1 id="四-String字符串"><a href="#四-String字符串" class="headerlink" title="四.String字符串"></a>四.String字符串</h1><h2 id="Lang"><a href="#Lang" class="headerlink" title="Lang"></a>Lang</h2><h5 id="1-map转String"><a href="#1-map转String" class="headerlink" title="1.map转String"></a>1.map转String</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Map&lt;String, String&gt; map = new HashMap&lt;String, String&gt;();</span><br><span class="line">map.put(&quot;key1&quot;, &quot;value1&quot;);</span><br><span class="line">map.put(&quot;key2&quot;, &quot;value2&quot;);</span><br><span class="line">map.put(&quot;key3&quot;, &quot;value3&quot;);</span><br><span class="line">System.out.println(map.toString());</span><br></pre></td></tr></table></figure>
-
-<h5 id="2-字符串拼接"><a href="#2-字符串拼接" class="headerlink" title="2.字符串拼接"></a>2.字符串拼接</h5><p>1）使用StringBuild.append()方法拼接，然后使用StringBuild.toSting()转成String</p>
-<p>2）</p>
-<h2 id="hutool"><a href="#hutool" class="headerlink" title="hutool"></a>hutool</h2><h5 id="1-Object转String"><a href="#1-Object转String" class="headerlink" title="1.Object转String"></a>1.Object转String</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">JSONUtil.toJsonStr(params)</span><br></pre></td></tr></table></figure>
-
-<h5 id="2-组装String，params替换"><a href="#2-组装String，params替换" class="headerlink" title="2.组装String，params替换{}"></a>2.组装String，params替换{}</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CharSequenceUtil.format(CharSequence template, Object... params)</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="fastjson"><a href="#fastjson" class="headerlink" title="fastjson"></a>fastjson</h2><p>阿里巴巴的开源JSON解析库fastjson，和Json相关首先考虑此包</p>
-<h5 id="1-Java对象转换为json字符串，object可以是实体类、list和map"><a href="#1-Java对象转换为json字符串，object可以是实体类、list和map" class="headerlink" title="1.Java对象转换为json字符串，object可以是实体类、list和map"></a>1.Java对象转换为json字符串，object可以是实体类、list和map</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">JSON.toJSONString(object); </span><br></pre></td></tr></table></figure>
-
-<h5 id="2-json字符串转换为实体类"><a href="#2-json字符串转换为实体类" class="headerlink" title="2.json字符串转换为实体类"></a>2.json字符串转换为实体类</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">User user2 = JSON.parseObject(jsonString, User.class); </span><br></pre></td></tr></table></figure>
-
-<h5 id="3-json字符串转换为list集合"><a href="#3-json字符串转换为list集合" class="headerlink" title="3.json字符串转换为list集合"></a>3.json字符串转换为list集合</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">List&lt;T&gt; ts = (List&lt;T&gt;) JSON.parseArray(jsonString, T.class); </span><br><span class="line">List&lt;JSONObject&gt; list1 = JSON.parseObject(jsonlist, List.class); </span><br></pre></td></tr></table></figure>
-
-<h5 id="4-json字符串转换为map集合"><a href="#4-json字符串转换为map集合" class="headerlink" title="4.json字符串转换为map集合"></a>4.json字符串转换为map集合</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Map&lt;JSONObject, JSONArray&gt; map1 = JSON.parseObject(jsonmap,Map.class); </span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="五-发送请求"><a href="#五-发送请求" class="headerlink" title="五.发送请求"></a>五.发送请求</h1><h5 id="1-发送get请求"><a href="#1-发送get请求" class="headerlink" title="1.发送get请求"></a>1.发送get请求</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.dromara.hutool.http.HttpUtil.get(String urlString)</span><br></pre></td></tr></table></figure>
-
-<h5 id="2-发送post请求"><a href="#2-发送post请求" class="headerlink" title="2.发送post请求"></a>2.发送post请求</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.dromara.hutool.http.HttpUtil.post(String urlString, String body)</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-发送其他请求"><a href="#3-发送其他请求" class="headerlink" title="3.发送其他请求"></a>3.发送其他请求</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.dromara.hutool.http.HttpUtil.send(Request request)</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>技术</category>
-        <category>JAVA</category>
-      </categories>
-      <tags>
-        <tag>JAVA</tag>
-        <tag>hutool</tag>
-        <tag>工具类</tag>
-        <tag>fastjson</tag>
       </tags>
   </entry>
   <entry>
@@ -965,6 +901,134 @@
       <tags>
         <tag>request</tag>
         <tag>前端</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>工具类常用</title>
+    <url>/2020/12/11/%E5%B7%A5%E5%85%B7%E7%B1%BB%E5%B8%B8%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="一-集合"><a href="#一-集合" class="headerlink" title="一.集合"></a>一.集合</h1><h5 id="1-判空"><a href="#1-判空" class="headerlink" title="1.判空"></a>1.判空</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.dromara.hutool.core.collection.CollUtil.isNotEmpty(CollectionName)</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-去重"><a href="#2-去重" class="headerlink" title="2.去重"></a>2.去重</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.dromara.hutool.core.collection.CollUtil.distinc(CollectionName)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="二-IO流"><a href="#二-IO流" class="headerlink" title="二.IO流"></a>二.IO流</h1><h5 id="1-写入"><a href="#1-写入" class="headerlink" title="1.写入"></a>1.写入</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.dromara.hutool.core.io.IoUtil.write(OutputStream out, byte[] content)</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-写出"><a href="#2-写出" class="headerlink" title="2.写出"></a>2.写出</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.dromara.hutool.core.io.IoUtil.read(InputStream in, Charset charset)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="三-Bean对象"><a href="#三-Bean对象" class="headerlink" title="三.Bean对象"></a>三.Bean对象</h1><h5 id="1-属性复制"><a href="#1-属性复制" class="headerlink" title="1.属性复制"></a>1.属性复制</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.dromara.hutool.core.bean.BeanUtil.copyProperties(Object source, Object target, String... ignoreProperties)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="四-String字符串"><a href="#四-String字符串" class="headerlink" title="四.String字符串"></a>四.String字符串</h1><h2 id="Lang"><a href="#Lang" class="headerlink" title="Lang"></a>Lang</h2><h5 id="1-map转String"><a href="#1-map转String" class="headerlink" title="1.map转String"></a>1.map转String</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Map&lt;String, String&gt; map = new HashMap&lt;String, String&gt;();</span><br><span class="line">map.put(&quot;key1&quot;, &quot;value1&quot;);</span><br><span class="line">map.put(&quot;key2&quot;, &quot;value2&quot;);</span><br><span class="line">map.put(&quot;key3&quot;, &quot;value3&quot;);</span><br><span class="line">System.out.println(map.toString());</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-字符串拼接"><a href="#2-字符串拼接" class="headerlink" title="2.字符串拼接"></a>2.字符串拼接</h5><p>1）使用StringBuild.append()方法拼接，然后使用StringBuild.toSting()转成String</p>
+<p>2）</p>
+<h2 id="hutool"><a href="#hutool" class="headerlink" title="hutool"></a>hutool</h2><h5 id="1-Object转String"><a href="#1-Object转String" class="headerlink" title="1.Object转String"></a>1.Object转String</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">JSONUtil.toJsonStr(params)</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-组装String，params替换"><a href="#2-组装String，params替换" class="headerlink" title="2.组装String，params替换{}"></a>2.组装String，params替换{}</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CharSequenceUtil.format(CharSequence template, Object... params)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="fastjson"><a href="#fastjson" class="headerlink" title="fastjson"></a>fastjson</h2><p>阿里巴巴的开源JSON解析库fastjson，和Json相关首先考虑此包</p>
+<h5 id="1-Java对象转换为json字符串，object可以是实体类、list和map"><a href="#1-Java对象转换为json字符串，object可以是实体类、list和map" class="headerlink" title="1.Java对象转换为json字符串，object可以是实体类、list和map"></a>1.Java对象转换为json字符串，object可以是实体类、list和map</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">JSON.toJSONString(object); </span><br></pre></td></tr></table></figure>
+
+<h5 id="2-json字符串转换为实体类"><a href="#2-json字符串转换为实体类" class="headerlink" title="2.json字符串转换为实体类"></a>2.json字符串转换为实体类</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">User user2 = JSON.parseObject(jsonString, User.class); </span><br></pre></td></tr></table></figure>
+
+<h5 id="3-json字符串转换为list集合"><a href="#3-json字符串转换为list集合" class="headerlink" title="3.json字符串转换为list集合"></a>3.json字符串转换为list集合</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">List&lt;T&gt; ts = (List&lt;T&gt;) JSON.parseArray(jsonString, T.class); </span><br><span class="line">List&lt;JSONObject&gt; list1 = JSON.parseObject(jsonlist, List.class); </span><br></pre></td></tr></table></figure>
+
+<h5 id="4-json字符串转换为map集合"><a href="#4-json字符串转换为map集合" class="headerlink" title="4.json字符串转换为map集合"></a>4.json字符串转换为map集合</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Map&lt;JSONObject, JSONArray&gt; map1 = JSON.parseObject(jsonmap,Map.class); </span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="五-发送请求"><a href="#五-发送请求" class="headerlink" title="五.发送请求"></a>五.发送请求</h1><h5 id="1-发送get请求"><a href="#1-发送get请求" class="headerlink" title="1.发送get请求"></a>1.发送get请求</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.dromara.hutool.http.HttpUtil.get(String urlString)</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-发送post请求"><a href="#2-发送post请求" class="headerlink" title="2.发送post请求"></a>2.发送post请求</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.dromara.hutool.http.HttpUtil.post(String urlString, String body)</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-发送其他请求"><a href="#3-发送其他请求" class="headerlink" title="3.发送其他请求"></a>3.发送其他请求</h5><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">org.dromara.hutool.http.HttpUtil.send(Request request)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>JAVA</category>
+      </categories>
+      <tags>
+        <tag>JAVA</tag>
+        <tag>hutool</tag>
+        <tag>工具类</tag>
+        <tag>fastjson</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端页面请求传参</title>
+    <url>/2024/03/12/%E5%89%8D%E7%AB%AF%E9%A1%B5%E9%9D%A2%E8%AF%B7%E6%B1%82%E4%BC%A0%E5%8F%82/</url>
+    <content><![CDATA[<h1 id="前端页面请求传参"><a href="#前端页面请求传参" class="headerlink" title="前端页面请求传参"></a>前端页面请求传参</h1><h2 id="1-json格式"><a href="#1-json格式" class="headerlink" title="1.json格式"></a>1.json格式</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const params = &#123;</span><br><span class="line">  &quot;name&quot;: &quot;张三&quot;,</span><br><span class="line">  &quot;password&quot;: &quot;123456&quot;,     </span><br><span class="line">&#125;</span><br><span class="line">try &#123;</span><br><span class="line">  getData(params).then(resp =&gt; &#123;</span><br><span class="line">    const &#123; data &#125; = resp.data</span><br><span class="line">    console.log(data)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125; catch (e) &#123;</span><br><span class="line">  console.log(e)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-formdata形式"><a href="#2-formdata形式" class="headerlink" title="2.formdata形式"></a>2.formdata形式</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">const name = &#x27;张三&#x27;</span><br><span class="line">const password= &#x27;123456&#x27;</span><br><span class="line">let formdata = new FormData()</span><br><span class="line">formdata.append(&#x27;name&#x27;, name )</span><br><span class="line">formdata.append(&#x27;password&#x27;, password )</span><br><span class="line"> try &#123;</span><br><span class="line">  getData(formdata).then(resp =&gt; &#123;    // 调用接口方法</span><br><span class="line">    const &#123; data &#125; = resp.data</span><br><span class="line">    console.log(data)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125; catch (e) &#123;</span><br><span class="line">  console.log(e)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="3-form表单形式"><a href="#3-form表单形式" class="headerlink" title="3.form表单形式"></a>3.form表单形式</h2><p>只能提交字符串形式，不能提交数组，若数据为数组，需要将数组拼接为字符串</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;form method=&quot;post&quot; enctype=&quot;application/msexcel&quot;</span><br><span class="line">                              action=&quot;/drugrelctrl-web/getData&quot;&gt;  //传参地址</span><br><span class="line">   &lt;input type=&quot;text&quot;  name=&quot;password&quot;  :value=&quot;password&quot; /&gt;   // 输入文本</span><br><span class="line">   &lt;input type=&quot;submit&quot;  class=&quot;submitBtn&quot;   value=&quot;提交&quot; /&gt;  //提交按钮</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">         </span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default&#123;</span><br><span class="line">	data()&#123;</span><br><span class="line">	  return&#123;</span><br><span class="line">		password:&quot;123456&quot;</span><br><span class="line">	&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;	</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>VUE</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>父和子组件</title>
+    <url>/2024/03/09/%E7%88%B6%E5%92%8C%E5%AD%90%E7%BB%84%E4%BB%B6/</url>
+    <content><![CDATA[<h1 id="父和子组件"><a href="#父和子组件" class="headerlink" title="父和子组件"></a>父和子组件</h1><h2 id="1-在父组件中引入子组件"><a href="#1-在父组件中引入子组件" class="headerlink" title="1.在父组件中引入子组件"></a>1.在父组件中引入子组件</h2><p>使用import引入组件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import indexImportOrder from &#x27;./components/indexImportOrder&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>声明</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//定义组件</span><br><span class="line">components:&#123;</span><br><span class="line">  indexImportOrder,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>使用</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;indexImportOrder ref=&quot;indexImportOrder&quot;/&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-子组件向父组件传值"><a href="#2-子组件向父组件传值" class="headerlink" title="2.子组件向父组件传值"></a>2.子组件向父组件传值</h2><ol>
+<li><p>在子组件中需要向父组件传值处使用<strong>this.$emit(“function”,param);</strong>   </p>
+<p>&#x2F;&#x2F;其中function为父组件定义函数，param为需要传递参数</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//新订单页面跳转</span><br><span class="line">viewBusiness()&#123;</span><br><span class="line">  let flag = false;</span><br><span class="line">  this.$emit(&#x27;closeMain&#x27;,flag);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>在父组件中子组件引用处添加函数v-on:function&#x3D;”function1”；</p>
+<p> &#x2F;&#x2F;其中function为子组件中定义函数，function1为父组件定义函数–用于接收子组件传值并进行相应数据处理，可定义为同一名称</p>
+</li>
+</ol>
+<p>v-on： 可用 @ 代替 @function&#x3D;”function1” ，@ 为 v-on：的简写</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;indexImportOrder ref=&quot;indexImportOrder&quot; v-on:closeMain=&quot;closeMain&quot;/&gt;</span><br></pre></td></tr></table></figure>
+
+<p>父组件方法，val及为子组件中flag，即接收的子组件参数</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">closeMain(val)&#123;</span><br><span class="line">  this.flag = val;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>技术</category>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>前端</tag>
+        <tag>VUE</tag>
       </tags>
   </entry>
 </search>
