@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+  
+
+    <head>
+      <meta charset="utf-8" />
+        
+      <meta name="description" content="这是一个简单的博客" />
+      
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1"
+      />
+      <title> 小刘的博客</title>
+  <meta name="generator" content="hexo-theme-ayer">
+      
+      <link rel="shortcut icon" href="/favicon.ico" />
+       
+<link rel="stylesheet" href="/dist/main.css">
+
+      
+<link rel="stylesheet" href="/css/fonts/remixicon.css">
+
+      
+<link rel="stylesheet" href="/css/custom.css">
+ 
+      <script src="https://cdn.staticfile.org/pace/1.2.4/pace.min.js"></script>
+       
+ 
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-bulma@5.0.1/bulma.min.css"
+      />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
+      <!-- mermaid -->
+      
+      <style>
+        .swal2-styled.swal2-confirm {
+          font-size: 1.6rem;
+        }
+      </style>
+    <link rel="alternate" href="/atom.xml" title="小刘的博客" type="application/atom+xml">
+</head>
+  </html>
+</html>
+
+
+<body>
+  <div id="app">
+    
+      
+    <main class="content on">
+      
+<section class="cover">
+    
+      
+      <a class="forkMe" href="https://github.com/Shen-Yu/hexo-theme-ayer"
+        target="_blank"><img width="149" height="149" src="/images/forkme.png"
+          class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+    
+  <div class="cover-frame">
+    <div class="bg-box">
+      <img src="/images/cover1.jpg" alt="image frame" />
+    </div>
+    <div class="cover-inner text-center text-white">
+      <h1><a href="/">小刘的博客</a></h1>
+      <div id="subtitle-box">
+        
+        <span id="subtitle"></span>
+        
+      </div>
+      <div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="cover-learn-more">
+    <a href="javascript:void(0)" class="anchor"><i class="ri-arrow-down-line"></i></a>
+  </div>
+</section>
+
+
+
+<script src="https://cdn.staticfile.org/typed.js/2.0.12/typed.min.js"></script>
+
+
+<!-- Subtitle -->
+
+  <script>
+    try {
+      var typed = new Typed("#subtitle", {
+        strings: ['面朝大海，春暖花开', '愿你一生努力，一生被爱', '想要的都拥有，得不到的都释怀'],
+        startDelay: 0,
+        typeSpeed: 200,
+        loop: true,
+        backSpeed: 100,
+        showCursor: true
+      });
+    } catch (err) {
+      console.log(err)
+    }
+  </script>
+  
+<div id="main">
+  <section class="outer">
+  
+  <ul class="ads">
+    
+        <li>
+            <a target="_blank" rel="noopener" href="https://curl.qcloud.com/kvO7hb43">
+                <img src="https://pic.imgdb.cn/item/62174b452ab3f51d912a5ccc.jpg" width="300" alt="云服务器限时秒杀">
+            </a>
+        </li>
+    
+        <li>
+            <a target="_blank" rel="noopener" href="https://www.vultr.com/?ref=8630075">
+                <img src="https://pic.imgdb.cn/item/62174b452ab3f51d912a5cd7.png" width="300" alt="vultr优惠vps">
+            </a>
+        </li>
+    
+</ul>
+  
+  
+  
+
+<div class="notice" style="margin-top:50px">
+    <i class="ri-heart-fill"></i>
+    <div class="notice-content" id="broad"></div>
+</div>
+<script type="text/javascript">
+    fetch('https://v1.hitokoto.cn')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("broad").innerHTML = data.hitokoto;
+        })
+        .catch(console.error)
+</script>
+
+<style>
+    .notice {
+        padding: 20px;
+        border: 1px dashed #e6e6e6;
+        color: #969696;
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        background: #fbfbfb50;
+        border-radius: 10px;
+    }
+
+    .notice i {
+        float: left;
+        color: #999;
+        font-size: 16px;
+        padding-right: 10px;
+        vertical-align: middle;
+        margin-top: -2px;
+    }
+
+    .notice-content {
+        display: initial;
+        vertical-align: middle;
+    }
+</style>
+  
+  <article class="articles">
+    
+    
+    
+    
+    <article
+  id="post-Springboot及其它第三方框架注解"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/04/24/Springboot%E5%8F%8A%E5%85%B6%E5%AE%83%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A1%86%E6%9E%B6%E6%B3%A8%E8%A7%A3/"
+    >Springboot及其它第三方框架注解</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/04/24/Springboot%E5%8F%8A%E5%85%B6%E5%AE%83%E7%AC%AC%E4%B8%89%E6%96%B9%E6%A1%86%E6%9E%B6%E6%B3%A8%E8%A7%A3/" class="article-date">
+  <time datetime="2024-04-24T03:01:40.000Z" itemprop="datePublished">2024-04-24</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/JAVA/">JAVA</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/JAVA/%E5%AE%9E%E8%B7%B5/">实践</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h2 id="JsonFormat"><a href="#JsonFormat" class="headerlink" title="@JsonFormat"></a>@JsonFormat</h2><p>从mongo里面读出来的时间类型，在实体类里面用Date接收，然后将bean传给前端的时候json中是Sun Apr 28 16:02:56 CST 2019这么显示的，但是前端要的是2019-4-28 16:02:56这样子的显示格式，而且mongo中的时间类型的时区转换到实体类里面还不一样。</p>
+<p>主要就是解决实体类和json之间互相转换的时候时间类型格式和时区不一致的问题，当然也可以用在枚举中和集合里面。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Param</span> &#123;</span><br><span class="line">    <span class="meta">@JsonFormat(shape = JsonFormat.Shape.STRING , pattern = &quot;yyyy-MM-dd HH:mm:ss&quot;, timezone = &quot;Asia/Shanghai&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Date date;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Date <span class="title function_">getDate</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> date;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setDate</span><span class="params">(Date date)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.date = date;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="DateTimeFormat"><a href="#DateTimeFormat" class="headerlink" title="@DateTimeFormat"></a>@DateTimeFormat</h2><p>与@JsonFormat类似，也是对时间格式进行规范的。主要处理前端时间类型与后端pojo对象中的成员变量进行数据绑定，所约束的时间格式并不会影响后端返回前端的时间类型数据格式。</p>
+<h2 id="Autowired"><a href="#Autowired" class="headerlink" title="@Autowired"></a>@Autowired</h2><p>启用注解注入后，可以在属性、Setter 和构造器上使用自动装配。</p>
+<h3 id="一-Autowired使用"><a href="#一-Autowired使用" class="headerlink" title="一.@Autowired使用"></a>一.@Autowired使用</h3><h4 id="1-在属性上使用-Autowired"><a href="#1-在属性上使用-Autowired" class="headerlink" title="1.在属性上使用 @Autowired"></a>1.在属性上使用 @Autowired</h4><p>使用 <code>@Autowired</code> 对属性进行注解。这样就不需要使用 Getter 和 Setter 了。</p>
+<h4 id="2-在-Setter-方法上使用-Autowired"><a href="#2-在-Setter-方法上使用-Autowired" class="headerlink" title="2.在 Setter 方法上使用 @Autowired"></a>2.在 Setter 方法上使用 @Autowired</h4><h4 id="3-在构造函数上使用-Autowired"><a href="#3-在构造函数上使用-Autowired" class="headerlink" title="3.在构造函数上使用 @Autowired"></a>3.在构造函数上使用 @Autowired</h4><h4 id="4-Autowired-和可选依赖"><a href="#4-Autowired-和可选依赖" class="headerlink" title="4.@Autowired 和可选依赖"></a>4.@Autowired 和可选依赖</h4><p>在构建 Bean 时，<code>@Autowired</code> 依赖应该可用。否则，如果 Spring 无法解析用于装配的 Bean，它就会阻止 Spring 容器成功启动，并抛出 <code>NoSuchBeanDefinitionException</code> 异常：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: </span><br><span class="line">No qualifying bean of type [com.autowire.sample.FooDAO] found <span class="keyword">for</span> dependency: </span><br><span class="line">expected at least <span class="number">1</span> bean which qualifies as autowire candidate <span class="keyword">for</span> <span class="built_in">this</span> dependency. </span><br><span class="line">Dependency annotations: </span><br><span class="line">&#123;<span class="meta">@org</span>.springframework.beans.factory.annotation.Autowired(required=<span class="literal">true</span>)&#125;</span><br></pre></td></tr></table></figure>
+
+<p>要解决这个问题，需要声明一个 <code>required</code> 类型的 Bean：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FooService</span> &#123;</span><br><span class="line">    <span class="meta">@Autowired(required = false)</span></span><br><span class="line">    <span class="keyword">private</span> FooDAO dataAccessor; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二-自动装配消岐"><a href="#二-自动装配消岐" class="headerlink" title="二.自动装配消岐"></a>二.自动装配消岐</h3><p>默认情况下，Spring 按类型解析 <code>@Autowired</code> 依赖。如果容器中存在多个相同类型的 Bean，框架将抛出异常。</p>
+<p>要解决这一冲突，需要明确告诉 Spring 要注入哪个 Bean。</p>
+<h4 id="1-使用-Qualifier-进行自动装配"><a href="#1-使用-Qualifier-进行自动装配" class="headerlink" title="1.使用 @Qualifier 进行自动装配"></a>1.使用 @Qualifier 进行自动装配</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component(&quot;fooFormatter&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FooFormatter</span> <span class="keyword">implements</span> <span class="title class_">Formatter</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">format</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;foo&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">@Component(&quot;barFormatter&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BarFormatter</span> <span class="keyword">implements</span> <span class="title class_">Formatter</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">format</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;bar&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此时由于有两种类型的bean对象，Spring会抛出<code>NoUniqueBeanDefinitionException</code> 异常，此时使用@Qualifier注解缩小实现范围来避免这种情况。有多个相同类型的bean，最好使用@Qualifier注解。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FooService</span> &#123;</span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="meta">@Qualifier(&quot;fooFormatter&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> Formatter formatter;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-根据-Bean-名称装配"><a href="#2-根据-Bean-名称装配" class="headerlink" title="2.根据 Bean 名称装配"></a>2.根据 Bean 名称装配</h4><p>Spring 使用 Bean 的名称作为默认 Qualifier value。它会检查容器，并查找与要自动装配的属性名称完全相同的 Bean 来进行装配。</p>
+<p>因此，在如下示例中，Spring 将 <code>fooFormatter</code> 属性名与 <code>FooFormatter</code> 实现相匹配。因此，在构建 <code>FooService</code> 时，它会注入该特定实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FooService</span> &#123;</span><br><span class="line"> <span class="meta">@Qualifier</span> </span><br><span class="line"> <span class="keyword">private</span> Formatter fooFormatter; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Resource"><a href="#Resource" class="headerlink" title="@Resource"></a>@Resource</h2><p>@Resource注解默认通过byName方式注入，如果没有匹配则通过byType注入。<strong>byName就是变量名去匹配bean的id属性，而byType则是变量类型去匹配bean的class属性</strong>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 默认方式：byName</span></span><br><span class="line"><span class="meta">@Resource</span>  </span><br><span class="line"><span class="keyword">private</span> UserService userDao; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 指定byName</span></span><br><span class="line"><span class="meta">@Resource(name=&quot;userService&quot;)</span>  </span><br><span class="line"><span class="keyword">private</span> UserService userService; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 指定byType</span></span><br><span class="line"><span class="meta">@Resource(type=UserService.class)</span>  </span><br><span class="line"><span class="keyword">private</span> UserService userService; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 指定byName和byType</span></span><br><span class="line"><span class="meta">@Resource(name=&quot;userService&quot;,type=UserService.class)</span>  </span><br><span class="line"><span class="keyword">private</span> UserService userService; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>既没指定name属性，也没指定type属性：默认通过byName方式注入，如果byName匹配失败，则使用byType方式注入（也就是上面的那个例子）</li>
+<li>指定name属性：通过byName方式注入，把变量名和IOC容器中的id去匹配，匹配失败则报错</li>
+<li>指定type属性：通过byType方式注入，在IOC容器中匹配对应的类型，如果匹配不到或者匹配到多个则报错</li>
+<li>同时指定name属性和type属性：在IOC容器中匹配，名字和类型同时匹配则成功，否则失败</li>
+</ol>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-前端页面请求传参"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/03/12/%E5%89%8D%E7%AB%AF%E9%A1%B5%E9%9D%A2%E8%AF%B7%E6%B1%82%E4%BC%A0%E5%8F%82/"
+    >前端页面请求传参</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/03/12/%E5%89%8D%E7%AB%AF%E9%A1%B5%E9%9D%A2%E8%AF%B7%E6%B1%82%E4%BC%A0%E5%8F%82/" class="article-date">
+  <time datetime="2024-03-12T03:10:03.000Z" itemprop="datePublished">2024-03-12</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF/">前端</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="前端页面请求传参"><a href="#前端页面请求传参" class="headerlink" title="前端页面请求传参"></a>前端页面请求传参</h1><h2 id="1-json格式"><a href="#1-json格式" class="headerlink" title="1.json格式"></a>1.json格式</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">const params = &#123;</span><br><span class="line">  &quot;name&quot;: &quot;张三&quot;,</span><br><span class="line">  &quot;password&quot;: &quot;123456&quot;,     </span><br><span class="line">&#125;</span><br><span class="line">try &#123;</span><br><span class="line">  getData(params).then(resp =&gt; &#123;</span><br><span class="line">    const &#123; data &#125; = resp.data</span><br><span class="line">    console.log(data)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125; catch (e) &#123;</span><br><span class="line">  console.log(e)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-formdata形式"><a href="#2-formdata形式" class="headerlink" title="2.formdata形式"></a>2.formdata形式</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">const name = &#x27;张三&#x27;</span><br><span class="line">const password= &#x27;123456&#x27;</span><br><span class="line">let formdata = new FormData()</span><br><span class="line">formdata.append(&#x27;name&#x27;, name )</span><br><span class="line">formdata.append(&#x27;password&#x27;, password )</span><br><span class="line"> try &#123;</span><br><span class="line">  getData(formdata).then(resp =&gt; &#123;    // 调用接口方法</span><br><span class="line">    const &#123; data &#125; = resp.data</span><br><span class="line">    console.log(data)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125; catch (e) &#123;</span><br><span class="line">  console.log(e)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="3-form表单形式"><a href="#3-form表单形式" class="headerlink" title="3.form表单形式"></a>3.form表单形式</h2><p>只能提交字符串形式，不能提交数组，若数据为数组，需要将数组拼接为字符串</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;form method=&quot;post&quot; enctype=&quot;application/msexcel&quot;</span><br><span class="line">                              action=&quot;/drugrelctrl-web/getData&quot;&gt;  //传参地址</span><br><span class="line">   &lt;input type=&quot;text&quot;  name=&quot;password&quot;  :value=&quot;password&quot; /&gt;   // 输入文本</span><br><span class="line">   &lt;input type=&quot;submit&quot;  class=&quot;submitBtn&quot;   value=&quot;提交&quot; /&gt;  //提交按钮</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">         </span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default&#123;</span><br><span class="line">	data()&#123;</span><br><span class="line">	  return&#123;</span><br><span class="line">		password:&quot;123456&quot;</span><br><span class="line">	&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;	</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VUE/" rel="tag">VUE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-父和子组件"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/03/09/%E7%88%B6%E5%92%8C%E5%AD%90%E7%BB%84%E4%BB%B6/"
+    >父和子组件</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/03/09/%E7%88%B6%E5%92%8C%E5%AD%90%E7%BB%84%E4%BB%B6/" class="article-date">
+  <time datetime="2024-03-09T01:15:36.000Z" itemprop="datePublished">2024-03-09</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/%E5%89%8D%E7%AB%AF/">前端</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="父和子组件"><a href="#父和子组件" class="headerlink" title="父和子组件"></a>父和子组件</h1><h2 id="1-在父组件中引入子组件"><a href="#1-在父组件中引入子组件" class="headerlink" title="1.在父组件中引入子组件"></a>1.在父组件中引入子组件</h2><p>使用import引入组件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import indexImportOrder from &#x27;./components/indexImportOrder&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>声明</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//定义组件</span><br><span class="line">components:&#123;</span><br><span class="line">  indexImportOrder,</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;indexImportOrder ref=&quot;indexImportOrder&quot;/&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-子组件向父组件传值"><a href="#2-子组件向父组件传值" class="headerlink" title="2.子组件向父组件传值"></a>2.子组件向父组件传值</h2><ol>
+<li><p>在子组件中需要向父组件传值处使用<strong>this.$emit(“function”,param);</strong>   </p>
+<p>&#x2F;&#x2F;其中function为父组件定义函数，param为需要传递参数</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//新订单页面跳转</span><br><span class="line">viewBusiness()&#123;</span><br><span class="line">  let flag = false;</span><br><span class="line">  this.$emit(&#x27;closeMain&#x27;,flag);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>在父组件中子组件引用处添加函数v-on:function&#x3D;”function1”；</p>
+<p> &#x2F;&#x2F;其中function为子组件中定义函数，function1为父组件定义函数–用于接收子组件传值并进行相应数据处理，可定义为同一名称</p>
+</li>
+</ol>
+<p>v-on： 可用 @ 代替 @function&#x3D;”function1” ，@ 为 v-on：的简写</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;indexImportOrder ref=&quot;indexImportOrder&quot; v-on:closeMain=&quot;closeMain&quot;/&gt;</span><br></pre></td></tr></table></figure>
+
+<p>父组件方法，val及为子组件中flag，即接收的子组件参数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">closeMain(val)&#123;</span><br><span class="line">  this.flag = val;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VUE/" rel="tag">VUE</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-Mysql内置函数"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2024/02/28/Mysql%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0/"
+    >Mysql使用技巧</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2024/02/28/Mysql%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0/" class="article-date">
+  <time datetime="2024-02-28T01:57:26.000Z" itemprop="datePublished">2024-02-28</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/JAVA/">JAVA</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="一-内置函数"><a href="#一-内置函数" class="headerlink" title="一.内置函数"></a>一.内置函数</h1><p>1.isnull(exper) 判断exper是否为空，是则返回1，否则返回0</p>
+<p>2.ifnull(exper1,exper2)判断exper1是否为空，是则用exper2代替</p>
+<p>3.nullif(exper1,exper2)如果expr1&#x3D; expr2 成立，那么返回值为NULL，否则返回值为  expr1。</p>
+<p>limit num offset num </p>
+<p>如果没有，什么都不返回，如果要求返回null，则加个临时表</p>
+<p>存储过程</p>
+<p>查找第n高的薪水</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT</span><br><span class="line">BEGIN</span><br><span class="line">DECLARE M INT; </span><br><span class="line">SET M = N-1;</span><br><span class="line">  RETURN (</span><br><span class="line">      # Write your MySQL query statement below.</span><br><span class="line">        SELECT DISTINCT salary</span><br><span class="line">      FROM Employee</span><br><span class="line">      ORDER BY salary DESC</span><br><span class="line">      LIMIT M, 1</span><br><span class="line"> );</span><br><span class="line">END</span><br></pre></td></tr></table></figure>
+
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-jar中没有主清单属性"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/12/12/jar%E4%B8%AD%E6%B2%A1%E6%9C%89%E4%B8%BB%E6%B8%85%E5%8D%95%E5%B1%9E%E6%80%A7/"
+    >jar中没有主清单属性</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/12/12/jar%E4%B8%AD%E6%B2%A1%E6%9C%89%E4%B8%BB%E6%B8%85%E5%8D%95%E5%B1%9E%E6%80%A7/" class="article-date">
+  <time datetime="2023-12-12T03:30:03.000Z" itemprop="datePublished">2023-12-12</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/JAVA/">JAVA</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/JAVA/%E5%AE%9E%E8%B7%B5/">实践</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>问题：cmd窗口，运行jar包时，出现如下报错</p>
+<p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/jar%E4%B8%AD%E6%B2%A1%E6%9C%89%E4%B8%BB%E6%B8%85%E5%8D%95%E5%B1%9E%E6%80%A7.png" alt="jar中没有主清单属性"></p>
+<p>解决方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;plugin&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;</span><br><span class="line">    &lt;executions&gt;</span><br><span class="line">        &lt;execution&gt;</span><br><span class="line">            &lt;goals&gt;</span><br><span class="line">                &lt;goal&gt;repackage&lt;/goal&gt;</span><br><span class="line">            &lt;/goals&gt;</span><br><span class="line">        &lt;/execution&gt;</span><br><span class="line">    &lt;/executions&gt;</span><br><span class="line">&lt;/plugin&gt;</span><br></pre></td></tr></table></figure>
+
+<p>repackage：多打了源码Jar包，并将其他代码和环境加入原来jar包（其中加入了主启动类信息，解决了此次报错）</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bug/" rel="tag">bug</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/maven/" rel="tag">maven</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-Spring-Web工具类"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/12/08/Spring-Web%E5%B7%A5%E5%85%B7%E7%B1%BB/"
+    >Spring Web工具类</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/12/08/Spring-Web%E5%B7%A5%E5%85%B7%E7%B1%BB/" class="article-date">
+  <time datetime="2023-12-08T02:53:06.000Z" itemprop="datePublished">2023-12-08</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/JAVA/">JAVA</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>继承WebUtils类 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line">package com.example.common.utils;</span><br><span class="line"></span><br><span class="line">import com.xoao.sms.common.exception.BusinessErrorEnum;</span><br><span class="line">import com.xoao.sms.common.exception.BusinessException;</span><br><span class="line">import jakarta.servlet.http.Cookie;</span><br><span class="line">import jakarta.servlet.http.HttpServletRequest;</span><br><span class="line">import jakarta.servlet.http.HttpServletResponse;</span><br><span class="line">import lombok.experimental.UtilityClass;</span><br><span class="line">import lombok.extern.slf4j.Slf4j;</span><br><span class="line">import org.springframework.web.bind.annotation.ResponseBody;</span><br><span class="line">import org.springframework.web.context.request.RequestContextHolder;</span><br><span class="line">import org.springframework.web.context.request.ServletRequestAttributes;</span><br><span class="line">import org.springframework.web.method.HandlerMethod;</span><br><span class="line"></span><br><span class="line">import java.util.Optional;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * Miscellaneous utilities for web applications.</span><br><span class="line"> *</span><br><span class="line"> * @author </span><br><span class="line"> */</span><br><span class="line">@Slf4j</span><br><span class="line">@UtilityClass</span><br><span class="line">public class WebUtils extends org.springframework.web.util.WebUtils &#123;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 判断是否ajax请求 spring ajax 返回含有 ResponseBody 或者 RestController注解</span><br><span class="line">	 * @param handlerMethod HandlerMethod</span><br><span class="line">	 * @return 是否ajax请求</span><br><span class="line">	 */</span><br><span class="line">	public boolean isBody(HandlerMethod handlerMethod) &#123;</span><br><span class="line">		ResponseBody responseBody = ClassUtils.getAnnotation(handlerMethod, ResponseBody.class);</span><br><span class="line">		return responseBody != null;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 读取cookie</span><br><span class="line">	 * @param name cookie name</span><br><span class="line">	 * @return cookie value</span><br><span class="line">	 */</span><br><span class="line">	public String getCookieVal(String name) &#123;</span><br><span class="line">		if (WebUtils.getRequest().isPresent()) &#123;</span><br><span class="line">			return getCookieVal(WebUtils.getRequest().get(), name);</span><br><span class="line">		&#125;</span><br><span class="line">		return null;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 读取cookie</span><br><span class="line">	 * @param request HttpServletRequest</span><br><span class="line">	 * @param name cookie name</span><br><span class="line">	 * @return cookie value</span><br><span class="line">	 */</span><br><span class="line">	public String getCookieVal(HttpServletRequest request, String name) &#123;</span><br><span class="line">		Cookie cookie = getCookie(request, name);</span><br><span class="line">		return cookie != null ? cookie.getValue() : null;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 清除 某个指定的cookie</span><br><span class="line">	 * @param response HttpServletResponse</span><br><span class="line">	 * @param key cookie key</span><br><span class="line">	 */</span><br><span class="line">	public void removeCookie(HttpServletResponse response, String key) &#123;</span><br><span class="line">		setCookie(response, key, null, 0);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 设置cookie</span><br><span class="line">	 * @param response HttpServletResponse</span><br><span class="line">	 * @param name cookie name</span><br><span class="line">	 * @param value cookie value</span><br><span class="line">	 * @param maxAgeInSeconds maxage</span><br><span class="line">	 */</span><br><span class="line">	public void setCookie(HttpServletResponse response, String name, String value, int maxAgeInSeconds) &#123;</span><br><span class="line">		Cookie cookie = new Cookie(name, value);</span><br><span class="line">		cookie.setPath(&quot;/&quot;);</span><br><span class="line">		cookie.setMaxAge(maxAgeInSeconds);</span><br><span class="line">		cookie.setHttpOnly(true);</span><br><span class="line">		response.addCookie(cookie);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 获取 HttpServletRequest</span><br><span class="line">	 * @return &#123;HttpServletRequest&#125;</span><br><span class="line">	 */</span><br><span class="line">	public Optional&lt;HttpServletRequest&gt; getRequest() &#123;</span><br><span class="line">		return Optional</span><br><span class="line">			.ofNullable(((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public HttpServletRequest getRequestOrElseThrow() &#123;</span><br><span class="line">		return WebUtils.getRequest().orElseThrow(() -&gt; new BusinessException(BusinessErrorEnum.SYSTEM_ERROR));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 获取 HttpServletResponse</span><br><span class="line">	 * @return &#123;HttpServletResponse&#125;</span><br><span class="line">	 */</span><br><span class="line">	public HttpServletResponse getResponse() &#123;</span><br><span class="line">		return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getResponse();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>类工具类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line">package com.xoao.sms.common.utils;</span><br><span class="line"></span><br><span class="line">import lombok.experimental.UtilityClass;</span><br><span class="line">import org.springframework.core.BridgeMethodResolver;</span><br><span class="line">import org.springframework.core.DefaultParameterNameDiscoverer;</span><br><span class="line">import org.springframework.core.MethodParameter;</span><br><span class="line">import org.springframework.core.ParameterNameDiscoverer;</span><br><span class="line">import org.springframework.core.annotation.AnnotatedElementUtils;</span><br><span class="line">import org.springframework.core.annotation.SynthesizingMethodParameter;</span><br><span class="line">import org.springframework.web.method.HandlerMethod;</span><br><span class="line"></span><br><span class="line">import java.lang.annotation.Annotation;</span><br><span class="line">import java.lang.reflect.Constructor;</span><br><span class="line">import java.lang.reflect.Method;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 类工具类</span><br><span class="line"> */</span><br><span class="line">@UtilityClass</span><br><span class="line">public class ClassUtils extends org.springframework.util.ClassUtils &#123;</span><br><span class="line"></span><br><span class="line">	private final ParameterNameDiscoverer PARAMETERNAMEDISCOVERER = new DefaultParameterNameDiscoverer();</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 获取方法参数信息</span><br><span class="line">	 * @param constructor 构造器</span><br><span class="line">	 * @param parameterIndex 参数序号</span><br><span class="line">	 * @return &#123;MethodParameter&#125;</span><br><span class="line">	 */</span><br><span class="line">	public MethodParameter getMethodParameter(Constructor&lt;?&gt; constructor, int parameterIndex) &#123;</span><br><span class="line">		MethodParameter methodParameter = new SynthesizingMethodParameter(constructor, parameterIndex);</span><br><span class="line">		methodParameter.initParameterNameDiscovery(PARAMETERNAMEDISCOVERER);</span><br><span class="line">		return methodParameter;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 获取方法参数信息</span><br><span class="line">	 * @param method 方法</span><br><span class="line">	 * @param parameterIndex 参数序号</span><br><span class="line">	 * @return &#123;MethodParameter&#125;</span><br><span class="line">	 */</span><br><span class="line">	public MethodParameter getMethodParameter(Method method, int parameterIndex) &#123;</span><br><span class="line">		MethodParameter methodParameter = new SynthesizingMethodParameter(method, parameterIndex);</span><br><span class="line">		methodParameter.initParameterNameDiscovery(PARAMETERNAMEDISCOVERER);</span><br><span class="line">		return methodParameter;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 获取Annotation</span><br><span class="line">	 * @param method Method</span><br><span class="line">	 * @param annotationType 注解类</span><br><span class="line">	 * @param &lt;A&gt; 泛型标记</span><br><span class="line">	 * @return &#123;Annotation&#125;</span><br><span class="line">	 */</span><br><span class="line">	public &lt;A extends Annotation&gt; A getAnnotation(Method method, Class&lt;A&gt; annotationType) &#123;</span><br><span class="line">		Class&lt;?&gt; targetClass = method.getDeclaringClass();</span><br><span class="line">		// The method may be on an interface, but we need attributes from the target</span><br><span class="line">		// class.</span><br><span class="line">		// If the target class is null, the method will be unchanged.</span><br><span class="line">		Method specificMethod = ClassUtils.getMostSpecificMethod(method, targetClass);</span><br><span class="line">		// If we are dealing with method with generic parameters, find the original</span><br><span class="line">		// method.</span><br><span class="line">		specificMethod = BridgeMethodResolver.findBridgedMethod(specificMethod);</span><br><span class="line">		// 先找方法，再找方法上的类</span><br><span class="line">		A annotation = AnnotatedElementUtils.findMergedAnnotation(specificMethod, annotationType);</span><br><span class="line">		;</span><br><span class="line">		if (null != annotation) &#123;</span><br><span class="line">			return annotation;</span><br><span class="line">		&#125;</span><br><span class="line">		// 获取类上面的Annotation，可能包含组合注解，故采用spring的工具类</span><br><span class="line">		return AnnotatedElementUtils.findMergedAnnotation(specificMethod.getDeclaringClass(), annotationType);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 获取Annotation</span><br><span class="line">	 * @param handlerMethod HandlerMethod</span><br><span class="line">	 * @param annotationType 注解类</span><br><span class="line">	 * @param &lt;A&gt; 泛型标记</span><br><span class="line">	 * @return &#123;Annotation&#125;</span><br><span class="line">	 */</span><br><span class="line">	public &lt;A extends Annotation&gt; A getAnnotation(HandlerMethod handlerMethod, Class&lt;A&gt; annotationType) &#123;</span><br><span class="line">		// 先找方法，再找方法上的类</span><br><span class="line">		A annotation = handlerMethod.getMethodAnnotation(annotationType);</span><br><span class="line">		if (null != annotation) &#123;</span><br><span class="line">			return annotation;</span><br><span class="line">		&#125;</span><br><span class="line">		// 获取类上面的Annotation，可能包含组合注解，故采用spring的工具类</span><br><span class="line">		Class&lt;?&gt; beanType = handlerMethod.getBeanType();</span><br><span class="line">		return AnnotatedElementUtils.findMergedAnnotation(beanType, annotationType);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Spring 上下文工具类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">package com.xoao.sms.common.utils;</span><br><span class="line"></span><br><span class="line">import lombok.SneakyThrows;</span><br><span class="line">import lombok.extern.slf4j.Slf4j;</span><br><span class="line">import org.springframework.beans.factory.DisposableBean;</span><br><span class="line">import org.springframework.context.ApplicationContext;</span><br><span class="line">import org.springframework.context.ApplicationContextAware;</span><br><span class="line">import org.springframework.context.ApplicationEvent;</span><br><span class="line">import org.springframework.context.annotation.Lazy;</span><br><span class="line">import org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @author </span><br><span class="line"> * @date 2019/2/1 Spring 工具类</span><br><span class="line"> */</span><br><span class="line">@Slf4j</span><br><span class="line">@Service</span><br><span class="line">@Lazy(false)</span><br><span class="line">public class SpringContextHolder implements ApplicationContextAware, DisposableBean &#123;</span><br><span class="line"></span><br><span class="line">	private static ApplicationContext applicationContext = null;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 取得存储在静态变量中的ApplicationContext.</span><br><span class="line">	 */</span><br><span class="line">	public static ApplicationContext getApplicationContext() &#123;</span><br><span class="line">		return applicationContext;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 实现ApplicationContextAware接口, 注入Context到静态变量中.</span><br><span class="line">	 */</span><br><span class="line">	@Override</span><br><span class="line">	public void setApplicationContext(ApplicationContext applicationContext) &#123;</span><br><span class="line">		SpringContextHolder.applicationContext = applicationContext;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 从静态变量applicationContext中取得Bean, 自动转型为所赋值对象的类型.</span><br><span class="line">	 */</span><br><span class="line">	@SuppressWarnings(&quot;unchecked&quot;)</span><br><span class="line">	public static &lt;T&gt; T getBean(String name) &#123;</span><br><span class="line">		return (T) applicationContext.getBean(name);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 从静态变量applicationContext中取得Bean, 自动转型为所赋值对象的类型.</span><br><span class="line">	 */</span><br><span class="line">	public static &lt;T&gt; T getBean(Class&lt;T&gt; requiredType) &#123;</span><br><span class="line">		return applicationContext.getBean(requiredType);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 清除SpringContextHolder中的ApplicationContext为Null.</span><br><span class="line">	 */</span><br><span class="line">	public static void clearHolder() &#123;</span><br><span class="line">		if (log.isDebugEnabled()) &#123;</span><br><span class="line">			log.debug(&quot;清除SpringContextHolder中的ApplicationContext:&quot; + applicationContext);</span><br><span class="line">		&#125;</span><br><span class="line">		applicationContext = null;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 发布事件</span><br><span class="line">	 * @param event</span><br><span class="line">	 */</span><br><span class="line">	public static void publishEvent(ApplicationEvent event) &#123;</span><br><span class="line">		if (applicationContext == null) &#123;</span><br><span class="line">			return;</span><br><span class="line">		&#125;</span><br><span class="line">		applicationContext.publishEvent(event);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	/**</span><br><span class="line">	 * 实现DisposableBean接口, 在Context关闭时清理静态变量.</span><br><span class="line">	 */</span><br><span class="line">	@Override</span><br><span class="line">	@SneakyThrows</span><br><span class="line">	public void destroy() &#123;</span><br><span class="line">		SpringContextHolder.clearHolder();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>具体使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HttpServletResponse response = WebUtils.getResponse();</span><br><span class="line">        response.setStatus(HttpStatus.HTTP_OK);</span><br><span class="line">        response.setContentType(ContentType.OCTET_STREAM.toString());</span><br><span class="line">        response.setHeader(HeaderName.CONTENT_DISPOSITION.getValue(), CharSequenceUtil</span><br><span class="line">                .format(&quot;attachment;filename=\&quot;&#123;&#125;.txt\&quot;&quot;, new String(fileName.getBytes(), StandardCharsets.ISO_8859_1)));</span><br><span class="line">        // 读取文件并写入响应输出流，IoUtil是hutool工具包下的类</span><br><span class="line">        IoUtil.write(response.getOutputStream(), content.getBytes());</span><br></pre></td></tr></table></figure>
+
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-Spring-ResponseEntity-详解"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/12/08/Spring-ResponseEntity-%E8%AF%A6%E8%A7%A3/"
+    >Spring ResponseEntity 详解</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/12/08/Spring-ResponseEntity-%E8%AF%A6%E8%A7%A3/" class="article-date">
+  <time datetime="2023-12-08T02:38:06.000Z" itemprop="datePublished">2023-12-08</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/JAVA/">JAVA</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>Spring ResponseEntity 是一个类，它表示整个 HTTP 响应，包括状态码，标头和正文。我们可以使用它来完全配置 HTTP 响应。如果我们想使用它，我们必须从端点返回它；Spring 会处理其余的部分。</p>
+<p>ResponseEntity 继承了 HttpEntity 类，HttpEntity 代表一个 HTTP 请求或者响应实体，其内部有两个成员变量：header 和 body，代表 HTTP 请求或响应的 header 和 body，其中的 body 是泛型的。</p>
+<p>ResponseEntity 扩展了 HttpEntity 类，新增了 status 成员变量，这样，一个 ResponseEntity 基本可以代表完整的 HTTP 的请求或响应了。我们可以使用它来完全配置 HTTP 响应，包括状态码，标头和正文。</p>
+<p>当我们在控制器层返回 ResponseEntity 对象时，Spring MVC 框架会使用 <strong>HttpEntityMethodProcessor</strong> 类来处理它。<strong>HttpEntityMethodProcessor</strong> 是 AbstractMessageConverterMethodProcessor 的一个子类，它专门处理返回值类型是 HttpEntity 或 ResponseEntity 的控制器方法。</p>
+<p>HttpEntityMethodProcessor 的处理过程如下：</p>
+<ul>
+<li>首先，检查返回值是否为空，如果为空，就直接返回。</li>
+<li>然后，创建 ServletServerHttpRequest 和 ServletServerHttpResponse 对象，用于读取请求和写入响应。</li>
+<li>接着，断言返回值是 HttpEntity 类型的，并将其强制转换为 HttpEntity 或 ResponseEntity 对象。</li>
+<li>然后，获取输出消息的标头和实体标头，并将实体标头复制到输出标头中。</li>
+<li>接着，判断返回值是否是 ResponseEntity 类型的，并获取其状态码，并设置到输出消息中。</li>
+<li>最后，调用父类的 writeWithMessageConverters 方法，根据实体类型和请求内容协商选择合适的消息转换器，并将实体内容写入到输出消息中。</li>
+</ul>
+<p>handleReturnValue 是HttpEntityMethodProcessor类的一部分，用来处理返回值类型是 HttpEntity 或 ResponseEntity 的控制器方法，源码说明如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">public void handleReturnValue(@Nullable Object returnValue, MethodParameter returnType, ModelAndViewContainer mavContainer, NativeWebRequest webRequest) throws Exception &#123;</span><br><span class="line">        // 设置 mavContainer 的 requestHandled 属性为 true，表示请求已经被处理，不需要再渲染视图。</span><br><span class="line">        mavContainer.setRequestHandled(true);</span><br><span class="line">        if (returnValue != null) &#123;</span><br><span class="line">            // 创建 ServletServerHttpRequest 和 ServletServerHttpResponse 对象，用于读取请求和写入响应</span><br><span class="line">            ServletServerHttpRequest inputMessage = this.createInputMessage(webRequest);</span><br><span class="line">            ServletServerHttpResponse outputMessage = this.createOutputMessage(webRequest);</span><br><span class="line">            // 断言返回值是 HttpEntity 类型的，并将其强制转换为 HttpEntity对象</span><br><span class="line">            Assert.isInstanceOf(HttpEntity.class, returnValue);</span><br><span class="line">            HttpEntity&lt;?&gt; responseEntity = (HttpEntity)returnValue;</span><br><span class="line">            HttpHeaders outputHeaders = outputMessage.getHeaders();</span><br><span class="line">            HttpHeaders entityHeaders = responseEntity.getHeaders();</span><br><span class="line">            if (!entityHeaders.isEmpty()) &#123;</span><br><span class="line">                // 获取输出消息的标头和实体标头，并将实体标头复制到输出标头中。</span><br><span class="line">                // 如果有 Vary 标头，它会特殊处理，避免重复或冲突</span><br><span class="line">                entityHeaders.forEach((key, value) -&gt; &#123;</span><br><span class="line">                    if (&quot;Vary&quot;.equals(key) &amp;&amp; outputHeaders.containsKey(&quot;Vary&quot;)) &#123;</span><br><span class="line">                        List&lt;String&gt; values = this.getVaryRequestHeadersToAdd(outputHeaders, entityHeaders);</span><br><span class="line">                        if (!values.isEmpty()) &#123;</span><br><span class="line">                            outputHeaders.setVary(values);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125; else &#123;</span><br><span class="line">                        outputHeaders.put(key, value);</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                &#125;);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            // 判断返回值是否是 ResponseEntity 类型的，并获取其状态码，并设置到输出消息中</span><br><span class="line">            if (responseEntity instanceof ResponseEntity) &#123;</span><br><span class="line">                int returnStatus = ((ResponseEntity)responseEntity).getStatusCodeValue();</span><br><span class="line">                outputMessage.getServletResponse().setStatus(returnStatus);</span><br><span class="line">                // 根据状态码和请求方法进行一些判断。</span><br><span class="line">                // 如果状态码是 200，并且请求方法是 GET 或 HEAD，并且资源没有被修改（根据 ETag 或 Last-Modified 标头），那么它会直接返回空响应。</span><br><span class="line">                if (returnStatus == 200) &#123;</span><br><span class="line">                    HttpMethod method = inputMessage.getMethod();</span><br><span class="line">                    if ((HttpMethod.GET.equals(method) || HttpMethod.HEAD.equals(method)) &amp;&amp; this.isResourceNotModified(inputMessage, outputMessage)) &#123;</span><br><span class="line">                        outputMessage.flush();</span><br><span class="line">                        return;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125; else if (returnStatus / 100 == 3) &#123;</span><br><span class="line">                    // 如果状态码是 3xx，并且有 location 标头，那么它会重定向到 location 的地址。</span><br><span class="line">                    String location = outputHeaders.getFirst(&quot;location&quot;);</span><br><span class="line">                    if (location != null) &#123;</span><br><span class="line">                        this.saveFlashAttributes(mavContainer, webRequest, location);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            this.writeWithMessageConverters(responseEntity.getBody(), returnType, inputMessage, outputMessage);</span><br><span class="line">            outputMessage.flush();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>那么我们要如何使用ResponseEntity</strong>？</p>
+<p>Spring ResponseEntity 是一个泛型类型。因此，我们可以使用任何类型作为响应正文：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@GetMapping (&quot;/hello&quot;)</span><br><span class="line">ResponseEntity&lt;String&gt; hello() &#123;</span><br><span class="line">  return new ResponseEntity &lt;&gt; (&quot;Hello World!&quot;, HttpStatus.OK);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>由于我们以编程方式指定响应状态，因此我们可以根据不同的情况返回不同的状态码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@GetMapping (&quot;/age&quot;)</span><br><span class="line">ResponseEntity&lt;String&gt; age(</span><br><span class="line">  @RequestParam (&quot;yearOfBirth&quot;) int yearOfBirth) &#123;</span><br><span class="line">  if (isInFuture (yearOfBirth)) &#123;</span><br><span class="line">    return new ResponseEntity &lt;&gt; (&quot;年份不正确&quot;, HttpStatus.BAD_REQUEST);</span><br><span class="line">  &#125;</span><br><span class="line">  return new ResponseEntity &lt;&gt; (&quot;你的年龄是&quot; + calculateAge (yearOfBirth), HttpStatus.OK);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此外，我们还可以设置 HTTP 标头：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@GetMapping (&quot;/customHeader&quot;)</span><br><span class="line">ResponseEntity&lt;String&gt; customHeader() &#123;</span><br><span class="line">  HttpHeaders headers = new HttpHeaders ();</span><br><span class="line">  headers.add (&quot;Custom-Header&quot;, &quot;foo&quot;);</span><br><span class="line">  return new ResponseEntity &lt;&gt; (&quot;自定义头部&quot;, headers, HttpStatus.OK);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此外，ResponseEntity 还提供了两个嵌套的构建器接口：HeadersBuilder 和它的子接口 BodyBuilder。因此，我们可以通过 ResponseEntity 的静态方法访问它们的功能。</p>
+<p>最简单的情况是具有正文和 HTTP 200 响应码的响应：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@GetMapping (&quot;/hello&quot;)</span><br><span class="line">ResponseEntity&lt;String&gt; hello() &#123;</span><br><span class="line">  return ResponseEntity.ok (&quot;Hello World!&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于最常见的 HTTP 状态码，我们得到静态方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">BodyBuilder accepted();</span><br><span class="line">BodyBuilder badRequest();</span><br><span class="line">BodyBuilder created(java.net.URI location);</span><br><span class="line">HeadersBuilder&lt;?&gt; noContent();</span><br><span class="line">HeadersBuilder&lt;?&gt; notFound();</span><br><span class="line">BodyBuilder ok();</span><br></pre></td></tr></table></figure>
+
+<p>另外，我们可以使用 BodyBuilder status(HttpStatus status) 和 BodyBuilder status(int status) 方法来设置任何 HTTP 状态。最后，使用 ResponseEntity BodyBuilder.body(T body) 我们可以设置 HTTP 响应正文：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@GetMapping (&quot;/age&quot;)</span><br><span class="line">ResponseEntity&lt;String&gt; age(@RequestParam (&quot;yearOfBirth&quot;) int yearOfBirth) &#123;</span><br><span class="line">  if (isInFuture (yearOfBirth)) &#123;</span><br><span class="line">    return ResponseEntity.badRequest()</span><br><span class="line">      .body(&quot;年份不正确&quot;);</span><br><span class="line">  &#125;</span><br><span class="line">  return ResponseEntity.status(HttpStatus.OK)</span><br><span class="line">    .body(&quot;你的年龄是 &quot; + calculateAge (yearOfBirth));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="ResponseEntity替代方案"><a href="#ResponseEntity替代方案" class="headerlink" title="ResponseEntity替代方案"></a><strong>ResponseEntity替代方案</strong></h3><p>虽然ResponseEntity很强大，但我们不应该滥用它。在简单的情况下，有其他的选项可以满足我们的需求，而且它们会产生更清晰的代码。</p>
+<h3 id="ResponseBody"><a href="#ResponseBody" class="headerlink" title="@ResponseBody"></a><strong>@ResponseBody</strong></h3><p>在传统的Spring MVC应用中，端点通常返回渲染的HTML页面。如果我们想要返回JSON或XML格式的数据，我们可以使用@ResponseBody注解：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@GetMapping(&quot;/hello&quot;)</span><br><span class="line">@ResponseBody</span><br><span class="line">public String hello() &#123;</span><br><span class="line">    return &quot;Hello World!&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样，Spring会自动将返回值转换为JSON或XML，并将其写入响应正文。</p>
+<p>我们也可以使用@ResponseStatus注解来设置响应状态码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@GetMapping(&quot;/age&quot;)</span><br><span class="line">@ResponseBody</span><br><span class="line">@ResponseStatus(HttpStatus.OK)</span><br><span class="line">public String age(@RequestParam(&quot;yearOfBirth&quot;) int yearOfBirth) &#123;</span><br><span class="line">    if (isInFuture(yearOfBirth)) &#123;</span><br><span class="line">        throw new IllegalArgumentException(&quot;年份不正确&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    return &quot;你的年龄是&quot; + calculateAge(yearOfBirth);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果我们想要处理异常并返回不同的状态码，我们可以使用@ControllerAdvice和@ExceptionHandler注解：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@ControllerAdvice</span><br><span class="line">public class GlobalExceptionHandler &#123;</span><br><span class="line"></span><br><span class="line">    @ExceptionHandler(IllegalArgumentException.class)</span><br><span class="line">    @ResponseStatus(HttpStatus.BAD_REQUEST)</span><br><span class="line">    @ResponseBody</span><br><span class="line">    public String handleIllegalArgumentException(IllegalArgumentException ex) &#123;</span><br><span class="line">        return ex.getMessage();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="RestController"><a href="#RestController" class="headerlink" title="@RestController"></a><strong>@RestController</strong></h3><p>如果我们的控制器类只返回数据而不是视图，我们可以使用@RestController注解来替代@Controller注解。这样，我们就不需要在每个方法上添加@ResponseBody注解了：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">@RestController</span><br><span class="line">public class HelloController &#123;</span><br><span class="line"></span><br><span class="line">    @GetMapping(&quot;/hello&quot;)</span><br><span class="line">    public String hello() &#123;</span><br><span class="line">        return &quot;Hello World!&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @GetMapping(&quot;/age&quot;)</span><br><span class="line">    @ResponseStatus(HttpStatus.OK)</span><br><span class="line">    public String age(@RequestParam(&quot;yearOfBirth&quot;) int yearOfBirth) &#123;</span><br><span class="line">        if (isInFuture(yearOfBirth)) &#123;</span><br><span class="line">            throw new IllegalArgumentException(&quot;年份不正确&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        return &quot;你的年龄是 &quot; + calculateAge(yearOfBirth);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="ResponseEntity-和-ResponseBody-的区别"><a href="#ResponseEntity-和-ResponseBody-的区别" class="headerlink" title="ResponseEntity 和 @ResponseBody 的区别"></a><strong>ResponseEntity 和 @ResponseBody 的区别</strong></h2><p>ResponseEntity 和 @ResponseBody 都是用于处理 HTTP 响应的，但是有一些不同点：</p>
+<ul>
+<li><strong>ResponseEntity</strong> 是一个类，它表示整个 HTTP 响应，包括状态码，标头和正文。我们可以使用它来完全配置 HTTP 响应。如果我们想使用它，我们必须从端点返回它；Spring 会处理其余的部分。</li>
+<li><strong>@ResponseBody</strong> 是一个注解，它告诉 Spring 将返回值转换为 JSON 并写入到响应体中。我们可以在方法或类上使用它，Spring 会自动选择合适的转换器。</li>
+<li><strong>ResponseEntity</strong> 的优点是可以灵活地控制响应的各个方面，比如设置不同的状态码，标头和正文。它也可以用于一些特殊的场景，比如下载文件，需要设置 content-type 和特殊的状态（比如 206）。</li>
+<li><strong>@ResponseBody</strong> 的优点是可以简化代码，让方法直接返回 JSON 结果，不需要构造 ResponseEntity 对象。它也可以和 @ResponseStatus 注解配合使用，来设置响应状态码。</li>
+<li><strong>ResponseEntity 的优先级高于 @ResponseBody</strong>。如果返回值是 ResponseEntity 类型，那么 Spring 会直接使用它，不会检查有没有 @ResponseBody 注解。如果返回值不是 ResponseEntity 类型，那么 Spring 会检查有没有 @ResponseBody 注解，如果有就转换为 JSON。</li>
+</ul>
+<p>因此，我们可以根据不同的需求和场景选择使用 ResponseEntity 或者 @ResponseBody。</p>
+<p>对于大多数情况，我们可以使用 @ResponseBody 注解来直接返回 JSON 结果，或者使用 @ResponseStatus 注解来设置响应状态码。对于一些需要更多定制的情况，我们可以使用 ResponseEntity 来完全控制 HTTP 响应。</p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a><strong>结语</strong></h3><p>这篇文章我们主要介绍了Spring ResponseEntity的原理、使用及其替代方案，并对比了ResponseEntity 和 @ResponseBody。</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-Spring-AOP和代理模式"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/11/17/Spring-AOP%E5%92%8C%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/"
+    >Spring AOP和代理模式</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/11/17/Spring-AOP%E5%92%8C%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/" class="article-date">
+  <time datetime="2023-11-17T10:15:24.000Z" itemprop="datePublished">2023-11-17</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/JAVA/">JAVA</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="一-代理模式"><a href="#一-代理模式" class="headerlink" title="一.代理模式"></a>一.代理模式</h1><h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h2><p>对一个对象提供一个代理对象，使用代理对象控制对原对象的引用</p>
+<p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/20240223182254.png" alt="结构类图"></p>
+<p>RealSubject类实现Subject接口，Proxy类实现Subject接口，并定义RealSubject对象作为成员变量</p>
+<p>客户端不直接依赖代理类</p>
+<h2 id="2-分类"><a href="#2-分类" class="headerlink" title="2.分类"></a>2.分类</h2><ul>
+<li>静态代理：通过代码编译生成代理类</li>
+<li>动态代理：运行时动态生成代理类</li>
+</ul>
+<h2 id="3-实现"><a href="#3-实现" class="headerlink" title="3.实现"></a>3.实现</h2><p>1）jdk的动态代理</p>
+<p>自定义Proxy类，实现InvocationHandle接口，重写invoke方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">public interface Subject &#123;</span><br><span class="line">    public void rent();</span><br><span class="line"></span><br><span class="line">    public void hello(String str);</span><br><span class="line">&#125;</span><br><span class="line">public class SubjectImpl implements Subject&#123;</span><br><span class="line">    @Override</span><br><span class="line">    public void rent() &#123;</span><br><span class="line">        System.out.println(&quot;I want to rent my house&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void hello(String str) &#123;</span><br><span class="line">        System.out.println(&quot;hello: &quot; + str);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">public class DynamicProxy implements InvocationHandler &#123;</span><br><span class="line">    // 这个就是要代理的真实对象</span><br><span class="line">    private Object subject;</span><br><span class="line"></span><br><span class="line">    // 构造方法，给要代理的真实对象赋初值</span><br><span class="line">    public DynamicProxy(Object subject) &#123;</span><br><span class="line">        this.subject = subject;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public Object invoke(Object object, Method method, Object[] args) throws Throwable &#123;</span><br><span class="line">        // 在代理真实对象前可以添加一些自己的操作</span><br><span class="line">        System.out.println(&quot;before rent house&quot;);</span><br><span class="line">        System.out.println(&quot;Method:&quot; + method);</span><br><span class="line"></span><br><span class="line">        // 当代理对象调用真实对象的方法时，其会自动的跳转到代理对象关联的handler对象的invoke方法来进行调用</span><br><span class="line">        Object result = method.invoke(subject, args);</span><br><span class="line"></span><br><span class="line">        // 在代理真实对象后也可以添加一些自己的操作</span><br><span class="line">        System.out.println(&quot;after rent house&quot;);</span><br><span class="line"></span><br><span class="line">        return result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">public class Client &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        //    要代理的真实对象</span><br><span class="line">        Subject realSubject = new SubjectImpl();</span><br><span class="line">        //   要代理哪个真实对象，就将该对象传进去，最后是通过该真实对象来调用其方法的</span><br><span class="line">        InvocationHandler handler = new DynamicProxy(realSubject);</span><br><span class="line">        /*</span><br><span class="line">         * 通过Proxy的newProxyInstance方法来创建我们的代理对象，来看看其三个参数</span><br><span class="line">         * 第一个参数 handler.getClass().getClassLoader() ，这里使用handler这个类的ClassLoader对象来加载我们的代理对象</span><br><span class="line">         * 第二个参数realSubject.getClass().getInterfaces()，这里为代理对象提供的接口是真实对象所实行的接口，</span><br><span class="line">         * 表示要代理的是该真实对象，这样就能调用这组接口中的方法了</span><br><span class="line">         * 第三个参数handler， 这里将这个代理对象关联到了上方的 InvocationHandler 这个对象上</span><br><span class="line">         */</span><br><span class="line">        Subject subject = (Subject) Proxy.newProxyInstance(handler.getClass().getClassLoader(), realSubject.getClass().getInterfaces(), handler);</span><br><span class="line">        System.out.println(subject.getClass().getName());</span><br><span class="line">        subject.rent();</span><br><span class="line">        subject.hello(&quot;world&quot;);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>自定义工厂类，返回代理对象</p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/" rel="tag">Spring</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-hutool工具类"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/07/16/hutool%E5%B7%A5%E5%85%B7%E7%B1%BB/"
+    >hutool工具类</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/07/16/hutool%E5%B7%A5%E5%85%B7%E7%B1%BB/" class="article-date">
+  <time datetime="2023-07-16T03:31:58.000Z" itemprop="datePublished">2023-07-16</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/JAVA/">JAVA</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <p>hutool涵盖了字符串、数字、集合、编码、日期、文件、IO、加密、数据库JDBC、JSON、HTTP客户端等一系列操作，包含以下组件：</p>
+<p><img src="https://raw.githubusercontent.com/liujing23/FigureBed/main/blog/img/hutool%E5%B7%A5%E5%85%B7%E7%B1%BB1.png" alt="hutool工具类1"></p>
+<p>可以根据需求对每个模块单独引入，也可以通过引入<code>hutool-all</code>方式引入所有模块。</p>
+<p><a target="_blank" rel="noopener" href="https://www.hutool.cn/docs/#/">中文文档</a></p>
+<p><a target="_blank" rel="noopener" href="https://apidoc.gitee.com/dromara/hutool/">api文档</a></p>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hutool/" rel="tag">hutool</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7%E7%B1%BB/" rel="tag">工具类</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+    <article
+  id="post-Mysql慢查询的优化"
+  class="article article-type-post"
+  itemscope
+  itemprop="blogPost"
+  data-scroll-reveal
+>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2023/07/03/Mysql%E6%85%A2%E6%9F%A5%E8%AF%A2%E7%9A%84%E4%BC%98%E5%8C%96/"
+    >Mysql慢查询的优化</a> 
+</h2>
+ 
+
+      
+    </header>
+     
+    <div class="article-meta">
+      <a href="/2023/07/03/Mysql%E6%85%A2%E6%9F%A5%E8%AF%A2%E7%9A%84%E4%BC%98%E5%8C%96/" class="article-date">
+  <time datetime="2023-07-03T07:13:33.000Z" itemprop="datePublished">2023-07-03</time>
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a> / <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF/JAVA/">JAVA</a>
+  </div>
+   
+    </div>
+      
+    <div class="article-entry" itemprop="articleBody">
+       
+  <h1 id="一-Mysql慢查询如何优化？"><a href="#一-Mysql慢查询如何优化？" class="headerlink" title="一.Mysql慢查询如何优化？"></a>一.Mysql慢查询如何优化？</h1><ol>
+<li>检查是否使用了索引，优化SQL使用索引</li>
+<li>检查所用索引，是否为最有索引</li>
+<li>检查所查字段是否都是必须，是否查询了过多字段，查出了多余数据</li>
+<li>检查表中数据是否过多，是否进行分库分表</li>
+<li>检查数据库所在服务器配置，适当增加资源</li>
+</ol>
+<h1 id="二-索引"><a href="#二-索引" class="headerlink" title="二.索引"></a>二.索引</h1><h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h2><p>索引是一种特殊的文件(InnoDB数据表上的索引是表空间的一个组成部分)，它 们包含着对数据表里所有记录的引用指针。</p>
+<h2 id="2-分类"><a href="#2-分类" class="headerlink" title="2.分类"></a>2.分类</h2><p>主键索引:数据列不允许重复，不允许为NULL， 一个表只能有一个主键。 </p>
+<p>唯一索引:数据列不允许重复，允许为NULL值， 一个表允许多个列创建唯一索引。 </p>
+<ul>
+<li><p>可以通过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE table_name ADD UNIQUE(column);</span><br></pre></td></tr></table></figure>
+
+<p> 创建唯一索引 </p>
+</li>
+<li><p>可以通过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE table_name ADD UNIQUE(column1,column2);</span><br></pre></td></tr></table></figure>
+
+<p> 创建唯一组合索引</p>
+</li>
+</ul>
+<p>普通索引:基本的索引类型，没有唯一性的限制，允许为NULL值。 </p>
+<ul>
+<li><p>可以通过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE table_name ADD INDEX index_name(column); </span><br></pre></td></tr></table></figure>
+
+<p>创建普通索引 </p>
+</li>
+<li><p>可以通过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE table_name ADD INDEX index_name(column1,column2,column3);</span><br></pre></td></tr></table></figure>
+
+<p> 创建组合索引</p>
+</li>
+</ul>
+<p>全文索引：是目前搜索引擎使用的一种关键技术。 </p>
+<ul>
+<li><p>可以通过</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE table_name ADD FULLTEXT(column);</span><br></pre></td></tr></table></figure>
+
+<p> 创建全文索引</p>
+</li>
+</ul>
+<h2 id="3-索引的数据结构"><a href="#3-索引的数据结构" class="headerlink" title="3.索引的数据结构"></a>3.索引的数据结构</h2><p>B树的特点：</p>
+<ol>
+<li>节点排序</li>
+<li>一个节点存多个元素，多个元素也排序</li>
+</ol>
+<p>B+树的特点：</p>
+<ol>
+<li>拥有B树的特点</li>
+<li>叶子节点之间有指针</li>
+<li>叶子节点存储所有元素，并且排好顺序</li>
+</ol>
+<p>Mysql索引使用的是B+树，因为索引是用来加快查询速度的，而B+树通过对数据进行排序，叶子节点存储了所有元素，从而使B+树不会太高，而且叶子节点有指针，可以支持全表扫描，范围查找等SQL语句</p>
+<h2 id="4-索引失效"><a href="#4-索引失效" class="headerlink" title="4.索引失效"></a>4.索引失效</h2><ol>
+<li>查询条件中有or,即使有部分条件带索引也会失效</li>
+<li>like查询是以%开头</li>
+<li>如果列类型是字符串，那在查询条件中需要将数据用引号引用起来，否则不走索引</li>
+<li>索引列上参与计算会导致索引失效</li>
+<li>违背最左匹配原则</li>
+<li>如果mysql估计全表扫描要比使用索引要快，会不适用索引</li>
+</ol>
+ 
+      <!-- reward -->
+      
+    </div>
+    
+
+    <!-- copyright -->
+    
+    <footer class="article-footer">
+       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JAVA/" rel="tag">JAVA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/" rel="tag">mysql</a></li></ul>
+
+    </footer>
+  </div>
+
+   
+   
+  
+</article>
+
+    
+  </article>
+  
+
+  
+  <nav class="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+  </nav>
+  
+</section>
+</div>
+
+      <footer class="footer">
+  <div class="outer">
+    <ul>
+      <li>
+        Copyrights &copy;
+        2015-2024
+        <i class="ri-heart-fill heart_icon"></i> liujing
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+      </li>
+    </ul>
+    <ul>
+      <li>
+        
+        
+        <span>
+  <span><i class="ri-user-3-fill"></i>Visitors:<span id="busuanzi_value_site_uv"></span></span>
+  <span class="division">|</span>
+  <span><i class="ri-eye-fill"></i>Views:<span id="busuanzi_value_page_pv"></span></span>
+</span>
+        
+      </li>
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      
+    </ul>
+    <ul>
+      <li>
+        <!-- cnzz统计 -->
+        
+        <script type="text/javascript" src='https://s9.cnzz.com/z_stat.php?id=1278069914&amp;web_id=1278069914'></script>
+        
+      </li>
+    </ul>
+  </div>
+</footer>    
+    </main>
+    <div class="float_btns">
+      <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+
+<div class="todark" id="todark">
+  <i class="ri-moon-line"></i>
+</div>
+
+    </div>
+    <aside class="sidebar on">
+      <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/ayer-side.svg" alt="小刘的博客"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">归档</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags">标签</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/tags/%E6%97%85%E8%A1%8C/">旅行</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" target="_blank" rel="noopener" href="http://shenyu-vip.lofter.com">摄影</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/friends">友链</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/2019/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+      <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+        <i class="ri-rss-line"></i>
+      </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+    </aside>
+    <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/alipay.jpg">
+      <span class="reward-type">支付宝</span>
+    </div>
+    
+    
+    <div class="reward-item">
+      <img class="reward-img" src="/images/wechat.jpg">
+      <span class="reward-type">微信</span>
+    </div>
+    
+  </div>
+</div>
+    
+<script src="/js/jquery-3.6.0.min.js"></script>
+ 
+<script src="/js/lazyload.min.js"></script>
+
+<!-- Tocbot -->
+
+<script src="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdn.staticfile.org/jquery-modal/0.9.2/jquery.modal.min.css"
+/>
+<script src="https://cdn.staticfile.org/justifiedGallery/3.8.1/js/jquery.justifiedGallery.min.js"></script>
+
+<script src="/dist/main.js"></script>
+
+<!-- ImageViewer -->
+ <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/photoswipe/4.1.3/default-skin/default-skin.min.css">
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe.min.js"></script>
+<script src="https://cdn.staticfile.org/photoswipe/4.1.3/photoswipe-ui-default.min.js"></script>
+
+<script>
+    function viewer_init() {
+        let pswpElement = document.querySelectorAll('.pswp')[0];
+        let $imgArr = document.querySelectorAll(('.article-entry img:not(.reward-img)'))
+
+        $imgArr.forEach(($em, i) => {
+            $em.onclick = () => {
+                // slider展开状态
+                // todo: 这样不好，后面改成状态
+                if (document.querySelector('.left-col.show')) return
+                let items = []
+                $imgArr.forEach(($em2, i2) => {
+                    let img = $em2.getAttribute('data-idx', i2)
+                    let src = $em2.getAttribute('data-target') || $em2.getAttribute('src')
+                    let title = $em2.getAttribute('alt')
+                    // 获得原图尺寸
+                    const image = new Image()
+                    image.src = src
+                    items.push({
+                        src: src,
+                        w: image.width || $em2.width,
+                        h: image.height || $em2.height,
+                        title: title
+                    })
+                })
+                var gallery = new PhotoSwipe(pswpElement, PhotoSwipeUI_Default, items, {
+                    index: parseInt(i)
+                });
+                gallery.init()
+            }
+        })
+    }
+    viewer_init()
+</script> 
+<!-- MathJax -->
+
+<!-- Katex -->
+
+<!-- busuanzi  -->
+ 
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+ 
+<!-- ClickLove -->
+
+<!-- ClickBoom1 -->
+
+<!-- ClickBoom2 -->
+
+<!-- CodeCopy -->
+ 
+<link rel="stylesheet" href="/css/clipboard.css">
+ <script src="https://cdn.staticfile.org/clipboard.js/2.0.10/clipboard.min.js"></script>
+<script>
+  function wait(callback, seconds) {
+    var timelag = null;
+    timelag = window.setTimeout(callback, seconds);
+  }
+  !function (e, t, a) {
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '<i class="ri-file-copy-2-line"></i><span>COPY</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      $(".article pre code").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        let $btn = $(e.trigger);
+        $btn.addClass('copied');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-checkbox-circle-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPIED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-checkbox-circle-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+      clipboard.on('error', function(e) {
+        e.clearSelection();
+        let $btn = $(e.trigger);
+        $btn.addClass('copy-failed');
+        let $icon = $($btn.find('i'));
+        $icon.removeClass('ri-file-copy-2-line');
+        $icon.addClass('ri-time-line');
+        let $span = $($btn.find('span'));
+        $span[0].innerText = 'COPY FAILED';
+        
+        wait(function () { // 等待两秒钟后恢复
+          $icon.removeClass('ri-time-line');
+          $icon.addClass('ri-file-copy-2-line');
+          $span[0].innerText = 'COPY';
+        }, 2000);
+      });
+    }
+    initCopyCode();
+  }(window, document);
+</script>
+ 
+<!-- CanvasBackground -->
+
+<script>
+  if (window.mermaid) {
+    mermaid.initialize({ theme: "forest" });
+  }
+</script>
+
+
+    
+    
+
+  </div>
+</body>
+
+</html>
