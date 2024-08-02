@@ -87,7 +87,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> Word count:</span>
-            <span class="post-count">189</span>
+            <span class="post-count">614</span>
         </span>
     </span>
 
@@ -96,7 +96,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> Reading time≈</span>
-            <span class="post-count">1 min</span>
+            <span class="post-count">2 min</span>
         </span>
     </span>
 </div>
@@ -117,6 +117,17 @@
 <h1 id="3-使用哈希表带来的问题"><a href="#3-使用哈希表带来的问题" class="headerlink" title="3.使用哈希表带来的问题"></a>3.使用哈希表带来的问题</h1><p>hash冲突，关键字不一样，但是f(key)一样</p>
 <h2 id="1）如何减少hash冲突"><a href="#1）如何减少hash冲突" class="headerlink" title="1）如何减少hash冲突"></a>1）如何减少hash冲突</h2><p>使用更好的散列算法</p>
 <h2 id="2）如何处理hash冲突"><a href="#2）如何处理hash冲突" class="headerlink" title="2）如何处理hash冲突"></a>2）如何处理hash冲突</h2><p>再哈希法即选取若干个不同的哈希函数，在产生哈希冲突的时候计算另一个哈希函数，直到不再发生冲突为止。</p>
+<h1 id="4-HashMap"><a href="#4-HashMap" class="headerlink" title="4.HashMap"></a>4.HashMap</h1><p>HashMap在jdk1.7，底层实现是数组和链表。首先根据key的hashcode值进行散列算法，计算出在数组中的位置，如果数组中没有元素，则直接push。反之则要把该节点进行头插，将next属性赋值当前头节点，然后头节点赋值给数组。</p>
+<p>HashMap的entry数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Node(int hash, K key, V value, Node&lt;K,V&gt; next) &#123;</span><br><span class="line">    this.hash = hash;</span><br><span class="line">    this.key = key;</span><br><span class="line">    this.value = value;</span><br><span class="line">    this.next = next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-1-HashMap的懒加载"><a href="#4-1-HashMap的懒加载" class="headerlink" title="4.1 HashMap的懒加载"></a>4.1 HashMap的懒加载</h2><p>在创建HashMap时，并不创建具体数组，只创建一个空对象{}，这就是HashMap的懒加载。</p>
+<h2 id="4-2-HashMap的扩容"><a href="#4-2-HashMap的扩容" class="headerlink" title="4.2 HashMap的扩容"></a>4.2 HashMap的扩容</h2><p>HashMap的参数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 初始化数组容量，16</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">DEFAULT_INITIAL_CAPACITY</span> <span class="operator">=</span> <span class="number">1</span> &lt;&lt; <span class="number">4</span>; <span class="comment">// aka 16</span></span><br><span class="line"><span class="comment">// 最大容量，2的30次方</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">MAXIMUM_CAPACITY</span> <span class="operator">=</span> <span class="number">1</span> &lt;&lt; <span class="number">30</span>;</span><br><span class="line"><span class="comment">// 加载因子</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="type">float</span> <span class="variable">DEFAULT_LOAD_FACTOR</span> <span class="operator">=</span> <span class="number">0.75f</span>;</span><br></pre></td></tr></table></figure>
+
+<p>当哈希表中的条目数超出了加载因子与当前容量的乘积时，则要对该哈希表进行扩容、rehash操作（即重建内部数据结构），扩容后的哈希表将具有两倍的原容量。</p>
+<p>加载因子为什么是0.75呢？作为一般规则，默认负载系数 （0.75） 提供良好的在时间和空间成本之间进行权衡。值越高，越少空间开销，但增加了查找成本（反映在 HashMap 类的大部分操作中，包括 get 和 put）。</p>
+<p>具体扩容过程，一般不重新计算hashcode值，在不计算hashcode值的情况下，元素的位置可能变化，也可能不变，具体和hashcode值相关。如果权衡查询速率和空间效率不合适，则可以启动项目时，修改属性值，则重新生成hashcode值。</p>
  
       <!-- reward -->
       
