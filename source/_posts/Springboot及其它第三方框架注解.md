@@ -41,15 +41,125 @@ public class Param {
 
 ### 一.@Autowired使用
 
-#### 1.在属性上使用 @Autowired
+#### 1.在构造函数上使用 @Autowired
 
-使用 `@Autowired` 对属性进行注解。这样就不需要使用 Getter 和 Setter 了。
+通过构造函数来注入依赖。这是最推荐的注入方式，因为它使得依赖关系在对象创建时就被满足，确保了对象的一致性和不可变性。
+
+```java
+@Service
+public class MyService {
+    public String greet() {
+        return "Hello, World!";
+    }
+}
+
+@RestController
+public class MyController {
+
+    private final MyService myService;
+
+    @Autowired
+    public MyController(MyService myService) {
+        this.myService = myService;
+    }
+
+    @GetMapping("/greet")
+    public String greet() {
+        return myService.greet();
+    }
+}
+
+```
+
 
 #### 2.在 Setter 方法上使用 @Autowired
 
-#### 3.在构造函数上使用 @Autowired
+这种方式适合那些依赖关系不是必须的场景（即依赖可以是可选的）。
 
-#### 4.@Autowired 和可选依赖
+    @Service
+    public class MyService {
+        public String greet() {
+            return "Hello, World!";
+        }
+    }
+    
+    @RestController
+    public class MyController {
+    
+        private MyService myService;
+    
+        @Autowired
+        public void setMyService(MyService myService) {
+            this.myService = myService;
+        }
+    
+        @GetMapping("/greet")
+        public String greet() {
+            return myService.greet();
+        }
+    }
+
+
+
+#### 3.在属性上使用 @Autowired
+
+使用 `@Autowired` 对属性进行注解。这样就不需要使用 Getter 和 Setter 了。它使得依赖关系不太明显，而且难以进行单元测试。
+
+```java
+@Service
+public class MyService {
+    public String greet() {
+        return "Hello, World!";
+    }
+}
+
+@RestController
+public class MyController {
+
+    @Autowired
+    private MyService myService;
+
+    @GetMapping("/greet")
+    public String greet() {
+        return myService.greet();
+    }
+}
+
+```
+
+
+
+#### 4.接口注入
+
+Spring本身并不直接支持接口注入，但通过实现特定接口，Spring能够在运行时将依赖注入到实现该接口的方法中。虽然这种方式不常用，但在某些特定场景下还是会用到。
+
+```java
+public interface MyServiceAware {
+    void setMyService(MyService myService);
+}
+
+@Service
+public class MyServiceAwareImpl implements MyServiceAware {
+
+    private MyService myService;
+
+    @Override
+    @Autowired
+    public void setMyService(MyService myService) {
+        this.myService = myService;
+    }
+
+    public String greet() {
+        return myService.greet();
+    }
+}
+
+```
+
+
+
+
+#### 5.@Autowired 和可选依赖
 
 在构建 Bean 时，`@Autowired` 依赖应该可用。否则，如果 Spring 无法解析用于装配的 Bean，它就会阻止 Spring 容器成功启动，并抛出 `NoSuchBeanDefinitionException` 异常：
 
@@ -69,6 +179,8 @@ public class FooService {
     private FooDAO dataAccessor; 
 }
 ```
+
+
 
 ### 二.自动装配消岐
 
@@ -102,6 +214,8 @@ public class FooService {
     private Formatter formatter;
 }
 ```
+
+
 
 #### 2.根据 Bean 名称装配
 
@@ -145,4 +259,3 @@ private UserService userService;
 2. 指定name属性：通过byName方式注入，把变量名和IOC容器中的id去匹配，匹配失败则报错
 3. 指定type属性：通过byType方式注入，在IOC容器中匹配对应的类型，如果匹配不到或者匹配到多个则报错
 4. 同时指定name属性和type属性：在IOC容器中匹配，名字和类型同时匹配则成功，否则失败
-   

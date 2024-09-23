@@ -36,7 +36,11 @@ categories:
 6. 安装，完成后可以部署到gitee
 
    ```
-   npm install hexo-deployer-git --save
+   npm install hexo-cli -g
+   
+   npm install hexo-cli
+   npm install
+   npm install hexo-deployer-git
    ```
 
 7. 生成网页
